@@ -1,0 +1,387 @@
+﻿<UserControl
+    x:Class="ProyectoUWPenBlanco.UnownOVG"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoUWPenBlanco"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="600"
+    d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Storyboard x:Name="sbIdle">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                             From="-15" To="15" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="brazo" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="-5" To="10" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="sombra_brazo" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="-5" To="10" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="pata_derecha" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="-15" To="5" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="sombra_pata_derecha" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="-15" To="5" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="brillo_pata_derecha" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="-15" To="5" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="pata_izquierda" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="5" To="-2" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="brillo_pata_izquierda" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="5" To="-2" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+
+        <Storyboard x:Name="sbHerido">
+            <DoubleAnimation Storyboard.TargetName="cuerpo_rojo" Storyboard.TargetProperty="Opacity" 
+                             To="0.8" Duration="0:0:0.8" AutoReverse="True" RepeatBehavior="Forever"/>
+            <ColorAnimation Storyboard.TargetName="scBrazo" Storyboard.TargetProperty="Color"
+                            To="#FFA04040" Duration="0:0:0.8" AutoReverse="True" RepeatBehavior="Forever"/>
+            <ColorAnimation Storyboard.TargetName="scPataDer" Storyboard.TargetProperty="Color"
+                            To="#FFA04040" Duration="0:0:0.8" AutoReverse="True" RepeatBehavior="Forever"/>
+            <ColorAnimation Storyboard.TargetName="scPataIzq" Storyboard.TargetProperty="Color"
+                            To="#FFA04040" Duration="0:0:0.8" AutoReverse="True" RepeatBehavior="Forever"/>
+            <ColorAnimation Storyboard.TargetName="scCuerno" Storyboard.TargetProperty="Color"
+                            To="#FFA04040" Duration="0:0:0.8" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+
+        <Storyboard x:Name="sbAtaqueFuerte">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="0" To="60" Duration="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="0" To="15" Duration="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="cuerno" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="0" To="-30" Duration="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="sombra_cuerno" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="0" To="-30" Duration="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="brillo_cuerno" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="0" To="-30" Duration="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="estrella_fuerte" Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.1" BeginTime="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="estrella_fuerte" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                             From="0" To="1.5" Duration="0:0:0.1" BeginTime="0:0:0.25" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="estrella_fuerte" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                             From="0" To="1.5" Duration="0:0:0.1" BeginTime="0:0:0.25" AutoReverse="True"/>
+        </Storyboard>
+
+        <Storyboard x:Name="sbAtaqueFlojo">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="0" To="20" Duration="0:0:0.15" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="brazo" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="0" To="-70" Duration="0:0:0.15" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="sombra_brazo" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="0" To="-70" Duration="0:0:0.15" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="estrella_floja" Storyboard.TargetProperty="Opacity"
+                             From="0" To="0.8" Duration="0:0:0.1" BeginTime="0:0:0.15" AutoReverse="True"/>
+        </Storyboard>
+
+        <Storyboard x:Name="sbCansado">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                             To="25" Duration="0:0:1" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                             From="-2" To="2" Duration="0:0:1.5" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+
+        <Storyboard x:Name="sbDescansando">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                             From="1" To="1.04" Duration="0:0:2.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                             From="1" To="0.96" Duration="0:0:2.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="texto_zzz" Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:2.5" AutoReverse="True" RepeatBehavior="Forever"/>
+            <DoubleAnimation Storyboard.TargetName="texto_zzz" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                             From="0" To="-40" Duration="0:0:2.5" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+
+        <Storyboard x:Name="sbDerrota">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                             To="150" Duration="0:0:1" />
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="Opacity"
+                             To="0" Duration="0:0:1" />
+        </Storyboard>
+
+        <Storyboard x:Name="sbRevivir">
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                             To="0" Duration="0:0:0.4" />
+            <DoubleAnimation Storyboard.TargetName="cvUnown" Storyboard.TargetProperty="Opacity"
+                             From="0.2" To="1" Duration="0:0:0.25" RepeatBehavior="3x" />
+        </Storyboard>
+
+        <Storyboard x:Name="sbDefensa">
+            <DoubleAnimation Storyboard.TargetName="escudo" Storyboard.TargetProperty="Opacity"
+                             To="0.8" Duration="0:0:0.3" />
+        </Storyboard>
+        <Storyboard x:Name="sbDefensaOut">
+            <DoubleAnimation Storyboard.TargetName="escudo" Storyboard.TargetProperty="Opacity"
+                             To="0" Duration="0:0:0.5" />
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid Background="Transparent" x:Name="gridGeneral">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="imFondo" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="AssetsUnownOVG/fondo.jpg" Stretch="UniformToFill" Visibility="Visible" />
+
+        <Image x:Name="imIconoVida" Source="AssetsUnownOVG/corazon.png" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <Image x:Name="imIconoEnergia" Source="AssetsUnownOVG/energia.png" Grid.Row="1" Grid.Column="0" Margin="5"/>
+
+        <ProgressBar x:Name="pbVida" Grid.Row="0" Grid.Column="1" Value="100" Maximum="100" Foreground="Red" Margin="5" VerticalAlignment="Center" Height="20"/>
+        <ProgressBar x:Name="pbEnergia" Grid.Row="1" Grid.Column="1" Value="100" Maximum="100" Foreground="Yellow" Margin="5" VerticalAlignment="Center" Height="20"/>
+
+        <Image x:Name="imPocionVida" Source="AssetsUnownOVG/red-potion.png" Grid.Row="0" Grid.Column="2" Margin="5" Visibility="Visible" PointerReleased="usarPocionVida"/>
+        <Image x:Name="imPocionEnergia" Source="AssetsUnownOVG/yellow-potion.png" Grid.Row="1" Grid.Column="2" Margin="5" Visibility="Visible" PointerReleased="usarPocionEnergia"/>
+
+        <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <Canvas x:Name="cvUnown" Width="500" Height="500" RenderTransformOrigin="0.5,0.5">
+                <Canvas.RenderTransform>
+                    <CompositeTransform/>
+                </Canvas.RenderTransform>
+
+                <Path x:Name="cuerpo" Canvas.Left="102.656" Canvas.Top="69.339" Width="193" Height="336" Stretch="Fill" Stroke="Black" 
+                      Data="M176.77442,74.030318 L168.41295,77.104878 163.16302,79.140783 155.11812,82.998979 151.32231,85.248619 147.80714,87.839487 139.49676,93.543548 133.55743,98.900185 127.00956,105.86043 122.6599,111.36387 115.88849,120.26903 111.04433,128.60711 107.87891,135.25199 104.59225,144.71608 102.62044,153.23117 100.70984,161.98031 100.35775,170.07932 100.41716,179.61904 101.74326,191.35537 106.78243,203.82425 111.11434,211.88933 114.88635,218.82309 119.33614,225.51555 127.4548,235.42807 135.2935,242.88788 C135.2935,242.88788 141.48195,246.84043 141.6293,246.89614 141.77664,246.95184 154.80922,254.07233 154.80922,254.07233 L162.55952,257.12119 166.69068,259.14507 165.27617,270.43631 164.12689,279.29749 162.60188,288.52224 160.63484,298.18973 158.49098,307.23409 156.74495,314.8561 154.97682,321.03526 153.14239,327.87051 150.73332,335.77355 145.60574,352.28005 144.36805,355.93776 142.45074,365.47598 141.854,367.90003 142.58335,375.82721 143.71053,383.45719 145.65547,386.45491 153.99883,394.60791 159.34005,396.66767 160.72508,397.27047 171.06127,393.17541 175.6584,389.10835 178.70843,384.16079 180.10713,378.58431 183.9645,368.81334 188.22443,345.53606 190.61891,336.89178 191.28795,331.04756 195.41699,318.09166 196.53613,312.33538 197.73806,306.79445 200.23439,296.80398 201.89861,288.8284 203.44917,283.89601 206.05383,266.18687 206.24406,263.87322 207.23983,262.43202 211.73519,261.84503 216.37982,260.105 223.0364,257.66266 229.76079,254.81153 236.67741,251.90449 244.88287,247.95623 250.21519,244.40629 255.66249,240.89827 263.46779,234.99335 269.59453,229.98989 276.92485,222.2471 281.3381,217.10388 285.90223,210.07388 288.35625,206.38417 290.82968,202.35617 294.44446,196.64733 295.92745,193.12128 297.50313,190.43477 299.2482,186.35843 301.62649,181.1034 302.93045,179.185 304.10294,175.33786 307.09099,168.56488 308.01556,164.45116 308.22777,161.17697 308.16211,156.7904 307.71121,154.20422 307.39148,151.68851 306.74428,148.66966 305.81972,145.31539 303.60076,141.12254 300.75002,134.25327 298.28451,127.76833 296.00392,122.23378 293.04531,116.81103 289.16214,111.09479 284.90914,105.78385 280.5945,100.64063 275.23202,94.938357 270.30101,90.465989 265.43163,87.391236 261.42519,84.428293 253.50475,79.145308 246.97115,75.791032 240.93066,73.610753 232.17811,71.371336 223.13278,69.438194 C223.13278,69.438194 215.7979,68.653591 215.48971,68.765631 215.18152,68.87767 208.40138,69.045104 208.40138,69.045104 L202.17598,69.492856 197.73806,70.052546 192.68377,70.836112 189.10879,71.171926 186.39673,71.787585 183.68467,72.571151 180.54115,73.18681 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF6C7076"/>
+                            <GradientStop Color="#FF808389" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="cuerpo_rojo" Canvas.Left="102.656" Canvas.Top="69.339" Width="193" Height="336" Stretch="Fill" Stroke="Black" Opacity="0"
+                      Data="M176.77442,74.030318 L168.41295,77.104878 163.16302,79.140783 155.11812,82.998979 151.32231,85.248619 147.80714,87.839487 139.49676,93.543548 133.55743,98.900185 127.00956,105.86043 122.6599,111.36387 115.88849,120.26903 111.04433,128.60711 107.87891,135.25199 104.59225,144.71608 102.62044,153.23117 100.70984,161.98031 100.35775,170.07932 100.41716,179.61904 101.74326,191.35537 106.78243,203.82425 111.11434,211.88933 114.88635,218.82309 119.33614,225.51555 127.4548,235.42807 135.2935,242.88788 C135.2935,242.88788 141.48195,246.84043 141.6293,246.89614 141.77664,246.95184 154.80922,254.07233 154.80922,254.07233 L162.55952,257.12119 166.69068,259.14507 165.27617,270.43631 164.12689,279.29749 162.60188,288.52224 160.63484,298.18973 158.49098,307.23409 156.74495,314.8561 154.97682,321.03526 153.14239,327.87051 150.73332,335.77355 145.60574,352.28005 144.36805,355.93776 142.45074,365.47598 141.854,367.90003 142.58335,375.82721 143.71053,383.45719 145.65547,386.45491 153.99883,394.60791 159.34005,396.66767 160.72508,397.27047 171.06127,393.17541 175.6584,389.10835 178.70843,384.16079 180.10713,378.58431 183.9645,368.81334 188.22443,345.53606 190.61891,336.89178 191.28795,331.04756 195.41699,318.09166 196.53613,312.33538 197.73806,306.79445 200.23439,296.80398 201.89861,288.8284 203.44917,283.89601 206.05383,266.18687 206.24406,263.87322 207.23983,262.43202 211.73519,261.84503 216.37982,260.105 223.0364,257.66266 229.76079,254.81153 236.67741,251.90449 244.88287,247.95623 250.21519,244.40629 255.66249,240.89827 263.46779,234.99335 269.59453,229.98989 276.92485,222.2471 281.3381,217.10388 285.90223,210.07388 288.35625,206.38417 290.82968,202.35617 294.44446,196.64733 295.92745,193.12128 297.50313,190.43477 299.2482,186.35843 301.62649,181.1034 302.93045,179.185 304.10294,175.33786 307.09099,168.56488 308.01556,164.45116 308.22777,161.17697 308.16211,156.7904 307.71121,154.20422 307.39148,151.68851 306.74428,148.66966 305.81972,145.31539 303.60076,141.12254 300.75002,134.25327 298.28451,127.76833 296.00392,122.23378 293.04531,116.81103 289.16214,111.09479 284.90914,105.78385 280.5945,100.64063 275.23202,94.938357 270.30101,90.465989 265.43163,87.391236 261.42519,84.428293 253.50475,79.145308 246.97115,75.791032 240.93066,73.610753 232.17811,71.371336 223.13278,69.438194 C223.13278,69.438194 215.7979,68.653591 215.48971,68.765631 215.18152,68.87767 208.40138,69.045104 208.40138,69.045104 L202.17598,69.492856 197.73806,70.052546 192.68377,70.836112 189.10879,71.171926 186.39673,71.787585 183.68467,72.571151 180.54115,73.18681 z">
+                    <Path.Fill>
+                        <SolidColorBrush Color="#AA8B0000"/>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="brillo_bajo" Canvas.Left="144.225" Canvas.Top="332.533" Width="17" Height="56" Stretch="Fill" Opacity="0.5" 
+              Data="M 155.92468,366.92906 C 155.92468,366.92906 151.61469,380.42647 151.52908,380.59769 C 151.44347,380.76891 150.40059,386.52206 150.40059,386.52206 C 150.40059,386.52206 145.67146,381.43078 145.67146,381.22111 C 145.67146,381.01144 143.62278,377.32123 143.42772,376.94382 C 143.23265,376.56642 144.01072,372.16333 144.01072,372.16333 L 147.23036,364.40551 L 150.10677,359.38387 L 152.61754,353.63241 L 154.12887,349.89528 L 156.85902,342.46849 C 156.85902,342.46849 158.31427,339.20924 158.38631,339.14775 C 158.45834,339.08626 160.33306,335.83646 160.35773,335.75369 C 160.38241,335.67092 161.67517,333.76456 161.77197,333.72356 C 161.86878,333.68255 161.69119,337.21602 161.59287,337.44203 C 161.49455,337.66804 161.30055,340.7907 161.2267,340.93453 C 161.15284,341.07835 160.59074,345.02491 160.57432,345.0797 C 160.55791,345.13449 160.2625,346.91515 160.19685,346.95624 C 160.1312,346.99734 159.26137,351.2538 159.26137,351.2538 L 158.81825,353.00707 L 157.7843,356.82864 L 157.653,358.28057 L 156.70111,362.14323 L 156.17593,365.02311 C 156.17593,365.02311 156.04463,366.1326 156.04463,366.18739 C 156.04463,366.24218 155.92468,366.92906 155.92468,366.92906 Z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA4A4A4"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="brillo_cara" Canvas.Left="104.433" Canvas.Top="71.105" Width="135" Height="128" Stretch="Fill" 
+              Data="M213.95795,96.602972 L212.25935,93.534629 215.74971,93.184034 214.65019,88.305992 218.53474,88.508563 221.77653,88.914454 220.85183,85.667326 226.6293,86.291234 234.25891,88.57974 227.90636,81.090084 213.85333,74.551845 199.22081,73.712652 193.36829,73.712652 202.4114,66.905416 187.24183,68.532196 178.89909,70.972923 167.96184,76.667955 160.97647,83.786744 142.92082,106.56687 132.8358,125.14198 120.4314,170.87693 120.92823,190.17437 C120.92823,190.17437 122.72206,209.59641 122.96447,210.56206 123.20688,211.5277 126.35819,220.46438 126.55212,220.53328 126.74605,220.60218 133.77591,198.54755 133.77591,198.54755 L136.24848,189.57245 142.16326,146.85374 147.88411,132.83856 150.74453,126.48685 157.04716,115.90641 165.67692,105.99913 176.19747,99.371254 C176.19747,99.371254 190.22083,96.178139 190.41475,96.178139 190.60868,96.178139 201.56556,96.040058 201.56556,96.040058 L206.21982,97.351825 203.55332,93.899808 211.01951,95.142534 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF737373" Offset="0.003"/>
+                            <GradientStop Color="#FFB8B8B8" Offset="0.124"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="sombra_cuerpo" Canvas.Left="169.44" Canvas.Top="70.134" Width="125" Height="308" Stretch="Fill" 
+              Data="M169.44045,366.21921 L180.35564,316.97846 181.40416,311.35801 189.54062,268.60384 191.88222,264.96511 194.78045,261.79232 197.28057,259.06757 201.17495,256.23658 204.1015,254.99206 221.84898,247.48196 C221.84898,247.48196 232.47436,242.1732 242.44485,235.28348 252.41535,228.39376 257.15965,219.5447 257.15965,219.5447 L264.54831,209.13747 271.35102,189.99444 285.60702,159.82124 285.92102,148.01287 281.52933,137.59689 269.29235,115.9913 259.64395,103.00789 246.70098,93.180931 233.28736,83.864751 191.39921,78.09704 202.93022,72.107297 219.609,72.107297 233.37561,75.724925 246.5539,82.168059 257.61426,90.08068 272.32218,104.43643 286.2947,123.99898 290.4764,133.74846 296.01264,148.47865 298.50909,171.13559 294.74381,182.66541 280.30799,211.74429 273.02324,222.36274 262.06271,234.65556 254.75569,240.75959 C254.75569,240.75959 243.30506,249.34337 242.68129,249.5977 242.05752,249.85203 230.91876,256.5495 230.91876,256.5495 L224.50284,258.66895 211.22545,264.94253 203.20555,268.41843 201.8689,268.58799 C201.8689,268.58799 201.42335,271.97911 201.24513,272.65734 201.06691,273.33556 199.28471,287.21797 199.28471,287.21797 L191.77719,320.09067 187.32169,336.79195 183.13352,357.43542 180.90577,371.89008 179.89387,375.74768 176.15172,374.62236 172.79263,372.0836 170.46484,369.63586 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF171717"/>
+                            <GradientStop Color="#FF454545" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="brillo_cara1" Canvas.Left="175.732" Canvas.Top="205.328" Width="65" Height="39" Stretch="Fill" 
+              Data="M239.29547,205.35104 L238.96312,206.3274 226.41375,221.03733 C226.41375,221.03733 219.23791,227.44549 218.89622,227.90976 218.55453,228.37403 209.64293,232.48851 209.64293,232.48851 L201.04016,235.54607 194.64981,237.89646 185.73742,238.63962 C185.73742,238.63962 180.97458,238.81234 179.84046,238.81234 178.70634,238.81234 176.32821,238.98596 176.32821,238.98596 L177.90326,240.53861 186.00871,242.85025 193.08909,242.70583 204.0004,241.56536 212.66195,238.12728 219.97364,233.02562 231.89733,222.9332 236.74746,216.308 C236.74746,216.308 238.38107,213.58762 238.51515,213.14402 238.84688,212.04647 239.29547,207.62922 239.29547,207.62922 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF929292"/>
+                            <GradientStop Color="#FF929292" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="ojo" Canvas.Left="126.563" Canvas.Top="96.499" Width="123" Height="140" Stretch="Fill" Stroke="Black" Fill="White" 
+              Data="M191.50657,97.170142 L180.51886,98.468108 171.79661,103.41076 165.93297,107.39179 155.9335,115.37307 150.94219,121.59316 147.17278,126.32249 142.19664,132.46723 140.59258,134.64983 136.73721,142.10859 134.05827,150.1399 131.18226,159.29774 129.93309,166.95591 128.71998,175.65596 128.04788,181.4894 127.54631,187.60881 127.33912,194.80221 127.83874,200.08605 128.46299,206.64954 129.08724,210.33196 130.16928,219.9137 132.25011,227.26595 134.41418,231.92264 140.52144,243.86049 146.76396,252.263 154.72316,260.89994 164.08693,266.79829 171.91088,268.93329 179.48514,269.51831 189.43154,268.30078 198.17106,265.38166 206.10855,261.78583 211.48734,256.63757 217.49255,250.48088 223.21372,242.82482 229.50257,233.20499 236.27205,219.23302 240.8103,205.27432 244.01511,188.31689 245.76783,173.24361 245.70093,161.1558 244.41281,150.70004 C244.41281,150.70004 241.50415,138.45301 241.3795,138.02841 241.25484,137.60381 237.26582,128.26262 237.26582,128.26262 L234.02475,120.48715 228.74761,112.51264 223.84445,107.36438 217.39346,102.07015 212.90581,100.05331 208.00265,97.611861 203.22414,96.921887 198.23787,96.336951 z"/>
+
+                <Path x:Name="pupila_ojo" Canvas.Left="166.043" Canvas.Top="144.922" Width="24" Height="31" Stretch="Fill" Fill="#FF2C2E31" Stroke="Black" 
+              Data="M178.20483,145.4224 L173.03889,147.31991 169.94314,149.86239 167.82096,152.20086 166.26529,154.73736 C166.26529,154.73736 165.66112,157.81306 165.80051,157.9943 165.93989,158.17554 166.18767,161.59643 166.18767,161.59643 L166.91294,165.00192 C166.91294,165.00192 167.73491,166.53281 168.02502,166.86076 168.31513,167.18872 170.49094,169.36743 170.49094,169.36743 L172.57004,170.10702 176.29309,170.68423 180.88647,169.98066 184.2062,168.61097 187.49203,166.48433 189.13408,163.67285 191.44372,159.32046 192.16697,156.11248 191.92743,153.15682 191.58367,150.30028 189.81573,148.17365 187.75313,146.33537 185.83786,145.39821 183.13684,145.00156 z"/>
+
+                <Path x:Name="brillo_ojo" Canvas.Left="170.647" Canvas.Top="149.896" Width="10" Height="12" Stretch="Fill" 
+              Data="M175.98431,148.52579 L172.53106,150.16584 170.60912,152.18735 C170.60912,152.18735 170.37939,155.39522 170.37939,155.47358 170.37939,155.55195 171.17148,156.53946 171.17148,156.53946 L172.73096,157.90432 174.81827,157.88924 177.09751,157.28706 178.67136,156.33818 180.0899,155.07908 180.92717,153.38204 180.53852,151.685 179.98669,149.75986 178.93319,149.04819 177.57868,148.592 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF6C6C6C" Offset="1"/>
+                            <GradientStop Color="White" Offset="0.769"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="iris_ojo" Canvas.Left="173.521" Canvas.Top="161.896" Width="13" Height="12" Stretch="Fill" 
+              Data="M180.51392,161.23472 L180.39923,161.29866 180.17105,161.42585 179.55781,161.7677 176.18992,163.64514 172.26489,168.30915 C172.26489,168.30915 172.19448,170.33132 173.23811,173.61617 173.41001,174.15724 175.77448,175.455 175.91338,175.52566 176.05228,175.59633 179.17756,175.66018 179.17756,175.66018 L182.85845,174.83543 187.08991,172.22705 189.39525,169.08929 C189.39525,169.08929 189.95441,166.80782 189.95441,166.6706 189.95441,166.53338 189.12487,163.8579 189.12487,163.8579 L187.65902,161.86823 184.93453,160.77047 182.32356,160.77047 180.65859,161.26596 180.58055,161.21063 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF347AD9" Offset="0.2"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path x:Name="brazo" Canvas.Left="186.155" Canvas.Top="274.189" Width="80" Height="44" Stretch="Fill" Stroke="Black" RenderTransformOrigin="0.1,0.5"
+              Data="M198.76207,287.84273 L204.97544,286.95366 208.13678,286.43344 214.36527,285.58756 218.75211,284.70234 223.52929,283.76169 229.44934,282.35096 234.69699,280.63794 238.98374,279.46393 243.8936,277.22719 247.16067,276.77238 250.81155,276.78931 253.89707,277.11086 256.08791,277.32382 259.12914,278.3167 260.73445,279.12904 262.00706,280.325 263.80757,282.15279 C263.80757,282.15279 264.78692,284.20623 264.87393,284.31905 264.96094,284.43188 265.24328,285.87606 265.24328,286.01145 265.24328,286.14684 265.8482,288.88852 265.8482,288.88852 L265.75199,292.2378 265.22987,295.37086 C265.22987,295.37086 263.95359,296.51801 263.75054,296.74877 263.5475,296.97953 261.40102,298.4961 261.314,298.63291 261.22698,298.76973 258.44236,300.63248 258.38434,300.7249 258.32633,300.81731 251.26325,304.0267 251.17623,304.09505 251.08921,304.16341 246.18712,305.62573 245.98407,305.69452 245.78103,305.76332 236.53521,308.44939 236.53521,308.44939 236.53521,308.44939 231.86517,309.47003 231.60411,309.56274 231.34305,309.65546 228.09433,310.40472 227.9783,310.45151 227.86228,310.4983 218.44967,312.15569 218.44967,312.15569 L212.01024,312.358 195.17198,312.65592 C195.17198,312.65592 192.3772,312.78963 192.3772,312.78963 189.87843,312.54141 188.90191,312.49361 188.90191,312.49361 L186.64832,311.82433 186.01097,311.5853 186.63133,306.04284 188.23191,301.74034 189.57294,298.87201 191.69262,293.76279 192.94713,290.60762 193.2932,288.67149 193.07691,288.09782 z">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="scBrazo" Color="#FF808389"/>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="sombra_brazo" Canvas.Left="186.566" Canvas.Top="275.122" Width="79" Height="42" Stretch="Fill" RenderTransformOrigin="0.1,0.5"
+              Data="M187.82281,307.57569 L186.56562,316.11178 192.89992,316.75143 220.03675,315.86217 233.6498,312.89489 246.98325,308.46979 254.5157,305.60034 259.14304,303.00138 264.23502,298.94932 268.07967,294.87112 268.48581,286.4142 267.30303,281.4889 265.75319,278.03794 261.7833,274.18045 257.24925,272.88162 251.83397,272.43204 245.04931,276.23095 241.43289,280.4563 C241.43289,280.4563 240.6192,284.13051 240.98084,284.58979 241.34248,285.04906 241.07125,289.45812 241.25207,289.64183 241.43289,289.82554 242.92466,291.98414 243.06028,292.39749 243.19589,292.81084 246.40546,294.64794 246.22464,294.87758 246.04382,295.10722 251.03899,297.00173 250.67735,297.46101 250.31571,297.92029 245.99861,302.63935 245.41095,302.96085 244.82328,303.28234 234.84834,307.1578 234.30588,307.43337 233.76341,307.70893 213.76013,311.16499 213.5341,311.16499 213.30808,311.16499 203.91261,310.83744 202.9633,310.97522 202.01399,311.11301 195.36883,310.69966 194.73596,310.69966 194.10309,310.69966 190.6675,310.28631 190.44147,310.33224 190.21544,310.37816 189.04011,309.50554 189.04011,309.50554 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF171717"/>
+                            <GradientStop Color="#FF4D4D50" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="pata_derecha" Canvas.Left="159.017" Canvas.Top="369.044" Width="66" Height="63" Stretch="Fill" Stroke="Black" RenderTransformOrigin="0.5,0.1"
+              Data="M180.61044,369.06506 L185.06702,376.01345 191.98745,381.14845 196.93676,384.38379 207.22991,389.40297 212.40193,392.18285 219.49842,395.98336 225.88,400.58534 C225.88,400.58534 228.5309,402.46999 228.58194,402.51264 228.63299,402.5553 230.4257,405.01904 230.4257,405.01904 L230.39958,406.83043 229.97616,413.55796 229.29868,417.09223 C229.29868,417.09223 226.91056,420.30843 226.89363,420.43265 226.87669,420.55687 224.38695,422.94938 224.38695,422.94938 L219.54721,426.7973 215.04197,428.15998 210.32926,428.6548 C210.32926,428.6548 203.14798,426.57925 203.01248,426.56546 202.87698,426.55167 190.01335,422.24181 190.01335,422.24181 L179.59287,417.23203 173.82449,413.8669 166.08543,408.54336 159.60911,404.53691 155.76594,402.96468 155.03306,402.88193 155.43412,398.66516 156.8243,395.0242 160.29975,390.63848 162.93116,387.70089 166.79139,382.93246 171.06123,379.12599 175.13247,375.48502 178.01213,372.7543 179.8988,371.09931 z">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="scPataDer" Color="#FF808389"/>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="brillo_pata_derecha" Canvas.Left="172.215" Canvas.Top="383.947" Width="28" Height="23" Stretch="Fill" RenderTransformOrigin="0.5,0.1"
+              Data="M198.48384,402.51096 L191.90533,405.09289 173.40099,386.53402 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFD6D6D6"/>
+                            <GradientStop Color="#FF8A8A8A" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="sombra_pata_derecha" Canvas.Left="160.017" Canvas.Top="369.544" Width="64" Height="62" Stretch="Fill" RenderTransformOrigin="0.5,0.1"
+              Data="M176.17515,376.72077 L217.72674,401.38426 219.88096,404.27359 219.96713,406.14316 218.58843,407.50284 216.76711,408.42953 212.3341,406.44811 207.80887,407.35975 C207.80887,407.35975 205.54626,409.52491 205.20686,409.98073 204.86747,410.43656 203.05738,414.19709 203.05738,414.19709 L202.15233,418.47096 202.15233,422.77396 192.98874,418.0748 176.35852,408.47533 C176.35852,408.47533 167.30807,400.8186 166.85554,400.59005 166.40302,400.36149 161.13755,396.56976 161.13755,396.56976 L160.21493,400.51078 160.08673,404.07805 162.74456,405.4729 165.21035,406.99697 170.29744,410.68945 174.83159,414.41452 179.99722,418.17712 184.73611,421.33664 190.1158,424.38792 198.78279,427.58985 206.49073,430.11802 209.04699,430.98846 213.1371,429.71938 216.0932,428.7848 219.76023,425.40643 222.39867,422.47213 225.03746,418.1336 225.38651,414.54937 225.39575,412.60939 225.39994,411.72981 225.40384,410.91015 225.40822,409.99178 225.41278,409.03421 225.41562,408.43727 225.42584,406.29262 224.4828,404.5473 223.40804,403.62867 220.55395,401.20335 217.62578,398.79914 214.37909,396.34942 210.09703,393.95322 206.88654,391.60618 203.71421,389.51108 199.57693,387.65252 185.35355,376.25015 181.71286,369.58037 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF171717"/>
+                            <GradientStop Color="#FF454545" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="pata_izquierda" Canvas.Left="91.406" Canvas.Top="363.558" Width="62" Height="52" Stretch="Fill" Stroke="Black" RenderTransformOrigin="0.5,0.1"
+              Data="M147.91652,402.55376 L150.81193,401.7967 152.09501,400.84817 149.46351,398.68116 147.56577,397.46502 145.94845,396.21973 144.38572,394.7851 142.7722,392.61807 141.5844,386.0692 141.32955,382.80597 141.06834,380.35668 143.32085,372.14954 138.89278,375.91258 132.27149,379.44551 C132.27149,379.44551 128.54226,380.88796 128.5002,380.95304 128.45814,381.01811 120.93862,383.3499 120.93862,383.3499 L117.44333,384.14162 110.50805,386.37037 C110.50805,386.37037 107.29222,387.36816 107.18228,387.42239 107.07234,387.47661 101.4715,388.86755 101.4715,388.86755 101.4715,388.86755 98.883228,389.60505 98.758637,389.72435 98.634045,389.84365 94.762216,392.50622 94.707048,392.62552 94.651879,392.74482 93.184505,395.61075 93.184505,395.61075 L92.868475,398.46584 93.545142,402.15331 95.409941,405.24699 C95.409941,405.24699 98.877086,408.05084 98.932339,408.05084 98.987592,408.05084 101.97127,409.01023 101.97127,409.01023 L104.82027,410.37406 C104.82027,410.37406 109.5168,410.29805 109.57205,410.29805 109.62731,410.29805 113.71605,410.22319 113.71605,410.22319 L120.48804,409.15377 126.1515,407.90255 130.13319,406.91334 133.54508,406.0578 135.96242,405.36268 140.14095,404.21306 142.93124,403.32544 145.68009,402.79073 z">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="scPataIzq" Color="#FF808389"/>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="brillo_pata_izquierda" Canvas.Left="93.44" Canvas.Top="376.778" Width="49" Height="28" Stretch="Fill" RenderTransformOrigin="0.5,0.1"
+              Data="M138.33527,376.77785 L95.601005,390.54611 94.163592,392.44601 93.449239,393.7907 93.657542,395.49134 94.647564,396.57685 101.24197,393.7192 109.15542,390.34449 118.25145,386.14317 128.01131,381.63524 102.96746,398.07394 102.98796,400.58686 105.17305,402.64834 111.18202,401.76341 118.38389,400.12705 138.56127,390.77036 141.35137,389.16667 140.49053,380.41945 139.46145,376.96638 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF838383"/>
+                            <GradientStop Color="#FFCECECE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="cuerno" Canvas.Left="265.752" Canvas.Top="146.891" Width="143" Height="100" Stretch="Fill" Stroke="Black" RenderTransformOrigin="0.1,0.8"
+              Data="M0.49999999,43.116646 L2.632188,51.539932 8.6606571,56.328867 12.434812,58.871569 C12.434812,58.871569 20.235755,64.403176 20.38476,64.592849 20.533764,64.782522 26.229978,68.335557 26.229978,68.335557 L38.045456,76.301944 48.025026,83.283466 63.535495,93.2986 72.892328,99.151276 77.39959,99.499999 C77.39959,99.499999 79.546482,98.474772 79.630885,98.453601 79.715287,98.43243 83.468998,95.997753 83.468998,95.997753 L89.069096,88.979533 93.693688,83.093966 96.086151,79.473708 100.46255,73.678118 107.24871,66.093571 113.03026,58.180871 117.14913,52.888096 126.43875,39.889039 133.81525,30.022688 140.0807,21.106266 142.4046,15.988312 142.49999,11.068186 141.78216,8.3037101 140.4552,7.094176 C140.4552,7.094176 138.48616,5.8818368 138.42195,5.8180391 138.35774,5.7542414 130.24614,4.4685558 130.24614,4.4685558 L120.65775,4.0617064 113.55208,3.3309389 93.02159,2.3228318 73.871574,2.0437656 48.573649,1.4421086 20.418472,0.49999999 18.256805,0.49999999 11.589881,2.4266879 C11.589881,2.4266879 8.5721084,5.0164077 8.5079004,5.1448236 8.4436925,5.2732395 5.3403092,8.815377 5.3403092,8.9009876 5.3403092,8.9865981 5.2975039,12.582242 5.3617118,12.64645 5.4259197,12.710658 0.49999999,43.116646 0.49999999,43.116646 z M13.829023,25.724955 L18.480235,30.244684 33.903649,43.13871 59.552701,58.642895 72.74152,65.696997 78.034364,64.305381 106.82901,26.631143 103.52388,25.926951 24.829247,23.697012 22.62394,24.166473 14.470109,24.870664 z">
+                    <Path.Fill>
+                        <SolidColorBrush x:Name="scCuerno" Color="#FF808389"/>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="brillo_cuerno" Canvas.Left="354.202" Canvas.Top="153.862" Width="41" Height="31" Stretch="Fill" RenderTransformOrigin="-2.0,0.8"
+              Data="M357.3842,158.95601 C364.83958,160.66529 371.51734,160.74123 373.44123,164.24482 377.55586,171.73795 368.70136,184.2647 368.70136,184.2647 L393.17132,156.13768 388.90138,154.49755 383.15231,153.71934 370.61518,154.44197 359.47365,155.60003 352.96561,157.44273 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF838383"/>
+                            <GradientStop Color="#FF929292" Offset="0.134"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="sombra_cuerno" Canvas.Left="266.252" Canvas.Top="152.05" Width="142" Height="94" Stretch="Fill" RenderTransformOrigin="0.1,0.8"
+              Data="M266.52284,190.13253 L315.48418,219.87398 331.35658,230.39651 340.29332,231.27855 363.63765,206.85652 377.51183,191.08898 395.7955,164.60706 398.48374,158.05968 396.46413,154.68695 393.18287,152.54593 398.7932,153.49112 401.23731,153.59943 403.60294,154.81876 405.63063,156.14894 C405.63063,156.14894 405.78558,161.13607 405.79961,161.24797 405.81364,161.35986 404.55341,165.18309 404.55341,165.18309 404.55341,165.18309 402.90635,167.96644 402.87798,168.10631 402.84962,168.24617 398.50496,174.80212 398.44823,174.91401 398.39151,175.02591 394.92504,179.12227 394.92504,179.12227 L389.43907,186.32742 382.91399,196.23878 C382.91399,196.23878 373.06374,209.29264 372.63831,209.76819 372.21288,210.24374 367.29272,216.84581 367.15091,217.0696 367.0091,217.29339 359.32081,226.00675 359.32081,226.00675 L353.40944,234.20064 348.71829,240.09897 344.50874,243.3772 341.58043,244.4576 337.29802,244.45496 C337.29802,244.45496 334.80833,242.56491 334.69488,242.45211 334.58143,242.33931 331.46767,240.56158 331.04224,240.27958 330.61681,239.99759 319.30871,233.39265 319.22362,233.27985 319.13853,233.16705 312.52168,228.81009 312.52168,228.81009 L290.24894,213.44956 277.95908,205.56902 267.20276,197.26423 z">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF171717"/>
+                            <GradientStop Color="#FF454545" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Ellipse x:Name="escudo" Canvas.Top="10" Width="490" Height="480" Stroke="Black" Opacity="0" Visibility="Collapsed">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF20BFFF" Offset="0.508"/>
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="#FFF9FDFF" Offset="1"/>
+                            <GradientStop Color="#FF40C8FF" Offset="0.766"/>
+                            <GradientStop Color="#FF4DCBFF" Offset="0.181"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Path x:Name="parpado" Canvas.Left="130.563" Canvas.Top="96.499" Width="119" Height="74" Stretch="Fill" Fill="#FF1F1F1F" Stroke="Black" Visibility="Collapsed" 
+              Data="M130.78727,148.91103 L147.20991,141.1627 151.33433,139.55932 160.79332,136.51659 178.73851,133.25199 188.37778,133.9222 199.33382,135.59792 C199.33382,135.59792 214.28243,142.30081 214.52318,142.46839 214.76393,142.63596 222.33126,146.15498 222.51274,146.37841 222.69423,146.60184 227.86217,149.45056 228.22322,149.72985 228.58426,150.00914 236.09896,153.77591 236.82431,154.5504 237.54966,155.32489 246.65108,161.597 246.95368,161.65225 247.25627,161.70751 252.20722,166.6482 252.20722,166.6482 L253.20489,170.39177 255.55602,154.25372 255.31419,147.11366 252.71925,136.0131 250.245,129.3193 242.09807,116.20339 237.572,111.5923 232.74419,107.39727 224.85374,102.29951 217.3103,99.595894 210.43067,98.417722 204.93904,97.967344 199.93019,97.854296 183.48547,99.839269 174.37298,103.58227 165.68293,108.06252 156.88726,113.12408 144.6367,124.76424 139.74855,129.47134 131.00569,147.06627 z"/>
+
+                <Path x:Name="estrella_fuerte" Canvas.Left="380" Canvas.Top="60" Width="80" Height="80" Opacity="0" Fill="#FFFFD700" Stroke="#FFFF4500" StrokeThickness="3" RenderTransformOrigin="0.5,0.5"
+              Data="M40,0 L50,30 80,30 55,50 65,80 40,60 15,80 25,50 0,30 30,30 Z">
+                    <Path.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <Path x:Name="estrella_floja" Canvas.Left="260" Canvas.Top="250" Width="80" Height="80" Opacity="0" Fill="#FFFFD700" Stroke="#FFFF4500" StrokeThickness="3" RenderTransformOrigin="0.5,0.5"
+              Data="M40,0 L50,30 80,30 55,50 65,80 40,60 15,80 25,50 0,30 30,30 Z">
+                    <Path.RenderTransform>
+                        <CompositeTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </Path.RenderTransform>
+                </Path>
+
+                <TextBlock x:Name="texto_zzz" Text="Zzz..." Canvas.Left="260" Canvas.Top="50" FontSize="42" FontWeight="Bold" Foreground="#FF3A548A" Opacity="0" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Canvas>
+        </Viewbox>
+
+        <TextBlock x:Name="tbNombre" Text="Unown" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontWeight="Bold" Foreground="Black"/>
+    </Grid>
+</UserControl>

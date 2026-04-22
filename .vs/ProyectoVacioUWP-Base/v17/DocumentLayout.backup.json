@@ -1,0 +1,597 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|c:\\users\\usuario\\downloads\\goty_definitivo\\proyectovaciouwp-base\\proyectovaciouwp-base\\pokedexpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\pokedexpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\pokedexpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\pokedexpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\psyduckadm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\psyduckadm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\psyduckadm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\psyduckadm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\squirtlemrgm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\squirtlemrgm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\rotompva_.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\rotompva_.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\squirtlemrgm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\squirtlemrgm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|c:\\users\\usuario\\downloads\\goty_definitivo\\proyectovaciouwp-base\\proyectovaciouwp-base\\visorpokemon.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\visorpokemon.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\unownovg.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\unownovg.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\seleccionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\seleccionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\gengarmbgcs.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\gengarmbgcs.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|c:\\users\\usuario\\downloads\\goty_definitivo\\proyectovaciouwp-base\\proyectovaciouwp-base\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\rotompva_.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\rotompva_.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\assets\\unown.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\assets\\unown.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\hoothootjdcf.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\hoothootjdcf.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\monfernocrs.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\monfernocrs.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\marillado.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\marillado.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\marillado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\marillado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\hankrcc.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\hankrcc.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\zapdosrgs.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\zapdosrgs.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\unownovg.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\unownovg.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\gengarmbgcs.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\gengarmbgcs.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\empoleonars.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\empoleonars.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\fennekinrrm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\fennekinrrm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\assets\\gengar.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\assets\\gengar.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\empoleonars.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\empoleonars.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\dragonitedgm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\dragonitedgm.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\dragonitedgm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\dragonitedgm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\zapdosrgs.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\zapdosrgs.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\monfernocrs.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\monfernocrs.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\hoothootjdcf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\hoothootjdcf.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\hankrcc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\hankrcc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\fennekinrrm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\fennekinrrm.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\combatepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\combatepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\combatepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\combatepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\proyectovaciouwp-base\\seleccionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\seleccionpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VisorPokemon.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\VisorPokemon.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\VisorPokemon.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\VisorPokemon.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\VisorPokemon.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T09:58:01.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MainPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MainPage.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\MainPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T09:55:16.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "unown.png",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\Assets\\unown.png",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\Assets\\unown.png",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\Assets\\unown.png",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\Assets\\unown.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-04-18T09:33:37.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PokedexPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PokedexPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\PokedexPage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PokedexPage.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\PokedexPage.xaml.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAAEIAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:12:08.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HoothootJDCF.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HoothootJDCF.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\HoothootJDCF.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HoothootJDCF.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\HoothootJDCF.xaml.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwC4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:29:05.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MonfernoCRS.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MonfernoCRS.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\MonfernoCRS.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MonfernoCRS.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\MonfernoCRS.xaml.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAA2wD8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:28:51.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MarillADO.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MarillADO.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\MarillADO.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MarillADO.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\MarillADO.xaml.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADwvzsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:28:39.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HankRCC.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HankRCC.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\HankRCC.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HankRCC.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\HankRCC.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:27:36.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ZapdosRGS.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\ZapdosRGS.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\ZapdosRGS.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\ZapdosRGS.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\ZapdosRGS.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwDAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:26:38.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UnownOVG.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\UnownOVG.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\UnownOVG.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\UnownOVG.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\UnownOVG.xaml.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAcwJEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:24:56.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SquirtleMRGM.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SquirtleMRGM.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\SquirtleMRGM.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SquirtleMRGM.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\SquirtleMRGM.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAxwC8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:24:14.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RotomPVA_.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\RotomPVA_.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\RotomPVA_.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\RotomPVA_.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\RotomPVA_.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:23:10.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PsyduckADM.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PsyduckADM.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\PsyduckADM.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PsyduckADM.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\PsyduckADM.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:22:00.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "gengar.png",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\Assets\\gengar.png",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\Assets\\gengar.png",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\Assets\\gengar.png",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\Assets\\gengar.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-04-18T09:18:07.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GengarMBGCS.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\GengarMBGCS.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\GengarMBGCS.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\GengarMBGCS.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\GengarMBGCS.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACcAAACJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:17:09.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FennekinRRM.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\FennekinRRM.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\FennekinRRM.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\FennekinRRM.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\FennekinRRM.xaml.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAuwDsAAADGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:16:18.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "EmpoleonARS.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\EmpoleonARS.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\EmpoleonARS.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\EmpoleonARS.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\EmpoleonARS.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:15:35.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DragoniteDGM.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\DragoniteDGM.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\DragoniteDGM.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\DragoniteDGM.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\DragoniteDGM.xaml.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAqwDIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T09:13:41.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PokedexPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PokedexPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\PokedexPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PokedexPage.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\PokedexPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T09:11:56.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ZapdosRGS.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\ZapdosRGS.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\ZapdosRGS.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\ZapdosRGS.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\ZapdosRGS.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T09:06:24.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UnownOVG.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\UnownOVG.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\UnownOVG.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\UnownOVG.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\UnownOVG.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T09:05:02.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SquirtleMRGM.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SquirtleMRGM.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\SquirtleMRGM.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SquirtleMRGM.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\SquirtleMRGM.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T09:00:38.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RotomPVA_.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\RotomPVA_.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\RotomPVA_.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\RotomPVA_.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\RotomPVA_.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:57:51.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PsyduckADM.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PsyduckADM.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\PsyduckADM.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\PsyduckADM.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\PsyduckADM.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:56:06.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MonfernoCRS.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MonfernoCRS.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\MonfernoCRS.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MonfernoCRS.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\MonfernoCRS.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:55:21.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MarillADO.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MarillADO.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\MarillADO.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\MarillADO.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\MarillADO.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:54:03.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "HoothootJDCF.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HoothootJDCF.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\HoothootJDCF.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HoothootJDCF.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\HoothootJDCF.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:52:44.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "HankRCC.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HankRCC.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\HankRCC.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\HankRCC.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\HankRCC.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:50:48.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GengarMBGCS.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\GengarMBGCS.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\GengarMBGCS.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\GengarMBGCS.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\GengarMBGCS.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:48:06.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "FennekinRRM.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\FennekinRRM.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\FennekinRRM.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\FennekinRRM.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\FennekinRRM.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:46:32.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "EmpoleonARS.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\EmpoleonARS.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\EmpoleonARS.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\EmpoleonARS.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\EmpoleonARS.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:44:07.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DragoniteDGM.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\DragoniteDGM.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\DragoniteDGM.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\DragoniteDGM.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\DragoniteDGM.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-18T08:36:34.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "SeleccionPage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SeleccionPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\SeleccionPage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SeleccionPage.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\SeleccionPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-05T11:54:36.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CombatePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAUwPEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:35:28.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CombatePage.xaml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-27T11:34:54.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SeleccionPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SeleccionPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\SeleccionPage.xaml.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\GOTY_DEFINITIVO\\ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base\\SeleccionPage.xaml.cs",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\SeleccionPage.xaml.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T12:00:41.423Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

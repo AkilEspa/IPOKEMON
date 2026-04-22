@@ -1,0 +1,1129 @@
+﻿<UserControl
+    x:Class="ProyectoVacioUWP_Base.GengarMBGCS"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoVacioUWP_Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+
+        <!-- ANIMACION IDDLE -->
+        <Storyboard x:Name="respirar" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                From="1" To="1.05" Duration="0:0:1"/>
+
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                From="1" To="1.05" Duration="0:0:1"/>
+        </Storyboard>
+
+        <!-- ATAQUE FUERTE -->
+        <Storyboard x:Name="ataqueGengar" FillBehavior="Stop">
+            <!-- escala -->
+            <DoubleAnimationUsingKeyFrames
+        Storyboard.TargetName="bolaAtaque"
+        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="bolaAtaque"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <!-- opacidad -->
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="bolaAtaque"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <!-- brazos -->
+            <DoubleAnimationUsingKeyFrames 
+                Storyboard.TargetName="BrazoDe" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <DiscreteDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:00.5" Value="-13.208"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:01" Value="-30.23"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:01.7" Value="-17.046"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:02.3" Value="-7.517"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames 
+                Storyboard.TargetName="BrazoIz" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <DiscreteDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:00.5" Value="13.208"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:01" Value="30.23"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:01.7" Value="17.046"/>
+                <DiscreteDoubleKeyFrame KeyTime="00:00:02.3" Value="7.517"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+
+        <!-- ATAQUE FLOJO -->
+        <Storyboard x:Name="moverLengua" RepeatBehavior="4x">
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="Lengua"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-7.869"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="13.581"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-9.176"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!-- DEFENSA -->
+        <Storyboard x:Name="animDefensa" FillBehavior="HoldEnd">
+            <!-- escudo -->
+            <DoubleAnimation
+                Storyboard.TargetName="Escudo"
+                Storyboard.TargetProperty="Opacity"
+                From="0" To="1"
+                Duration="0:0:0.5" 
+                AutoReverse="False"/>
+
+            <!-- pulso del cuerpo -->
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                To="1.2" Duration="0:0:0.2" AutoReverse="True"/>
+
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                To="1.2" Duration="0:0:0.2" AutoReverse="True"/>
+        </Storyboard>
+
+        <!-- DESCANSAR -->
+        <Storyboard x:Name="animDescansar" AutoReverse="True">
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="Opacity"
+                From="1" To="0.6"
+                Duration="0:0:1"/>
+        </Storyboard>
+        
+        <!-- HERIDO -->
+        <Storyboard x:Name="animHerido">
+            <!-- Ojo Izquierdo -->
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoIzq" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" 
+                To="-15" 
+                Duration="0:0:0.3"/>
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoIzq" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" 
+                To="3" 
+                Duration="0:0:0.3"/>
+            <ColorAnimation
+                Storyboard.TargetName="OjoIzq"
+                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                From="Red" To="Purple" Duration="0:0:0.6" AutoReverse="True" RepeatBehavior="Forever"/>
+            <!-- Ojo Derecho -->
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoDer" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" 
+                To="15" 
+                Duration="0:0:0.3"/>
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoDer" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" 
+                To="3" 
+                Duration="0:0:0.3"/>
+            <ColorAnimation
+                Storyboard.TargetName="OjoDer"
+                Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                From="Red" To="Purple" Duration="0:0:0.6" AutoReverse="True" RepeatBehavior="Forever"/>
+            <!-- Temblor del cuerpo -->
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                RepeatBehavior="Forever">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="3"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!--CANSADO-->
+        <Storyboard x:Name="animCansado">
+            <!-- ojos -->
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoIzq" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" 
+                To="-15" 
+                Duration="0:0:0.3"/>
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoIzq" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" 
+                To="3" 
+                Duration="0:0:0.3"/>
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoDer" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" 
+                To="15" 
+                Duration="0:0:0.3"/>
+            <DoubleAnimation 
+                Storyboard.TargetName="OjoDer" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" 
+                To="3" 
+                Duration="0:0:0.3"/>
+            <!-- sudor -->
+            <DoubleAnimation 
+                Storyboard.TargetName="sudor1" 
+                Storyboard.TargetProperty="Opacity" 
+                To="1" 
+                Duration="0:0:0.3"/>
+            <DoubleAnimation 
+                Storyboard.TargetName="sudor2" 
+                Storyboard.TargetProperty="Opacity" 
+                To="1" 
+                Duration="0:0:0.3" 
+                BeginTime="0:0:0.1"/>
+        </Storyboard>
+
+        <!-- DERROTA -->
+        <Storyboard x:Name="animDerrota">
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                To="90" Duration="0:0:0.5"/>
+
+            <DoubleAnimation
+                Storyboard.TargetName="PokemonCanvas"
+                Storyboard.TargetProperty="Opacity"
+                To="0" Duration="0:0:1"/>
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <!-- GRID -->
+    <Grid x:Name="gridGeneral">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- FONDO -->
+        <Image
+            x:Name="imFondo"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="3"
+            Source="/AssetsGengarMBGCS/mansion.png"
+            Stretch="UniformToFill"/>
+
+        <!-- VIDA -->
+        <Image Grid.Row="0" Grid.Column="0"
+               Source="AssetsGengarMBGCS/corazon.png"
+               Height="40"/>
+
+        <ProgressBar x:Name="pbHealth"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Maximum="100"
+                     Value="50"
+                     Foreground="Red"
+                     Height="30"/>
+        
+        <Image x:Name="imRedPotion" 
+               Grid.Row="0" 
+               Grid.Column="2" 
+               Source="AssetsGengarMBGCS/red-potion.png" 
+               Height="40" 
+               PointerReleased="useRedPotion"/>
+
+        <!-- ENERGÍA -->
+        <Image Grid.Row="1" Grid.Column="0"
+               Source="AssetsGengarMBGCS/energia.png"
+               Height="40"/>
+
+        <ProgressBar x:Name="pbEnergy"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Maximum="100"
+                     Value="50"
+                     Foreground="Yellow"
+                     Height="30"/>
+        
+        <Image x:Name="imYellowPotion" 
+               Grid.Row="1" 
+               Grid.Column="2" 
+               Source="AssetsGengarMBGCS/yellow-potion.png" 
+               Height="40"/>
+
+        <!-- POKEMON -->
+        <Viewbox 
+            Grid.Row="2" 
+            Grid.ColumnSpan="3"
+            Stretch="Uniform"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+
+            <Canvas x:Name="PokemonCanvas"
+                Width="500"
+                Height="500"
+                RenderTransformOrigin="0.5,0.5" 
+                Grid.ColumnSpan="3" 
+                Margin="-50,-75,-50,-125" 
+                Grid.RowSpan="3">
+
+                <Canvas.RenderTransform>
+                    <CompositeTransform/>
+                </Canvas.RenderTransform>
+
+                <Image x:Name="bolaAtaque"
+                   Source="AssetsGengarMBGCS/humo.png"
+                   Width="736"
+                   Height="336"
+                   Opacity="0"
+                   Canvas.Top="55"
+                   RenderTransformOrigin="0.5,0.5" 
+                   Canvas.Left="-126">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+
+                <Canvas x:Name="BrazoDe" 
+                    HorizontalAlignment="Left" 
+                    Height="114" 
+                    Canvas.Left="319.56" 
+                    Canvas.Top="205.637" 
+                    VerticalAlignment="Top" 
+                    Width="63" 
+                    RenderTransformOrigin="0.21,0.17">
+                    <Canvas.RenderTransform>
+                        <CompositeTransform/>
+                    </Canvas.RenderTransform>
+
+                    <Path x:Name="BrazoDer" 
+                      Width="60" 
+                      Height="109"
+                      Stretch="Fill" 
+                      Stroke="Black" 
+                      Canvas.Left="2.897" 
+                      RenderTransformOrigin="0.73,0.038" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Fill="#FF7D6E9F" 
+                      Data="M180.45965,241.81718 C178.67786,246.00697 185.52125,252.22073 167.98949,297.95644 166.10771,303.18312 164.68608,311.01394 164.8541,315.52699 163.95185,314.1162 161.99525,311.83119 158.65409,308.49975 157.32603,309.88607 155.74364,314.79453 155.17219,319.08471 154.42274,318.40976 151.89774,313.2967 148.70048,306.37612 148.29224,308.74442 146.63874,320.47384 146.13606,318.49487 130.88118,298.13507 126.38053,241.3669 162.48986,216.01683 185.22215,197.28846 203.03344,227.4382 180.45965,241.81718 z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.251"/>
+                                <TranslateTransform X="-43.183" Y="7.288"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="ReflejoBrazoDe" 
+                      Height="99" 
+                      Width="38"
+                      Canvas.Left="8.43" 
+                      Stretch="Fill" 
+                      Canvas.Top="14.985" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      Fill="#FFAC9BD3" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M355.13333,318.97333 C367.49043,248.30354 340.80654,237.82183 327.967,231.67366 329.31048,193.70532 390.07924,257.37243 355.13333,318.97333 z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.586"/>
+                                <TranslateTransform X="0.0051137255542208493" Y="-2.6150872912467094E-05"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraBrazoDE" 
+                      Fill="#FF5F557B" 
+                      Height="71" 
+                      Width="21"
+                      Stretch="Fill" 
+                      Canvas.Top="38.871" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M333.56634,264.40634 C323.28718,252.73431 314.71518,224.42667 321.41058,269.68496 327.22227,286.43331 336.94556,304.89742 336.07488,310.12194 335.20421,315.34647 336.60533,311.46649 336.84609,312.06471 339.11711,308.93395 339.09855,307.25207 340.07498,305.05969 341.26074,291.92443 337.35175,264.94655 333.56634,264.40634 z"/>
+                    </Canvas>
+
+                <Canvas x:Name="BrazoIz" 
+                    HorizontalAlignment="Left" 
+                    Height="119" 
+                    Canvas.Left="131.328" 
+                    Canvas.Top="199.794" 
+                    VerticalAlignment="Center" 
+                    Width="51" 
+                    RenderTransformOrigin="0.641,0.192">
+                    <Canvas.RenderTransform>
+                        <CompositeTransform/>
+                    </Canvas.RenderTransform>
+
+                    <Path x:Name="BrazoIzq" 
+                      Height="112" 
+                      Width="73"
+                      Stroke="Black" 
+                      Stretch="Fill" 
+                      RenderTransformOrigin="0.651,0.036" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Fill="#FF7D6E9F" 
+                      Data="M190.47654,259.98797 C186.96254,268.28522 184.29918,278.20252 169.48137,295.01071 162.89947,306.9857 159.94065,313.30072 157.95454,321.37587 157.36893,320.8535 155.41319,317.48659 151.70603,310.42574 L146.13606,318.49487 C144.77028,313.646 143.38686,309.03619 141.95769,305.04631 141.17517,306.53537 137.63809,313.36864 136.68761,315.53619 121.7973,276.16289 145.70061,226.71897 165.709,216.19094 194.02433,194.83673 218.10394,239.75305 190.47654,259.98797 z">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-1.75"/>
+                                <TranslateTransform X="-2.9429999999999978" Y="10.063000000000002"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraBrazoIzq" 
+                      Fill="#FF5F557B" 
+                      Height="71" 
+                      Width="32"
+                      Canvas.Left="25.602" 
+                      Stretch="Fill" 
+                      Canvas.Top="49.493" 
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Center" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      Data="M162.56666,270.80633 C198.71494,220.15152 198.94456,261.3494 170.11578,292.0941 169.65208,292.99961 169.19047,293.90139 168.73218,294.79721 162.89011,302.05387 159.76357,314.04398 158.15159,317.21328 157.74406,318.01452 157.35067,288.84629 162.56666,270.80633 z">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-1.195"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="ReflejoBrazoIz" 
+                      Height="88" 
+                      Width="44"
+                      Canvas.Left="0.385" 
+                      Stretch="Fill" 
+                      Canvas.Top="12.288" 
+                      Fill="#FFAC9BD3" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M132.975,298.34 C133.59688,275.63919 140.28499,254.77232 156.77501,235.315 174.7453,217.33373 183.3234,203.36727 159.55168,218.60838 147.98234,228.69942 126.33958,268.03368 132.975,298.34 z" />
+                    </Canvas>
+
+                <Canvas x:Name="Tronco" 
+                    HorizontalAlignment="Center" 
+                    Canvas.Left="152.164" 
+                    Canvas.Top="113.809" 
+                    VerticalAlignment="Center">
+
+                    <Path x:Name="Cuerpo" 
+                      Height="262" 
+                      Width="194"
+                      RenderTransformOrigin="0.532024793661198,0.478219480092821" 
+                      Stroke="Black" 
+                      Stretch="Fill" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Fill="#FF7D6E9F" 
+                      Data="M189.92088,12.485376 L172.83607,61.451325 C172.83607,61.451325 175.17552,54.551076 178.26605,45.504269 L178.53195,44.726349 z M0.59928477,0.51219702 C9.9099963,6.013806 56.781261,37.211922 56.781261,37.211922 56.871196,37.196225 64.406577,15.540631 64.406577,15.54063 65.801544,18.708209 67.672424,23.777314 69.037643,26.826047 70.994628,30.961745 72.684387,28.829411 75.103378,25.170313 L75.238212,24.993893 C77.857421,21.535201 81.049369,16.830464 83.419204,13.148723 L86.270141,22.537085 C87.714088,25.16969 89.352607,24.97416 91.187965,21.917592 L102.94266,6.4123651 C102.20194,13.821712 104.06312,19.321034 106.30538,21.885052 L106.44463,22.033446 C107.97044,24.034133 112.81547,21.095959 112.81547,21.095959 117.57531,17.359444 121.65047,13.621123 125.66293,9.8826424 L125.34569,26.517335 C125.10767,30.068331 128.03906,27.585312 128.03906,27.585312 L140.54575,20.828412 140.54575,30.172362 C144.18387,27.874621 146.95283,25.547524 146.93594,25.742379 146.91902,25.937239 145.52904,30.574799 145.3568,31.095286 145.18452,31.615773 170.77846,15.403692 193.45534,2.3499347 193.48177,2.3436905 193.49678,2.3446895 193.50001,2.3531662 L189.92088,12.485376 193.12706,3.2963074 C192.81912,3.1460253 184.96995,25.900401 179.12634,42.987317 L178.53195,44.726349 171.11284,65.729172 C181.83559,83.286744 188.15704,104.87312 188.15704,128.21079 188.15704,151.21283 182.01608,172.51363 171.57268,189.93243 L170.77678,191.22682 172.17615,190.164 172.01649,192.01738 C176.64317,211.95955 174.01529,230.90898 167.08498,249.26965 170.08702,250.78977 172.28563,252.46428 173.61641,254.30556 L165.02701,252.98032 C164.9444,254.44931 166.06886,256.73212 167.67764,259.34146 L154.53355,256.16089 157.58485,261.164 C142.97128,261.16232 129.14447,258.75516 116.35078,253.18918 L115.336,233.33398 116.14467,232.7198 114.17848,233.16661 C109.01379,234.26086 103.69629,234.83193 98.266334,234.83193 93.112167,234.86511 88.137817,234.46959 83.35453,233.67722 L81.26638,233.30003 81.194549,233.42802 C79.334884,236.98276 77.991065,245.84082 78.014297,255.53925 77.908874,257.35477 41.088535,260.14319 40.143188,259.36652 39.802394,259.20239 41.03638,258.17105 43.445751,256.56763 39.603206,256.91721 29.789142,259.68973 30.481401,258.78467 31.309142,257.70245 32.071052,255.71547 32.071052,255.71547 L23.111306,255.36102 29.211646,249.73023 C16.709312,223.7719 16.067569,205.01721 22.839645,190.76535 L23.452012,189.53291 22.494531,187.7704 C13.469796,170.70023 8.5232375,150.16763 8.375582,128.21079 8.0493653,119.53919 8.8595546,111.31607 10.618639,103.49899 13.215553,91.958817 17.880496,81.303605 24.010186,71.396912 7.0027159,25.099152 -0.46474698,-0.13635255 0.59928477,0.51219702 z" />
+
+                    <Path x:Name="SombraCabeza" 
+                      Height="118" 
+                      Width="191"
+                      Canvas.Left="1.373" 
+                      Stretch="Fill" 
+                      Canvas.Top="1.794" 
+                      Fill="#FFAD9BD4" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M168.06667,159.84 L156.633,122.00666 208.46598,154.66247 C209.80193,155.42113 211.1381,155.55224 212.47474,154.39697 L219.23124,141.91861 220.94191,149.61803 C221.79232,151.03969 222.85993,151.387 224.14068,150.68001 L234.91498,136.07767 236.88084,147.22855 C237.66758,148.53754 238.83277,148.57968 240.33489,147.49405 L252.72038,134.75019 253.94737,144.83908 C254.53833,147.07647 255.84519,147.6056 257.97687,146.16656 L272.92287,133.6882 271.69912,149.35253 C271.98381,151.21631 273.15124,151.58944 275.23542,150.41452 L290.50411,140.06013 286.89369,151.21101 C286.89927,152.36119 287.55432,152.59975 288.80127,152.0075 L293.97898,146.96306 C294.08335,148.31014 293.87028,149.79121 293.14025,151.49046 293.14025,151.49046 291.99398,153.9481 292.74935,153.60048 L342.49456,126.25428 324.76447,174.04376 C322.28094,170.84629 319.36961,168.47272 315.72811,167.50543 327.85804,186.30544 335.24277,206.94473 339.27742,228.88253 339.87504,225.83908 340.5054,224.73245 341.19422,227.08428 L343.65868,232.67778 C341.00268,209.07167 334.01818,191.8016 326.31913,179.15347 L348.49649,117.8397 299.78255,145.80673 301.00721,141.05481 294.95195,144.94875 294.81587,135.5769 C289.95349,138.45433 284.90434,141.11479 279.55864,143.43077 279.36333,137.73937 279.40892,131.62748 279.62668,125.21508 275.29288,130.10248 270.71474,134.01191 265.79822,136.56689 263.01541,138.34215 261.18299,137.92427 260.0151,135.9729 257.26189,132.50672 256.47919,127.7021 256.34112,122.45962 247.01008,134.62831 241.31181,141.81762 243.3291,138.43135 241.98923,140.27764 240.86395,139.94166 239.96128,137.34237 L237.10374,128.51502 226.49002,143.03478 C225.38227,143.95253 224.27098,143.83576 223.15622,142.70478 L217.88338,131.08898 210.46737,151.58164 153.47388,115.67411 C157.84982,131.06163 162.83913,145.61316 168.06667,159.84 z" />
+
+                    <Path x:Name="SombraOrejaI" 
+                      Fill="#FF5E547A" 
+                      Height="65" 
+                      Width="29"
+                      Canvas.Left="4.188" 
+                      Stretch="Fill" 
+                      Canvas.Top="6.728" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M177.5,183.49 L178.17373,182.35162 186.2,168.79001 157.70751,123.46502 C163.82644,144.32301 170.44785,164.28889 177.5,183.49 z">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.632"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraOrejaD" 
+                      Height="40" 
+                      Width="27"
+                      Canvas.Left="157.461" 
+                      Stretch="Fill" 
+                      Canvas.Top="19.84" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      Fill="#FF5E547A" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M186.2,168.79001 L157.70751,123.46502 C163.11472,141.89691 168.91431,159.63215 175.05678,176.75862 173.64341,176.72434 183.92855,166.45039 186.2,168.79001 z">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-1.362"/>
+                                <TranslateTransform X="0.027575642978561632" Y="0.00015208784327924718"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraPatas" 
+                      Height="47" 
+                      Width="101"
+                      Canvas.Left="51.586" 
+                      Stretch="Fill" 
+                      Canvas.Top="209.581" 
+                      Stroke="#FF5E547A" 
+                      Fill="#FF5E547A" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M222.55,355.99001 C217.76844,344.0755 212.25572,333.25419 206.57003,322.69148 232.61506,339.146 260.4977,339.8027 290.42357,322.89401 L278.34867,339.70541 C273.35139,349.81281 270.50525,359.74305 269.85468,369.49247 269.83307,369.61008 269.74485,369.69008 269.60235,369.73743 268.2218,369.99096 261.22819,367.14301 261.36551,366.25214 260.82836,359.24485 260.45022,352.24724 260.40401,345.26985 249.35763,348.86982 238.12695,349.58678 231.35497,345.72692 228.72135,346.42238 227.52023,362.95975 227.72802,368.78791 227.67289,369.21328 224.44477,369.55288 224.48672,369.64295 224.52867,369.73302 224.20121,360.41163 222.55,355.99001 z" />
+
+                    <Path x:Name="LineaPatas" 
+                      Height="11" 
+                      Width="65"
+                      Canvas.Left="67.661" 
+                      Stroke="#FF444151" 
+                      Stretch="Fill" 
+                      Canvas.Top="224.831" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M233.625,346.39 C226.87273,352.83688 221.64094,352.29692 218.125,341.39">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-3.523"/>
+                                <TranslateTransform X="0.1536230289834819" Y="-0.0047244711323077837"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="ReflejoPataI" 
+                      Fill="#FFA395C1" 
+                      Height="31" 
+                      Width="5"
+                      Canvas.Left="19.301" 
+                      Stretch="Fill" 
+                      Canvas.Top="203.956" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M175.53896,346.3008 C176.32321,350.16731 174.79476,345.83185 172.86599,337.62043 172.19793,333.04637 171.42331,327.03823 171.78311,318.57248 171.78846,318.26745 171.79409,317.95664 171.8,317.64 174.04653,319.97772 175.32933,325.33436 175.18308,335.16753 175.18308,335.16753 176.48216,347.93489 175.53896,346.3008 z">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0.519"/>
+                                <TranslateTransform X="0" Y="0"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="LineaPataI" 
+                      Height="3" 
+                      Width="29"
+                      Canvas.Left="17.959" 
+                      Stroke="#FF444151" 
+                      Stretch="Fill" 
+                      Canvas.Top="200.363" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M233.625,346.39 C231.81923,364.94132 222.96527,369.18416 218.125,341.39">
+                            <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="50.946"/>
+                                <TranslateTransform X="-0.82313449336826494" Y="-0.36632878310056327"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="LineaPataD" 
+                      Height="3" 
+                      Width="24"
+                      Canvas.Left="153.804" 
+                      Stroke="#FF444151" 
+                      Stretch="Fill" 
+                      Canvas.Top="201.134" 
+                      RenderTransformOrigin="0.5,0.5" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M233.625,346.39 C231.19724,350.73735 222.28903,353.7414 218.125,341.39">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-54.74"/>
+                                <TranslateTransform X="-1.2319683509199635" Y="-0.15417401394415009"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="ReflejoPataD" 
+                      Height="54" 
+                      Width="15"
+                      Canvas.Left="157.997" 
+                      Stretch="Fill" 
+                      Canvas.Top="195.629" 
+                      Fill="#FFA395C1" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      Data="M315.6,322.64 C312.23918,326.74767 311.4753,329.34121 313,335.44 314.98897,339.72237 319.24004,357.51363 315.8,362.84 315.66667,362.64 317.50102,362.84068 319,363.84 319.96221,362.55928 328.44261,339.42972 324.4,310.44 324.4,310.44 319.24541,318.1845 315.6,322.64 z" />
+                    </Canvas>
+
+                <Canvas x:Name="OjoD" 
+                    HorizontalAlignment="Center" 
+                    Canvas.Left="266.801" 
+                    Canvas.Top="191.525" 
+                    VerticalAlignment="Center">
+
+                    <Path x:Name="OjoDer"
+                      Height="42"
+                      Width="42"
+                      Fill="#FFB4534D"
+                      Stroke="Black"
+                      Stretch="Fill"
+                      Data="M35.410059,0.5 L36.07662,1.1778741 C40.148321,5.5210204 42.66672,11.52102 42.66672,18.148437 42.66672,31.40327 32.593127,42.148437 20.16672,42.148437 12.011891,42.148437 4.870333,37.520881 0.92411971,30.593311 L0.5,29.806518 z"
+                      RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <CompositeTransform Rotation="0.186"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraOjoDer"
+                      Height="27"
+                      Width="30"
+                      Fill="#FFEB6760"
+                      Stroke="#FFEB6760"
+                      Canvas.Top="13.482"
+                      Canvas.Left="2.295"
+                      Data="M232,222.69 L205.4,205.39 C200.03186,214.8247 201.4932,223.20073 209.477,230.56569 222.48764,233.388 228.24579,227.68386 232,222.69 z"
+                      RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <CompositeTransform ScaleX="-1" Rotation="4.866"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Ellipse x:Name="ReflejoOjoDer"
+                         Height="3"
+                         Width="8"
+                         Fill="#FFFCB3B2"
+                         Stroke="#FFFEB4B1"
+                         Canvas.Top="20.552"
+                         Canvas.Left="24.878"
+                         RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform ScaleX="-1" Rotation="-22.979"/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+
+                    <Ellipse x:Name="IrisDer"
+                         Height="14"
+                         Width="5"
+                         Fill="Black"
+                         Stroke="Black"
+                         Canvas.Left="12.332"
+                         Canvas.Top="16.915"/>
+
+                    <Ellipse x:Name="PupilaDer"
+                         Height="6"
+                         Width="4"
+                         Fill="#FFFBF9FA"
+                         Stroke="Black"
+                         Canvas.Left="12.833"
+                         Canvas.Top="17.311"/>
+                </Canvas>
+
+                <Canvas x:Name="OjoI" 
+                    HorizontalAlignment="Center" 
+                    Canvas.Left="194.1" 
+                    Canvas.Top="191.115" 
+                    VerticalAlignment="Center">
+
+                    <Path x:Name="OjoIzq"
+                      Height="42"
+                      Width="40"
+                      Fill="#FFB4534D"
+                      Stroke="Black"
+                      Stretch="Fill"
+                      Data="M4.1823691,0.5 L41.629883,31.556419 41.348869,32.06089 C37.270996,39.196938 30.572342,43.852039 23,43.852039 10.573593,43.852039 0.49999982,31.316013 0.5,15.852039 0.49999982,10.294674 1.8010083,5.1154537 4.0446776,0.76032352 z"
+                      RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                            <CompositeTransform/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraOjoIz"
+                      Height="28"
+                      Width="31"
+                      Fill="#FFED6560"
+                      Stroke="#FFEB6760"
+                      Canvas.Top="12.035"
+                      Canvas.Left="6.944"
+                      Data="M232,222.69 L205.4,205.39 C200.03186,214.8247 201.4932,223.20073 209.477,230.56569 222.48764,233.388 228.24579,227.68386 232,222.69 z"
+                      RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                            <CompositeTransform/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Ellipse x:Name="ReflejoOjoIz"
+                         Height="4"
+                         Width="8"
+                         Fill="#FFFEB4B1"
+                         Stroke="#FFFEB4B1"
+                         Canvas.Top="18.476"
+                         Canvas.Left="6.14"
+                         RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform Rotation="35.077"/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+
+                    <Ellipse x:Name="IrisIzq"
+                         Height="13"
+                         Width="5"
+                         Fill="Black"
+                         Stroke="Black"
+                         Canvas.Top="17.846"
+                         Canvas.Left="22.833"/>
+
+                    <Ellipse x:Name="PupilaIzq"
+                         Height="6"
+                         Width="4"
+                         Fill="#FFFBF9FA"
+                         Stroke="Black"
+                         Canvas.Top="18"
+                         Canvas.Left="23.333"/>
+                </Canvas>
+
+                <Canvas x:Name="Boca" 
+                        HorizontalAlignment="Center" 
+                        Canvas.Left="196.96699999999998" 
+                        Canvas.Top="234.2" 
+                        VerticalAlignment="Center">
+
+                    <Path x:Name="Boc" 
+                          Height="78" 
+                          Width="107"
+                          Stroke="Black" 
+                          Stretch="Fill" 
+                          RenderTransformOrigin="0.479,1.478" 
+                          Fill="#FF77353C" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M106.20908,0.5 L106.22636,0.70121002 C106.40731,3.0712128 106.5,5.4759216 106.5,7.9094238 106.5,46.845497 82.771095,78.409424 53.499999,78.409424 24.228908,78.409424 0.4999994,46.845497 0.5,7.9094238 0.4999994,6.0842972 0.55213809,4.2753677 0.65454292,2.4851227 L0.74506539,1.1291504 0.9797191,1.3082809 C13.360212,10.53154 32.096439,16.410423 53.066001,16.410423 74.618049,16.410423 93.810966,10.200394 106.16919,0.53198624 z" />
+
+                    <Path x:Name="SombrabocaAb" 
+                          Width="97" 
+                          Height="19"
+                          Stretch="Fill" 
+                          Fill="#FF652E34" 
+                          Canvas.Top="37.096" 
+                          Canvas.Left="4.783" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M1.2733218,1.9097528 C14.770395,26.341955 91.068443,25.06437 102.09934,2.1020617 98.315071,33.138963 6.997299,33.426879 1.2733218,1.9097528 z"/>
+
+                    <Path x:Name="SombrabocaArr" 
+                          Width="105" 
+                          Height="32"
+                          Stretch="Fill" 
+                          Fill="#FF652E34" 
+                          Canvas.Top="3.474" 
+                          Canvas.Left="0.882" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M1.2733218,1.9097528 C13.927723,10.246022 32.377976,15.387668 52.860672,15.174168 71.998652,14.675826 90.229596,9.0024803 102.09934,2.1020617 103.19898,27.412432 1.8120692,28.104298 1.2733218,1.9097528 z"/>
+                </Canvas>
+
+                <Canvas x:Name="SonrisaAb" 
+                        Width="88" 
+                        Height="31"
+                        Canvas.Top="271.202" 
+                        Canvas.Left="206.8" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        RenderTransformOrigin="0.502,0.945">
+
+                    <Path x:Name="SonrisaAbajo" 
+                          Width="96" 
+                          Height="40"
+                          Canvas.Top="0.474" 
+                          Canvas.Left="-4.337"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Fill="#FFF0F0EF" 
+                          Data="M104.49661,0.5 L104.49647,0.54031372 C82.500788,50.546266 19.442833,45.147432 0.5,1.3864479 19.345469,26.413833 88.817936,25.547034 104.49661,0.5 z"/>
+
+                    <Path x:Name="Diente_1" 
+                          Height="10" 
+                          Width="1"
+                          Stroke="Black" 
+                          Stretch="Fill" 
+                          Canvas.Top="12.216" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Canvas.Left="7.067" 
+                          Data="M288.1,243.39 C288.1,246.85667 288.1,250.32333 288.1,253.79" />
+
+                    <Path x:Name="Diente_2" 
+                          Width="1" 
+                          Height="17"
+                          VerticalAlignment="Center" 
+                          Canvas.Top="19.556" 
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          Canvas.Left="24.938" 
+                          HorizontalAlignment="Center" 
+                          Fill="#FFF4F4F5" 
+                          Data="M270.8,248.665 C270.8,253.02311 270.60419,257.4461 270.9,261.765">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-0.388"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="Diente_3" 
+                          Width="1" 
+                          Height="19"
+                          VerticalAlignment="Center" 
+                          Canvas.Top="20.976" 
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          Canvas.Left="43.519" 
+                          HorizontalAlignment="Center" 
+                          Fill="#FFF4F4F5" 
+                          Data="M251.1,250.665 C251.1,255.44228 250.64813,260.24989 251,264.965"/>
+
+                    <Path x:Name="Diente_4" 
+                          Width="1" 
+                          Height="17"
+                          VerticalAlignment="Center" 
+                          Canvas.Top="18.639" 
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          Canvas.Left="63.437" 
+                          HorizontalAlignment="Center" 
+                          Fill="#FFF4F4F5" 
+                          Data="M270.8,248.665 C270.8,253.02311 270.60419,257.4461 270.9,261.765">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-0.388"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="Diente_5" 
+                          Width="1" 
+                          Height="9"
+                          VerticalAlignment="Center" 
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          Canvas.Left="80.461" 
+                          HorizontalAlignment="Center" 
+                          Fill="#FFF4F4F5" 
+                          Canvas.Top="11.334" 
+                          Data="M288.1,243.39 C288.1,246.85667 288.1,250.32333 288.1,253.79"/>
+                </Canvas>
+
+                <Canvas x:Name="Lengua" 
+                        HorizontalAlignment="Center" 
+                        Height="167" 
+                        Canvas.Left="211.748" 
+                        Canvas.Top="213.164" 
+                        VerticalAlignment="Top" 
+                        Width="84" 
+                        RenderTransformOrigin="0.474,0.234">
+                    <Canvas.RenderTransform>
+                        <CompositeTransform Rotation="-7.869"/>
+                    </Canvas.RenderTransform>
+
+                    <Path x:Name="Leng"
+                          Width="77" 
+                          Height="117"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          RenderTransformOrigin="0.498,0.935" 
+                          Fill="#FFEB92A4" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Top" 
+                          Data="M69.727345,22.637051 C67.876031,38.009834 64.196845,51.5976 59.271549,62.042855 47.55671,64.285568 31.798157,64.80124 11.506641,63.380917 7.0776,54.4289 0.6401287,23.243334 0.64856862,23.171045 0.59680266,20.408764 0.96972083,17.868143 1.7016748,15.547549 9.7263543,-9.8939743 60.905487,-8.8892535 68.731304,16.410012 69.329556,18.344036 69.674451,20.420036 69.727345,22.637051 z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                <RotateTransform Angle="178.499"/>
+                                <TranslateTransform X="2.2743429326951343" Y="-62.34609805251921"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraLengua" 
+                          Height="33" 
+                          Width="72"
+                          Stroke="#FFD3838E" 
+                          Stretch="Fill" 
+                          Fill="#FFD08291" 
+                          Canvas.Top="122.442" 
+                          Canvas.Left="6.805" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Data="M218.45,341.04 C237.15014,366.58955 285.20094,344.61354 287.35,339.94001 279.51434,370.4993 229.3601,370.85195 218.45,341.04 z">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-0.665"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="SombraDientes" 
+                          Width="56" 
+                          Height="14"
+                          Stretch="Fill" 
+                          Fill="#FFD08291" 
+                          Canvas.Top="43.813" 
+                          Canvas.Left="12.542" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Data="M96.174073,8.7251016 C96.225952,5.6860123 102.75329,12.998362 103.07963,16.294785 106.1307,20.06991 37.804838,26.831381 3.3347173,16.500705 2.0003069,15.556762 2.7908435,12.276696 4.4356137,10.375919 4.0669461,9.8313516 68.169376,15.565754 96.174073,8.7251016 z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="-5.183"/>
+                                <TranslateTransform X="-0.084803556221732634" Y="0.0070647495127857951"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="LineaLengua" 
+                          Height="87" 
+                          Width="4"
+                          Stroke="Black" 
+                          Stretch="Fill" 
+                          Canvas.Top="43.332" 
+                          Canvas.Left="37.429" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M254.2,265.64 C254.2,291.36007 248.16323,316.70158 253.8,341.64">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-0.665"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="ReflejoLengua" 
+                          Fill="#FFFFA7B9" 
+                          Height="49" 
+                          Width="41"
+                          Stretch="Fill" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          Canvas.Top="67.226" 
+                          Canvas.Left="-4.909" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Data="M7.546,97.612667 C7.8949103,96.802931 15.293936,81.583462 18.746,74.679333 29.194677,51.94582 29.005695,43.602146 19.279333,53.346">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                <RotateTransform Angle="-24.61"/>
+                                <TranslateTransform X="-2.1439546100518072" Y="-3.5010695119327409"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+
+                <Canvas x:Name="SonrisaAr" 
+                        HorizontalAlignment="Center" 
+                        Canvas.Left="198.033" 
+                        Canvas.Top="235.2" 
+                        VerticalAlignment="Center">
+
+                    <Path x:Name="SonrisaArriba"
+                          Width="105" 
+                          Height="30"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          Fill="#FFF0F0EF" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Data="M104.49661,0.5 L104.49647,0.54031372 C104.4896,0.91893768 104.47728,1.2964592 104.45958,1.6728172 L104.45229,1.7911873 104.28484,2.2266502 C97.855838,18.156197 77.030849,29.823685 52.333362,29.823685 28.101869,29.823685 7.5981145,18.592331 0.76109552,3.1237221 L0.50841999,1.7109947 0.5,1.3864479 0.89487386,1.6579475 C0.92433237,1.6777143 0.9538231,1.6974635 0.98334601,1.7171951 13.641535,10.1773 32.215333,15.406593 52.860672,15.174168 72.962917,14.947861 90.985096,9.5889359 103.42586,1.2361984 z" />
+
+                    <Path x:Name="SombraSonrisa"
+                          Width="103" 
+                          Height="19"
+                          Stretch="Fill" 
+                          Fill="#FFC8C8C8" 
+                          Canvas.Top="1.903" 
+                          HorizontalAlignment="Center" 
+                          VerticalAlignment="Center" 
+                          Canvas.Left="0.934" 
+                          Data="M98.576679,7.0219008 C66.694694,26.341914 28.297306,20.76049 6.236863,7.6471417 4.9671544,6.7687996 3.2238876,4.8882393 1.9948924,3.4777001 1.8467518,3.3076765 1.1465895,1.826138 1.2733218,1.9097528 13.927723,10.246022 32.377976,15.387668 52.860672,15.174168 71.998652,14.675826 90.229596,9.0024803 102.09934,2.1020617 102.54825,1.8171684 99.278622,6.7426404 98.576679,7.0219008 z" />
+
+                    <Path x:Name="Diente1"
+                          Width="1" 
+                          Height="11"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          Fill="#FFF4F4F5" 
+                          Canvas.Top="9.19" 
+                          Canvas.Left="15.942" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M288.1,243.39 C288.1,246.85667 288.1,250.32333 288.1,253.79" />
+
+                    <Path x:Name="Diente2"
+                          Width="1" 
+                          Height="14"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          Fill="#FFF4F4F5" 
+                          Canvas.Top="13.615" 
+                          Canvas.Left="33.908" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M270.8,248.665 C270.8,253.02311 270.60419,257.4461 270.9,261.765">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-0.388"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="Diente3"
+                          Width="1" 
+                          Height="15"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          Fill="#FFF4F4F5" 
+                          Canvas.Top="15" 
+                          Canvas.Left="52.5" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M251.1,250.665 C251.1,255.44228 250.64813,260.24989 251,264.965" />
+
+                    <Path x:Name="Diente4"
+                          Width="1" 
+                          Height="14"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          RenderTransformOrigin="0.5,0.5" 
+                          Fill="#FFF4F4F5" 
+                          Canvas.Top="12.865" 
+                          Canvas.Left="72.408" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M270.8,248.665 C270.8,253.02311 270.60419,257.4461 270.9,261.765">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-0.388"/>
+                        </Path.RenderTransform>
+                    </Path>
+
+                    <Path x:Name="Diente5"
+                          Width="1" 
+                          Height="11"
+                          Stretch="Fill" 
+                          Stroke="Black" 
+                          Fill="#FFF4F4F5" 
+                          Canvas.Top="8.065" 
+                          Canvas.Left="89.442" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Top" 
+                          Data="M288.1,243.39 C288.1,246.85667 288.1,250.32333 288.1,253.79" />
+                </Canvas>
+
+                <!-- EFECTOS -->
+                <Image x:Name="sudor1"
+                       Source="AssetsGengarMBGCS/sudor.png"
+                       Width="32"
+                       Height="30"
+                       Opacity="0"
+                       Canvas.Top="209"
+                       Canvas.Left="156"
+                       RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleX="-1" Rotation="-1.023"/>
+                    </Image.RenderTransform>
+                </Image>
+
+                <Image x:Name="sudor2"
+                       Source="AssetsGengarMBGCS/sudor.png"
+                       Width="32"
+                       Height="30"
+                       Opacity="0"
+                       Canvas.Top="160"
+                       Canvas.Left="272"
+                       RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+
+                <Ellipse x:Name="Escudo"
+                         Width="351"
+                         Height="288"
+                         Stroke="LightBlue"
+                         StrokeThickness="4"
+                         Opacity="0"
+                         Canvas.Left="77"
+                         Canvas.Top="92" 
+                         Fill="#40ADD8E6"/>
+
+            </Canvas>
+        </Viewbox>
+
+        <TextBlock x:Name="txtNombre" 
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Text="Gengar"
+                   FontSize="24"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"/>
+    </Grid>
+</UserControl>

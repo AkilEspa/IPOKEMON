@@ -1,0 +1,2206 @@
+﻿<UserControl
+    x:Class="ProyectoVacioUWP_Base.SquirtleMRGM"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoVacioUWP_Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+
+        <Storyboard x:Name="AniAtaqueFlojo">
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvPokemon"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="18"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.26" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvCabeza"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.26" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+           
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvBrazoDerDelante"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="-42"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.26" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <!-- Brazo izquierdo -->
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvBrazoIzqDetras"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.16" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.26" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="pBoca"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.06" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.22" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="pBocaAbierta"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.06" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.22" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+           
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imAguaDebil"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.07" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.18" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.22" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imImpactoAgua"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.15" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.23" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imImpactoAgua"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0.30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0.95"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imImpactoAgua"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0.30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0.95"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+
+        <Storyboard x:Name="AniAtaqueFuerte">
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-55"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="35"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="22"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     From="0" To="14"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     From="0" To="32"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                     From="1" To="1.04"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     From="1" To="1.04"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvPiernaIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-8"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvPiernaDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="6"
+                     Duration="0:0:0.10"
+                     AutoReverse="True"/>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="pBoca"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.30" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="pBocaAbierta"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.05" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.30" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imAguaFuerte"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.06" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.24" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.30" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imImpactoAgua"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.19" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.30" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imImpactoAgua"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0.35"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.22" Value="1.35"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="imImpactoAgua"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0.35"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.22" Value="1.35"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+
+        <Storyboard x:Name="AniDefensa">
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvPokemon"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="6"
+                     Duration="0:0:0.20"/>
+
+        
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="8"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-4"
+                     Duration="0:0:0.20"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                     To="0.96"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="0.96"
+                     Duration="0:0:0.20"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-28"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     To="-12"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="10"
+                     Duration="0:0:0.20"/>
+
+         
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="24"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     To="10"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="10"
+                     Duration="0:0:0.20"/>
+
+        
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="Opacity"
+                     From="0"
+                     To="0.55"
+                     Duration="0:0:0.20"
+                     FillBehavior="HoldEnd"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                     From="0.75"
+                     To="1.00"
+                     Duration="0:0:0.20"
+                     FillBehavior="HoldEnd"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     From="0.75"
+                     To="1.00"
+                     Duration="0:0:0.20"
+                     FillBehavior="HoldEnd"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniEscudoLatido">
+
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                     From="1.00"
+                     To="1.05"
+                     Duration="0:0:0.45"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     From="1.00"
+                     To="1.05"
+                     Duration="0:0:0.45"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                 Storyboard.TargetProperty="Opacity"
+                 From="0.90"
+                 To="1"
+                 Duration="0:0:0.45"
+                 AutoReverse="True"
+                 RepeatBehavior="Forever"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniQuitarEscudo">
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvPokemon"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                     To="0.75"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvEscudo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="0.75"
+                     Duration="0:0:0.20"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniDescanso">
+
+          
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvOjoDer"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.35" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.45" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvOjoIzq"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.35" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.45" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="pBoca"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.35" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.45" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+
+           
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvCaraDescanso"
+                Storyboard.TargetProperty="Opacity">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0.05" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.35" Value="1"/>
+                <DiscreteDoubleKeyFrame KeyTime="0:0:2.45" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     From="0" To="5"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-2.5"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     From="1" To="0.985"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCuerpo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     From="0" To="2.5"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="6"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-5"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvPiernaIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-2"
+                     Duration="0:0:0.40"
+                     AutoReverse="True"
+                     RepeatBehavior="3x"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvPiernaDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="2"
+                     Duration="0:0:0.40"
+                     AutoReverse="True"
+                     RepeatBehavior="3x"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="2"
+                     Duration="0:0:0.75"
+                     AutoReverse="True"
+                     RepeatBehavior="2x"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniIdle">
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     From="0" To="2"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+         
+            <DoubleAnimation Storyboard.TargetName="cvCuerpo"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     From="0" To="1.5"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     From="0" To="1.5"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-1"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="3"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-3"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvPiernaDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="1.5"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvPiernaIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="-1.5"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+         
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     From="0" To="4"
+                     Duration="0:0:0.32"
+                     AutoReverse="True"
+                     RepeatBehavior="Forever"/>
+
+        </Storyboard>
+
+        <Storyboard x:Name="AniHerido">
+
+            <DoubleAnimationUsingKeyFrames
+        Storyboard.TargetName="cvPokemon"
+        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.04" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="-3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+                 Storyboard.TargetProperty="Opacity"
+                 To="1"
+                 BeginTime="0:0:0.05"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                 To="1"
+                 BeginTime="0:0:0.05"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="1"
+                 BeginTime="0:0:0.05"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+                 Storyboard.TargetProperty="Opacity"
+                 To="1"
+                 BeginTime="0:0:0.10"
+                 Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                 To="1"
+                 BeginTime="0:0:0.10"
+                 Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="1"
+                 BeginTime="0:0:0.10"
+                 Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaCara"
+                 Storyboard.TargetProperty="Opacity"
+                 To="0.95"
+                 BeginTime="0:0:0.08"
+                 Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaCara"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                 To="1"
+                 BeginTime="0:0:0.08"
+                 Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaCara"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="1"
+                 BeginTime="0:0:0.08"
+                 Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="9"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-4"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="4"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="0.97"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="12"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-10"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-8"
+                     Duration="0:0:0.20"/>
+            
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="0.78"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="0.82"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                 To="6"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                 To="4"
+                 Duration="0:0:0.18"/>
+            <ColorAnimation Storyboard.TargetName="brOjoDerDolor"
+                Storyboard.TargetProperty="Color"
+                To="#FF7A5AA6"
+                Duration="0:0:0.18"/>
+
+            <ColorAnimation Storyboard.TargetName="brOjoIzqDolor"
+                Storyboard.TargetProperty="Color"
+                To="#FF7A5AA6"
+                Duration="0:0:0.18"/>
+            <DoubleAnimation Storyboard.TargetName="pOjoDer_Brillo"
+                 Storyboard.TargetProperty="Opacity"
+                 To="0.20"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoIzq_Brillo"
+                 Storyboard.TargetProperty="Opacity"
+                 To="0.20"
+                 Duration="0:0:0.18"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniHeridoCansado">
+
+           
+            <DoubleAnimationUsingKeyFrames
+                Storyboard.TargetName="cvPokemon"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">    
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.04" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.08" Value="4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="-3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.18" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+         
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+             Storyboard.TargetProperty="Opacity"
+             To="1"
+             BeginTime="0:0:0.05"
+             Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+             To="1"
+             BeginTime="0:0:0.05"
+             Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="1"
+             BeginTime="0:0:0.05"
+             Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+             Storyboard.TargetProperty="Opacity"
+             To="1"
+             BeginTime="0:0:0.10"
+             Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+             To="1"
+             BeginTime="0:0:0.10"
+             Duration="0:0:0.14"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="1"
+             BeginTime="0:0:0.10"
+             Duration="0:0:0.14"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+             To="15"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="-7"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+             To="5"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="0.965"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="14"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="-12"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="-10"
+             Duration="0:0:0.20"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="0.52"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="0.58"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+             To="10"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+             To="7"
+             Duration="0:0:0.20"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="pOjoDer_Brillo"
+             Storyboard.TargetProperty="Opacity"
+             To="0.10"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoIzq_Brillo"
+             Storyboard.TargetProperty="Opacity"
+             To="0.10"
+             Duration="0:0:0.20"/>
+
+         
+            <ColorAnimation Storyboard.TargetName="brOjoDerDolor"
+            Storyboard.TargetProperty="Color"
+            To="#FF7A5AA6"
+            Duration="0:0:0.18"/>
+
+            <ColorAnimation Storyboard.TargetName="brOjoIzqDolor"
+            Storyboard.TargetProperty="Color"
+            To="#FF7A5AA6"
+            Duration="0:0:0.18"/>
+
+        
+            <DoubleAnimation Storyboard.TargetName="imSudorCombo"
+             Storyboard.TargetProperty="Opacity"
+             To="1"
+             BeginTime="0:0:0.08"
+             Duration="0:0:0.18"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniNoHerido">
+
+           
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+             Storyboard.TargetProperty="Opacity"
+             To="0"
+             Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+             To="0.75"
+             Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaSuave"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="0.75"
+             Duration="0:0:0.16"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+             Storyboard.TargetProperty="Opacity"
+             To="0"
+             Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+             To="0.60"
+             Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imTiritaPrincipal"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="0.60"
+             Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaCara"
+                 Storyboard.TargetProperty="Opacity"
+                 To="0"
+                 Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaCara"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                 To="0.70"
+                 Duration="0:0:0.16"/>
+
+            <DoubleAnimation Storyboard.TargetName="imHeridaCara"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="0.70"
+                 Duration="0:0:0.16"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+             To="0"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="0"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+             To="0"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+             To="1"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="0"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="0"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+             Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+             To="0"
+             Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="1"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                 To="1"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                 To="0"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                 To="0"
+                 Duration="0:0:0.18"/>
+
+            <ColorAnimation Storyboard.TargetName="brOjoDerDolor"
+                Storyboard.TargetProperty="Color"
+                To="#FFB32025"
+                Duration="0:0:0.18"/>
+
+            <ColorAnimation Storyboard.TargetName="brOjoIzqDolor"
+                Storyboard.TargetProperty="Color"
+                To="#FFB32025"
+                Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoDer_Brillo"
+                 Storyboard.TargetProperty="Opacity"
+                 To="1"
+                 Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoIzq_Brillo"
+                 Storyboard.TargetProperty="Opacity"
+                 To="1"
+                 Duration="0:0:0.18"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniCansado">
+
+            <DoubleAnimation Storyboard.TargetName="imSudorCansado"
+                 Storyboard.TargetProperty="Opacity"
+                 To="1"
+                 BeginTime="0:0:0.1"
+                 Duration="0:0:0.2"/>
+
+            <DoubleAnimation Storyboard.TargetName="imSudorCansado"
+                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                 From="-5"
+                 To="5"
+                 Duration="0:0:0.3"
+                 AutoReverse="True"
+                 RepeatBehavior="Forever"/>
+
+        
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="0.52"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="0.58"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="10"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="7"
+                     Duration="0:0:0.20"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="pOjoDer_Brillo"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0.12"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoIzq_Brillo"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0.12"
+                     Duration="0:0:0.20"/>
+
+        
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="14"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-7"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="4"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="0.98"
+                     Duration="0:0:0.20"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="8"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-6"
+                     Duration="0:0:0.20"/>
+
+         
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-5"
+                     Duration="0:0:0.20"/>
+
+        </Storyboard>
+
+        <Storyboard x:Name="AniNoCansado">
+
+            <DoubleAnimation Storyboard.TargetName="imSudorCansado"
+                 Storyboard.TargetProperty="Opacity"
+                 To="0"
+                 Duration="0:0:0.1"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoDer_Brillo"
+                     Storyboard.TargetProperty="Opacity"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="pOjoIzq_Brillo"
+                     Storyboard.TargetProperty="Opacity"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+          
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                     To="1"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.20"/>
+
+        </Storyboard>
+
+        <Storyboard x:Name="AniDerrotado">
+
+           
+            <DoubleAnimationUsingKeyFrames
+        Storyboard.TargetName="cvPokemon"
+        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.40" Value="46"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+        Storyboard.TargetName="cvPokemon"
+        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.40" Value="-22"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames
+        Storyboard.TargetName="cvPokemon"
+        Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.40" Value="-82"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-16"
+                     Duration="0:0:0.35"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="10"
+                     Duration="0:0:0.35"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="8"
+                     Duration="0:0:0.35"/>
+
+           
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="28"
+                     Duration="0:0:0.35"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-22"
+                     Duration="0:0:0.35"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="-16"
+                     Duration="0:0:0.35"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0"
+                     Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0"
+                     Duration="0:0:0.18"/>
+
+            <DoubleAnimation Storyboard.TargetName="pBoca"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0"
+                     Duration="0:0:0.18"/>
+
+            
+            <DoubleAnimation Storyboard.TargetName="cvCaraDerrotado"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0.9"
+                     BeginTime="0:0:0.12"
+                     Duration="0:0:0.18"/>
+        </Storyboard>
+
+        <Storyboard x:Name="AniNoDerrotado">
+
+            <DoubleAnimation Storyboard.TargetName="cvPokemon"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvPokemon"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvPokemon"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCabeza"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvTronco"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoDerDelante"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvBrazoIzqDetras"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCola"
+                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                     To="0"
+                     Duration="0:0:0.25"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvCaraDerrotado"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0"
+                     Duration="0:0:0.15"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoDer"
+                     Storyboard.TargetProperty="Opacity"
+                     To="1"
+                     BeginTime="0:0:0.08"
+                     Duration="0:0:0.15"/>
+
+            <DoubleAnimation Storyboard.TargetName="cvOjoIzq"
+                     Storyboard.TargetProperty="Opacity"
+                     To="1"
+                     BeginTime="0:0:0.08"
+                     Duration="0:0:0.15"/>
+
+            <DoubleAnimation Storyboard.TargetName="pBoca"
+                     Storyboard.TargetProperty="Opacity"
+                     To="1"
+                     BeginTime="0:0:0.08"
+                     Duration="0:0:0.15"/>
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <Grid>
+
+   
+        <Grid.Background>
+            <ImageBrush x:Name="imgFondoBrush"
+                        ImageSource="AssetsSquirtleMRGM/imagen_Fondo.png"
+                        Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        
+        <Grid x:Name="gridGeneral" Padding="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+
+            
+            <Image x:Name="imHeart"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Source="AssetsSquirtleMRGM/corazon.png"
+                   Width="40"
+                   Height="40"
+                   VerticalAlignment="Center"/>
+
+            <ProgressBar x:Name="pbHealth"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Minimum="0"
+                         Maximum="100"
+                         Value="50"
+                         Height="22"
+                         VerticalAlignment="Center"
+                         Foreground="Red"/>
+
+            <Image x:Name="imRedPotion"
+                   Grid.Row="0"
+                   Grid.Column="2"
+                   Source="AssetsSquirtleMRGM/red-potion.png"
+                   Width="40"
+                   Height="40"
+                   VerticalAlignment="Center"
+                   PointerReleased="UseRedPotion"/>
+
+           
+            <Image x:Name="imLightning"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Source="AssetsSquirtleMRGM/energia.png"
+                   Width="40"
+                   Height="40"
+                   VerticalAlignment="Center"/>
+
+            <ProgressBar x:Name="pbEnergy"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Minimum="0"
+                         Maximum="100"
+                         Value="50"
+                         Height="22"
+                         VerticalAlignment="Center"
+                         Foreground="Yellow"/>
+
+            <Image x:Name="imYellowPotion"
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   Source="AssetsSquirtleMRGM/yellow-potion.png"
+                   Width="40"
+                   Height="40"
+                   VerticalAlignment="Center"
+                   PointerReleased="UseYellowPotion"/>
+
+            <Viewbox Grid.Row="2"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Stretch="Uniform"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     MaxWidth="350"
+                     MaxHeight="350">
+
+                <Canvas x:Name="cvPokemon"
+                        Width="472"
+                        Height="484"
+                        RenderTransformOrigin="0.5,0.5">
+
+                    <Canvas.RenderTransform>
+                        <CompositeTransform x:Name="trPokemon"/>
+                    </Canvas.RenderTransform>
+
+                    <Canvas x:Name="cvEscudo"
+                            Canvas.Left="58"
+                            Canvas.Top="58"
+                            Width="360"
+                            Height="400"
+                            Opacity="0"
+                            Canvas.ZIndex="30"
+                            RenderTransformOrigin="0.5,0.5">
+
+                        <Canvas.RenderTransform>
+                            <CompositeTransform x:Name="trEscudo"/>
+                        </Canvas.RenderTransform>
+
+                        <Ellipse x:Name="elEscudoFondo"
+                                 Width="685"
+                                 Height="629"
+                                 Fill="#CC2E8FD8" Canvas.Left="-189" Canvas.Top="-129"/>
+
+                        <Ellipse x:Name="elEscudoSombra"
+                                 Width="685"
+                                 Height="629"
+                                 Fill="#33000000"
+                                 Canvas.Left="-189"
+                                 Canvas.Top="-129"/>
+
+                        <Ellipse x:Name="elEscudo"
+                                 Width="685"
+                                 Height="629"
+                                 Stroke="#FF66D9FF"
+                                 StrokeThickness="12"
+                                 Fill="Transparent" Canvas.Left="-189" Canvas.Top="-129"/>
+                    </Canvas>
+
+                    <Canvas x:Name="cvEstados"
+                            Canvas.ZIndex="20">
+
+                        
+                        <Image x:Name="imTiritaPrincipal"
+                               Source="AssetsSquirtleMRGM/tirita4.png"
+                               Width="124"
+                               Height="113"
+                               Canvas.Left="74.251"
+                               Canvas.Top="205.22"
+                               RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform x:Name="trTiritaPrincipal"
+                                                    Rotation="8"
+                                                    ScaleX="0.60"
+                                                    ScaleY="0.60"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Image x:Name="imHeridaSuave"
+                               Source="AssetsSquirtleMRGM/tirita3.png"
+                               Width="108"
+                               Height="64"
+                               Canvas.Left="191.47"
+                               Canvas.Top="209.602"
+                               RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform x:Name="trHeridaSuave"
+                                                    Rotation="-22"
+                                                    ScaleX="0.78"
+                                                    ScaleY="0.78"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                       
+                        <Image x:Name="imSudor"
+                               Source="AssetsSquirtleMRGM/sudor.png"
+                               Width="28"
+                               Height="28"
+                               Canvas.Left="238"
+                               Canvas.Top="98"
+                               RenderTransformOrigin="0.5,0.5" Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform x:Name="trSudor"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                    </Canvas>
+
+                    <Canvas x:Name="cvCola"
+                            HorizontalAlignment="Left"
+                            Height="132"
+                            Width="203"
+                            Canvas.Left="268.589"
+                            Canvas.Top="306"
+                            VerticalAlignment="Top"
+                            RenderTransformOrigin="0.15,0.25">
+
+                        <Canvas.RenderTransform>
+                            <CompositeTransform x:Name="trCola"/>
+                        </Canvas.RenderTransform>
+                        <Path x:Name="pCola"
+                              Width="203" Height="132"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FF7EC8D3"
+                              Data="M327.16667,376.79 C277.0856,387.2909 274.06965,403.94856 328.89582,427.35084 343.16702,426.02144 363.89944,429.29289 389.20015,435.81729 404.98325,437.01207 416.3711,432.50608 424.52475,423.80524 460.66216,413.85363 469.98714,377.49983 460.92634,344.11841 451.2578,316.44642 433.90816,303.45551 408.06969,306.68949 385.67546,311.37668 368.56779,325.81357 355.21304,349.11438 349.53856,362.20995 340.38901,372.13617 327.16667,376.79 z"/>
+                        <Path x:Name="pSombraCola"
+                              Height="89" Width="158"
+                              Canvas.Left="46.411" Canvas.Top="42.02"
+                              Stretch="Fill"
+                              Fill="Black"
+                              Opacity="0.115"
+                              Data="M48.077667,100.85333 C78.265223,99.767195 102.36486,93.348587 117.244,78.853666 147.61495,94.494431 187.96671,71.804654 200.10962,42.02123 209.3201,76.796966 192.71603,108.20662 157.93376,117.47257 128.49475,143.00829 93.007741,119.33005 46.410317,121.4437 z"/>
+                        <Path x:Name="pLineaCola"
+                              Height="66" Width="45"
+                              Canvas.Left="116.792" Canvas.Top="52.802"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Data="M426.125,424.52 C405.47654,425.97696 392.45287,416.54662 386.5,397.01999 383.64531,385.17412 386.32685,374.61085 395.04414,365.44591 405.02059,355.25644 416.30433,355.98981 428.60156,365.19129"/>
+                    </Canvas>
+
+                    <Canvas x:Name="cvBrazoIzqDetras"
+                            Width="152"
+                            Height="95"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Canvas.Left="0"
+                            Canvas.Top="177"
+                            RenderTransformOrigin="0.85,0.2">
+
+                        <Canvas.RenderTransform>
+                            <CompositeTransform x:Name="trBrazoIzq"/>
+                        </Canvas.RenderTransform>
+                        <Path x:Name="pBrazoIzq"
+                              Width="152" Height="95"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FF7EC8D3"
+                              Data="M50.5,218.29 C69.859252,199.80926 103.4252,182.35641 141.5,177.32999 183.411,218.00376 168.33266,248.10536 103.75,269.03045 55.080217,271.26975 22.861505,274.15316 14.25,262.59149 L29.53002,243.15498 C21.344084,237.37954 16.537358,232.53944 16.253937,228.95137 20.387176,224.63159 32.773246,221.17991 50.5,218.29 z"/>
+                        <Path x:Name="pSombraBrazoIzq"
+                              Height="79" Width="118"
+                              Canvas.Left="0.167" Canvas.Top="16.353"
+                              Stretch="Fill"
+                              Fill="Black"
+                              Opacity="0.1"
+                              StrokeThickness="0"
+                              Data="M4.6666667,56.02 C14.480951,58.447076 25.751005,59.069995 37.833,58.686667 67.768243,38.392289 93.718397,27.333974 117.73338,20.760724 102.41468,42.891457 93.615659,65.041088 89.716512,87.20492 32.787139,91.722838 5.1235943,89.549397 0.16367642,82.184985 4.5363805,75.934164 9.7846334,70.209655 15.738814,64.909495 11.61879,62.517673 7.9278876,59.554756 4.6666667,56.02 z"/>
+                        <Path x:Name="pDedoManoIzq"
+                              Width="16" Height="22"
+                              Canvas.Left="29.958" Canvas.Top="51.5"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Data="M42.125,229.02 C37.570469,232.96025 33.723992,237.1637 30.625,241.645 35.535973,244.28667 40.888225,246.69449 46.568182,248.92866"/>
+                    </Canvas>
+
+                    <Canvas x:Name="cvPiernaIzq"
+                            Width="277"
+                            Height="169"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Canvas.Left="41"
+                            Canvas.Top="314.74"
+                            RenderTransformOrigin="0.5,0.2">
+
+                        <Canvas.RenderTransform>
+                            <CompositeTransform x:Name="trPiernaIzq"/>
+                        </Canvas.RenderTransform>
+
+                        <Path x:Name="pPiernaIzq"
+                              Width="115"
+                              Height="131"
+                              Canvas.Top="8.672"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FF7EC8D3"
+                              Data="M107,325.37333 C88.818983,340.14817 72.795536,373.59192 74.5,414.91332 67.057074,418.89219 61.178061,424.93122 56.608586,432.69531 L71.923623,433.8944 65.007154,444.3881 C68.720033,445.98633 76.966183,445.02877 88.391406,442.27889 L85.75656,453.51917 C108.6544,445.74975 128.22231,439.46613 144.05251,434.85027 147.4584,421.63413 153.81822,409.91962 164.52159,400.41314 178.46357,338.87536 152.89032,317.50869 107,325.37333 z"/>
+
+                        <Path x:Name="pSombraPiernaIzq"
+                              Height="99"
+                              Width="111"
+                              Canvas.Left="0.25"
+                              Canvas.Top="40.78"
+                              Stretch="Fill"
+                              Fill="Black"
+                              Opacity="0.1"
+                              StrokeThickness="0"
+                              Data="M20,94.03 C34.118193,97.004447 48.5273,76.357207 64.5,40.779999 75.620774,60.634268 90.019941,76.264431 109,85.992263 99.319134,94.865468 92.605196,106.45958 88.727778,120.655 L30.630556,139.86544 33.102778,127.9853 C22.951846,131.36642 14.519957,132.73456 9.3694444,130.26023 L16.521143,119.13839 C11.817013,120.06343 6.4663864,119.79702 0.49147459,118.38008 6.3959858,110.05003 12.677883,104.48902 19.233856,100.93902 z"/>
+
+                        <Path x:Name="pDedoIzqPiernaIzq"
+                              Width="7"
+                              Height="8"
+                              Canvas.Left="15.75"
+                              Canvas.Top="112.53"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FFF4F4F5"
+                              Data="M15.7125,119.26214 L21.75,112.53"/>
+
+                        <Path x:Name="pDedoDerPiernaIzq"
+                              Width="4"
+                              Height="7"
+                              Canvas.Left="32.5"
+                              Canvas.Top="121.53"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FFF4F4F5"
+                              Data="M32.4375,127.31571 L35.25,121.53"/>
+                    </Canvas>
+
+                    <Canvas x:Name="cvTronco"
+                        Width="340"
+                        Height="345"
+                        Canvas.Left="88"
+                        Canvas.Top="139"
+                        RenderTransformOrigin="0.5,0.5">
+
+                        <Canvas.RenderTransform>
+                            <CompositeTransform x:Name="trTronco"/>
+                        </Canvas.RenderTransform>
+
+                        <Canvas x:Name="cvConcha"
+                            Width="76"
+                            Height="237"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Canvas.Left="177"
+                            Canvas.Top="0.52"
+                            RenderTransformOrigin="0.5,0.5">
+
+                            <Canvas.RenderTransform>
+                                <CompositeTransform x:Name="trConcha"/>
+                            </Canvas.RenderTransform>
+                            <Path x:Name="pConcha"
+                              Width="55" Height="216"
+                              Canvas.Left="21.342" Canvas.Top="21.167"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FFB26B2B"
+                              Data="M293.66667,160.68667 C287.40732,167.01524 283.50198,180.5058 288.16632,194.51966 297.65,207.28613 301.7338,219.34025 300.35836,230.67419 309.0401,246.95934 307.90196,265.04492 296.84817,292.74611 294.44383,306.37226 296.50614,321.01695 303.77547,336.84898 307.01209,344.01295 308.87881,351.25947 307.49154,358.7021 311.03216,363.36415 313.94561,368.91862 316.11173,375.53643 363.92396,300.92161 355.36539,222.47646 293.66667,160.68667 z"/>
+                            <Path x:Name="pSombraConcha"
+                              Height="218" Width="50"
+                              Canvas.Left="21.448" Canvas.Top="20.333"
+                              Stretch="Fill"
+                              Fill="Black"
+                              Opacity="0.1"
+                              StrokeThickness="0"
+                              Data="M41.666667,37.833333 C41.155881,47.53052 39.980805,56.10163 37.833001,62.666999 43.8213,77.425352 48.390592,95.163879 51.890101,115.14915 54.098284,125.65774 54.546892,168.6414 58.450396,179.74453 60.773124,182.24459 64.028017,182.50754 67.509869,182.22582 62.550527,202.18351 55.658631,219.81972 47.416466,235.83393 45.820365,230.66596 43.70273,225.21843 40.306382,219.08546 41.017756,212.78937 40.415004,206.48745 38.760712,200.18088 32.364822,185.29805 30.107701,170.1378 31.341494,154.74356 40.485813,127.77396 41.114554,107.14476 34.742249,91.728297 35.417574,80.334255 32.182824,68.222728 24.23178,55.245776 20.914193,42.197347 23.032884,30.797424 28.528588,20.421551 31.470668,23.97385 35.697283,29.53849 41.666667,37.833333 z"/>
+                            <Path x:Name="pBordeConcha"
+                              Width="42" Height="220"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FFF4EFE4"
+                              Data="M287,139.52 C281.8966,150.2111 275.46205,159.92578 267.5,168.52 L264.93421,181.52 C286.17361,184.96311 295.29157,201.92944 300.87283,223.92429 296.34172,251.76278 289.84473,264.49845 273.60291,281.94262 270.30964,300.34252 271.27185,319.01913 278.59399,338.1093 289.4308,340.09764 298.91994,347.62121 307.48968,358.92104 306.19226,338.13305 295.51208,320.15821 296.07236,302.8185 298.14824,284.28462 304.89484,271.01036 305.67329,251.22419 304.44849,245.01491 302.6343,238.16026 300.4836,230.93711 302.02537,217.91517 296.51355,205.80789 287.76885,194.11981 285.49068,181.89368 287.88269,169.62068 294.77494,157.30251 295.20809,147.96239 292.00119,142.78004 287,139.52 z"/>
+                            <Path x:Name="pLineaConcha1"
+                              Width="46" Height="38"
+                              Canvas.Left="23.333" Canvas.Top="55.333"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Data="M288.33333,194.85333 C302.26959,199.7197 320.39919,214.52739 333.66701,232.10367"/>
+                            <Path x:Name="pLineaConcha2"
+                              Width="36" Height="42"
+                              Canvas.Left="38.875" Canvas.Top="161"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Data="M303.875,341.395 C316.77057,331.51994 328.6258,318.28021 339.08333,300.51999"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvCuerpo"
+                                Canvas.Left="0"
+                                Canvas.Top="30"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RenderTransformOrigin="0.5,0.5">
+
+                            <Canvas.RenderTransform>
+                                <CompositeTransform x:Name="trCuerpo"/>
+                            </Canvas.RenderTransform>
+
+                            <Path x:Name="pCuerpo"
+                                  Height="245"
+                                  Width="225"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="#FFF3E47A"
+                                  Data="M104.5,270.54 C109.28915,233.59362 122.75881,202.47983 142.5,175.58001 178.04936,183.7772 259.27642,179.30175 281.5,168.12314 L279,180.21235 C298.85748,185.74292 307.25623,200.87939 312.32343,222.77482 310.21971,246.13916 302.17319,265.77761 286.56754,283.13126 283.3544,301.94447 285.95931,320.43448 293.05213,338.67518 316.11558,337.39569 356.14375,398.12038 284.57227,390.08015 256.72603,405.48789 243.16791,409.90347 235.18957,410.02641 208.96259,414.02641 186.25919,409.64798 166.35308,398.61812 139.14006,382.54393 118.70909,358.3924 106.49526,324.45436 101.33772,305.8512 100.48132,287.85285 104.5,270.54 z"/>
+
+                            <Path x:Name="pSombraInfTripa"
+                                  Height="132"
+                                  Width="174"
+                                  Canvas.Left="17"
+                                  Canvas.Top="114"
+                                  Stretch="Fill"
+                                  Fill="Black"
+                                  Opacity="0.12"
+                                  StrokeThickness="0"
+                                  Data="M119.66422,353.7919 C150.3775,372.41405 183.28977,372.09927 211.83334,347.91333 230.61111,332.18426 243.21485,317.06279 250.12636,302.5015 262.88863,299.78521 275.11265,293.61594 286.9015,284.65506 284.15214,302.02946 285.67181,319.39365 292.05487,336.74621 268.20781,333.03846 250.34435,344.04358 236.6442,365.28575 230.35131,374.76098 227.6979,384.56319 227.99149,394.63016 228.92057,400.59974 231.24141,406.03434 234.64742,411.05181 182.67045,416.71304 146.47985,393.55647 119.66422,353.7919 z"/>
+
+                            <Path x:Name="pSombreSupTripa"
+                                  Height="58"
+                                  Width="141"
+                                  Canvas.Left="39.999"
+                                  Stretch="Fill"
+                                  Fill="Black"
+                                  Opacity="0.06"
+                                  StrokeThickness="0"
+                                  Data="M140.959,177.90644 C161.42473,208.81514 187.24282,227.45904 221,225.82999 227.44158,209.04907 236.93872,194.94728 253,186.60098 260.70969,182.08257 269.56498,180.2888 279.5,181.06301 L280.74557,167.87709 C269.18806,180.99403 247.77976,189.63969 207.62682,189.77718 181.76958,190.94519 140.7698,176.62725 140.959,177.90644 z"/>
+
+                            <Path x:Name="pLineaCuerpo1"
+                                  Width="97"
+                                  Height="23"
+                                  Canvas.Left="16.875"
+                                  Canvas.Top="50.145"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M104.875,219.145 C127.2536,233.17352 159.35775,239.16489 200.625,240.895"/>
+
+                            <Path x:Name="pLineaCuerpo2"
+                                  Width="8"
+                                  Height="137"
+                                  Canvas.Left="64.866"
+                                  Canvas.Top="68.937"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M159.75,237.93667 C156.83193,244.1963 154.72712,261.87095 153.16667,287.18633 152.64208,306.19583 152.81413,325.20838 153.95009,344.22518 155.29702,355.83815 157.10973,365.76161 159.27945,374.39007"/>
+
+                            <Path x:Name="pLineaCuerpo3"
+                                  Width="120"
+                                  Height="16"
+                                  Canvas.Left="16.75"
+                                  Canvas.Top="133.437"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M104.75,302.43667 C117.43825,305.75604 132.9169,308.83168 152.83333,311.51968 174.92205,314.22732 198.55065,316.10315 223.70615,317.15418"/>
+
+                            <Path x:Name="pLineaCuerpo4"
+                                  Width="16"
+                                  Height="64"
+                                  Canvas.Left="1.833"
+                                  Canvas.Top="96.52"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M89.821445,265.52066 L104.66633,302.35367 C100.47858,310.60747 96.901887,319.29901 93.832922,328.35424"/>
+
+                            <Path x:Name="pLineaCuerpo5"
+                                  Width="20"
+                                  Height="44"
+                                  Canvas.Left="135.125"
+                                  Canvas.Top="132.145"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M229.5625,301.145 C227.30045,306.44938 225.15298,311.70337 223.1255,316.89499 229.46444,325.14324 236.56809,333.8267 243.91164,343.10397"/>
+
+                            <Path x:Name="pLineaCuerpo6"
+                                  Width="80"
+                                  Height="26"
+                                  Canvas.Left="47.167"
+                                  Canvas.Top="204.437"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M135.16667,390.27 C142.67249,383.98256 155.2052,377.52083 159.41634,373.43666 166.69191,378.82787 191.00684,390.26449 214.65135,397.94368"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvPiernaDer"
+                                Width="105"
+                                Height="148"
+                                Canvas.Left="125"
+                                Canvas.Top="197"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                RenderTransformOrigin="0.5,0.2">
+
+                            <Canvas.RenderTransform>
+                                <CompositeTransform x:Name="trPiernaDer"/>
+                            </Canvas.RenderTransform>
+
+                            <Path x:Name="pPiernaDer"
+                                  Width="105"
+                                  Height="148"
+                                  Canvas.Top="0.156"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="#FF7EC8D3"
+                                  Data="M282.41667,335.95667 C304.40265,337.46675 319.39844,350.83741 327.24999,376.33 331.31953,396.60586 331.63089,416.11698 328.91049,429.19212 329.50061,443.20788 330.4336,458.76586 331.63088,475.51256 325.68558,476.04081 318.3206,474.72816 309.48448,471.5079 305.97767,477.48758 301.29682,481.9738 295.13033,484.57019 287.24933,479.66101 281.36623,475.78234 277.00309,473.32139 268.87741,475.56711 261.16335,476.65935 253.82765,476.69131 249.86283,474.91956 247.58406,472.86165 248.34153,470.28846 247.7189,448.41896 242.53308,429.63425 234.04184,413.08405 210.75756,390.9998 247.01821,332.58506 282.41667,335.95667 z"/>
+
+                            <Path x:Name="pSombrePiernaDer"
+                                  Height="148"
+                                  Width="103"
+                                  Canvas.Left="2.167"
+                                  Stretch="Fill"
+                                  Fill="Black"
+                                  Opacity="0.1"
+                                  StrokeThickness="0"
+                                  Data="M174.16667,84.28 C177.61238,84.133083 181.6775,89.6022 186.66634,103.44667 189.69913,115.35697 196.9142,121.9287 207.81929,123.79023 220.84557,130.54752 228.55559,127.69066 236.34357,108.42514 248.16041,85.099302 250.72965,70.620789 247.18435,61.992176 242.88089,39.098453 235.06935,29.986596 225.08657,29.404678 209.49338,29.968943 196.48374,36.311807 184.7347,45.474241 194.63696,30.2101 207.75958,19.906173 227.80872,20.270931 252.05148,25.111797 264.08972,40.482658 268.16059,62.727714 272.38476,79.834676 272.62487,96.917622 269.43909,113.97992 L272.64659,159.98849 C265.76993,160.29246 258.69576,159.04744 251.40551,156.10779 248.38797,160.6378 243.86861,164.8417 238.04958,168.76337 235.18696,167.51387 229.42008,163.94315 220.67076,157.98874 212.24132,160.04163 204.52083,161.01594 197.65993,160.68248 193.76531,159.55665 192.15723,157.06272 192.9934,153.10634 192.15009,130.6865 186.7708,112.82758 178.9938,97.379585 175.70372,93.240664 174.20487,88.859215 174.16667,84.28 z"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvBrazoDerDelante"
+                                Canvas.Left="96"
+                                Canvas.Top="43.02"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RenderTransformOrigin="0.15,0.2">
+
+                            <Canvas.RenderTransform>
+                                <CompositeTransform x:Name="trBrazoDer"/>
+                            </Canvas.RenderTransform>
+                            <Path x:Name="pBrazoDer"
+                                  Width="117" Height="120"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="#FF7EC8D3"
+                                  Data="M198.66667,290.04 C203.2243,291.43714 207.77971,291.83144 212.33334,291.41334 222.95565,301.28744 232.36152,305.28814 240.96827,305.43037 277.97473,301.59971 304.31071,262.66293 311.79887,196.00497 306.66226,163.79696 296.21193,145.35962 281.5483,137.84117 261.80818,134.79948 245.32144,144.60425 232.36039,168.85221 218.04836,197.30593 210.44538,229.19111 208.50425,263.91331 200.09605,276.13492 196.13948,285.30773 198.66667,290.04 z"/>
+                            <Path x:Name="pSombraBrazoDer"
+                                  Width="117" Height="120"
+                                  Stretch="Fill"
+                                  Fill="Black"
+                                  Opacity="0.1"
+                                  StrokeThickness="0"
+                                  Data="M232.33333,207.54 C251.23577,196.21651 267.77471,191.22943 280.33333,196.91333 287.81337,201.75006 288.30951,211.99518 281.33331,228.02691 275.99607,239.50936 268.61643,251.43046 253.49999,265.01319 243.9084,263.54596 236.79133,263.15758 234.16666,264.72781 230.39937,265.61558 223.31059,271.04384 212.83333,281.10421 209.85126,282.69954 205.47637,284.3234 199.43116,285.98148 203.28977,287.7964 208.36752,288.53764 214.39721,288.44053 234.71501,300.77263 255.47958,300.33918 276.72837,286.07045 296.19659,272.41155 310.63422,253.24433 313.89682,221.84084 308.70609,201.45039 299.15887,187.0824 282.64901,182.33963 260.16418,180.90289 243.71106,189.85189 232.33333,207.54 z"/>
+                            <Path x:Name="pDedoIzqManoDer"
+                                  Width="22" Height="19"
+                                  Canvas.Left="24.667" Canvas.Top="69.75"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M209,265.27 C213.58851,258.8771 218.5771,254.32463 224,251.76999 226.91011,254.96576 228.27212,261.81839 229.88778,270.85172"/>
+                            <Path x:Name="pDedoDerManoDer"
+                                  Width="18" Height="16"
+                                  Canvas.Left="57.333" Canvas.Top="93.457"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Data="M241.625,276.51073 C249.88555,275.28387 255.60261,275.16905 258.75,276.01999 259.89732,280.09388 258.12812,284.98717 254.97243,290.26999"/>
+                        </Canvas>
+
+                    </Canvas>
+
+
+                    <Canvas x:Name="cvCabeza"
+                            Width="296"
+                            Canvas.Left="0"
+                            Canvas.Top="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            RenderTransformOrigin="0.5,0.85">
+
+                        <Canvas.RenderTransform>
+                            <CompositeTransform x:Name="trCabeza"/>
+                        </Canvas.RenderTransform>
+                        <Path x:Name="pCabeza"
+                              Width="217" Height="192"
+                              Canvas.Left="78.73"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FF7EC8D3"
+                              Data="M205.58333,0.165 C177.14387,-0.56992517 149.82861,9.3031522 125.58333,28.955 112.22038,42.530658 104.52415,64.064466 103.49999,91.786693 99.116563,99.133004 95.886941,106.08964 92.469012,113.02807 95.575872,130.46942 113.58972,153.37869 141.98403,174.97692 177.39937,197.827 261.10932,189.55574 275.23723,171.74619 311.67764,135.00942 316.2818,94.850933 297.17708,52.164424 276.6847,19.802435 247.17378,0.94180015 205.58333,0.165 z"/>
+                        <Path x:Name="sombra1Cabeza"
+                              Width="200" Height="139"
+                              Canvas.Left="95.73" Canvas.Top="52.687"
+                              Stretch="Fill"
+                              Fill="Black"
+                              Opacity="0.1"
+                              StrokeThickness="0"
+                              Data="M110.5,145.87333 C142.63913,163.22607 176.2424,171.32277 212.16667,164.74667 236.26409,161.81021 253.26984,152.6191 263.33225,137.30418 272.68952,123.98669 279.49952,107.0918 282.31141,84.581934 284.01639,66.008758 289.95766,57.998477 297.96089,55.129536 311.54442,84.716392 312.31014,112.48145 300.95227,138.52338 289.10836,167.09158 268.50431,187.6461 226.8321,188.92769 180.79783,194.94855 138.57407,183.02069 110.5,145.87333 z"/>
+
+                        <Path x:Name="pBoca"
+                              Width="160" Height="20"
+                              Canvas.Left="87.638" Canvas.Top="116.974"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Data="M102.14222,116.35221 C107.08605,112.99777 118.15667,122.07854 127.87984,128.65398 127.02747,130.38834 140.30015,129.35907 149.26811,127.37919 156.83814,124.51987 193.24848,128.23542 247.79073,136.08461 252.04861,135.37495 255.60332,133.51709 259.36636,132.68741"/>
+
+                        <Path x:Name="pBocaAbierta"
+                              Width="48"
+                              Height="42"
+                              Canvas.Left="108"
+                              Canvas.Top="108"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FF7A3B3B"
+                              Opacity="0"
+                              Data="M110,120 C112,100 145,95 156,113 C160,130 150,148 132,150 C118,149 109,138 110,120 z"/>
+
+                        <Image x:Name="imAguaDebil"
+                               Source="AssetsSquirtleMRGM/agua_debil.png"
+                               Width="614"
+                               Height="339"
+                               Canvas.Left="-393.071"
+                               Canvas.Top="-50.187"
+                               Canvas.ZIndex="60" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform Rotation="162.252"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Image x:Name="imAguaFuerte"
+                               Source="AssetsSquirtleMRGM/agua_fuerte.png"
+                               Width="644"
+                               Height="497"
+                               Canvas.Left="-427"
+                               Canvas.Top="-137"
+                               Canvas.ZIndex="61" Opacity="0"/>
+
+                        <!-- IMPACTO AGUA -->
+                        <Image x:Name="imImpactoAgua"
+                                Source="AssetsSquirtleMRGM/impacto_agua.png"
+                                Width="328"
+                                Height="220"
+                                Canvas.Left="-417"
+                                Canvas.Top="174"
+                                RenderTransformOrigin="0.5,0.5"
+                                Canvas.ZIndex="62" Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform x:Name="trImpactoAgua"
+                                                    ScaleX="0.4"
+                                                    ScaleY="0.4"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Image x:Name="imHeridaCara"
+                                Source="AssetsSquirtleMRGM/tirita2.png"
+                                Width="98"
+                                Height="63"
+                                Canvas.Left="217.195"
+                                Canvas.Top="78.262"
+                                RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform x:Name="trHeridaCara"
+                                                    Rotation="-18"
+                                                    ScaleX="0.70"
+                                                    ScaleY="0.70"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Image x:Name="imSudorCombo"
+                               Source="AssetsSquirtleMRGM/sudor.png"
+                               Width="166"
+                               Height="121"
+                               Canvas.Left="218"
+                               Canvas.Top="74" 
+                               Opacity="0">
+                            <Image.RenderTransform>
+                                <CompositeTransform ScaleX="0.6" ScaleY="0.6"/>
+                            </Image.RenderTransform>
+                        </Image>
+
+                        <Canvas x:Name="cvNariz" Width="19" Height="6" Canvas.Left="106.333" Canvas.Top="108.985">
+                            <Path x:Name="pNarizIzq"
+                                  Width="3" Height="4"
+                                  Canvas.Left="-0.363" Canvas.Top="0.707"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="#FFF4F4F5"
+                                  Data="M106.00087,111.10004 C106.62918,112.8203 107.23847,113.80103 107.83454,114.26704"/>
+                            <Path x:Name="pNarizDer"
+                                  Width="6" Height="4"
+                                  Canvas.Left="13.203" Canvas.Top="2.301"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="#FFF4F4F5"
+                                  Data="M119.54849,115.4516 C122.32913,114.22153 123.63548,113.32038 124.04815,112.6186"/>
+                        </Canvas>
+
+                        <Path x:Name="pCejaIzq"
+                              Width="2" Height="6"
+                              Canvas.Left="114.833" Canvas.Top="36.687"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FFF4F4F5"
+                              Data="M114.73958,36.657925 C115.4736,38.546966 116.23004,40.838367 116.5625,42.727315"/>
+                        <Path x:Name="pCejaDer"
+                              Width="11" Height="12"
+                              Canvas.Left="195.333" Canvas.Top="35.687"
+                              Stretch="Fill"
+                              Stroke="Black"
+                              Fill="#FFF4F4F5"
+                              Data="M195.33333,46.686667 C196.80871,43.352901 201.68175,37.782421 205.16699,35.686335"/>
+
+                        <Canvas x:Name="cvOjoDer"
+                                Width="51"
+                                Height="73"
+                                Canvas.Left="191.339"
+                                Canvas.Top="41.985"
+                                RenderTransformOrigin="0.5,0.5">
+
+                            <Canvas.RenderTransform>
+                                <CompositeTransform x:Name="trOjoDerEstado"/>
+                            </Canvas.RenderTransform>
+                            <Path x:Name="pOjoDer"
+                                  Width="51" Height="73"
+                                  Canvas.Left="0.399"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="White"
+                                  Data="M192,107.35333 C190.71481,88.105123 193.74116,69.207595 205.5,51.020333 212.11276,43.636955 220.72305,40.853517 228.69231,42.30213 234.07185,44.715465 238.22431,49.815766 240.74835,58.481866 245.65881,76.596208 244.84522,93.04448 241.26695,108.68805 233.27405,116.56845 208.61502,115.56442 192,107.35333 z"/>
+                            <Path x:Name="pOjoDer_Iris"
+                                  Width="45" Height="72"
+                                  Canvas.Top="0.209"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="Black"
+                                  Data="M226.625,42.645 C237.8263,50.906687 238.85391,102.37211 223.875,113.77 213.67068,115.58719 203.81549,112.91138 194.19792,107.13334 193.11949,84.882628 197.96126,66.873113 206.35808,51.410406 212.57934,43.604567 219.37433,41.042437 226.625,42.645 z"/>
+                            <Path x:Name="pOjoDer_SombraRoja"
+                                  Width="41"
+                                  Height="36"
+                                  Canvas.Left="2"
+                                  Canvas.Top="36.5"
+                                  Stretch="Fill"
+                                  Stroke="Black">
+                                <Path.Fill>
+                                    <SolidColorBrush x:Name="brOjoDerDolor" Color="#FFB32025"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <Geometry>M226.25,78.77 C229.05877,80.083602 231.21426,83.418974 233.55717,90.370112 232.69209,100.38357 229.03069,108.0333 223.72792,113.05312 213.30829,114.56973 204.53814,112.87687 195.97354,107.94578 196.04026,98.268645 199.24575,91.396686 203.40664,86.515014 204.53746,96.628603 209.4059,101.0259 216.65043,99.736141 222.02218,97.378411 224.75747,89.399137 226.25,78.77 z</Geometry>
+                                </Path.Data>
+                            </Path>
+                            <Path x:Name="pOjoDer_Brillo"
+                                  Width="20" Height="27"
+                                  Canvas.Left="13.536" Canvas.Top="3.91"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="White"
+                                  Data="M221.75,45.895 C225.08282,48.350696 224.12241,61.828956 216.75,69.645 209.84939,73.443465 206.30167,70.986906 204.875,64.573389 205.24421,53.879504 212.25784,46.233366 221.75,45.895 z"/>
+                            <Path x:Name="pOjoDer_Blanco"
+                                  Width="19" Height="72"
+                                  Canvas.Left="31.786" Canvas.Top="1.16"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="White"
+                                  Data="M227.75,43.145 C239.7348,50.19241 243.81243,71.37064 239.29437,108.06103 234.10585,110.92809 228.82249,113.16293 223.26953,113.24444 237.83757,100.77957 238.93017,56.597181 227.75,43.145 z"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvOjoIzq"
+                                Width="18"
+                                Height="54"
+                                Canvas.Left="90.299"
+                                Canvas.Top="43.02"
+                                RenderTransformOrigin="0.5,0.5">
+
+                            <Canvas.RenderTransform>
+                                <CompositeTransform x:Name="trOjoIzqEstado"/>
+                            </Canvas.RenderTransform>
+                            <Path x:Name="pOjoIzq"
+                                  Width="18" Height="54"
+                                  Canvas.Left="0.201"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="White"
+                                  Data="M103.83333,43.02 C109.26625,61.900504 105.93271,84.258995 99.333669,95.686667 96.819209,96.067179 94.20557,95.318456 91.384565,92.208681 91.533269,69.232909 98.373561,44.679045 103.83333,43.02 z"/>
+                            <Path x:Name="pOjoIzq_Iris"
+                                  Width="18" Height="54"
+                                  Canvas.Left="0.201"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="Black"
+                                  Data="M103.83333,43.02 C109.26625,61.900504 105.93271,84.258995 99.333669,95.686667 96.819209,96.067179 94.20557,95.318456 91.384565,92.208681 91.533269,69.232909 98.373561,44.679045 103.83333,43.02 z"/>
+                            <Path x:Name="pOjoIzq_SombraRoja"
+                                  Width="14"
+                                  Height="19"
+                                  Canvas.Top="35.25"
+                                  Stretch="Fill"
+                                  Stroke="Black">
+                                <Path.Fill>
+                                    <SolidColorBrush x:Name="brOjoIzqDolor" Color="#FFB32025"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <Geometry>M92.25,78.27 C93.025359,78.945899 95.186972,89.13972 96.416667,89.686663 98.848954,90.094027 101.33815,89.766915 103.88194,88.735272 102.66512,91.736478 101.4017,94.328079 100.09274,96.519361 95.492867,96.350586 92.243805,94.903878 90.223223,92.294973 90.019532,87.241888 90.697604,82.567963 92.25,78.27 z</Geometry>
+                                </Path.Data>
+                            </Path>
+                            <Path x:Name="pOjoIzq_Brillo"
+                                  Width="8" Height="23"
+                                  Canvas.Left="9.943" Canvas.Top="5.25"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  Fill="White"
+                                  Data="M105.66667,48.27 C103.48909,51.000487 101.75023,54.674182 100.41633,59.77 100.15837,62.933833 100.16468,66.099113 100.50348,69.266213 101.22972,72.44458 102.44804,71.995093 103.9162,69.703634 105.60816,66.217323 106.79891,62.564406 107.67894,58.808205 107.65703,55.233855 106.98818,51.720939 105.66667,48.27 z"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvCaraHerido"
+                                Canvas.ZIndex="40"
+                                Opacity="0">
+
+                            <!-- BOCA HERIDO (TRISTE DE VERDAD) -->
+                            <Path x:Name="pBocaHerido"
+                                  Width="90"
+                                  Height="26"
+                                  Canvas.Left="115"
+                                  Canvas.Top="128"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  StrokeThickness="2"
+                                  Data="M115,145 C138,128 170,128 205,145" />
+
+                        </Canvas>
+                        <Canvas x:Name="cvCaraDescanso"
+                                Canvas.ZIndex="41"
+                                Opacity="0">
+
+                            <!-- Ojo derecho cerrado -->
+                            <Path x:Name="pOjoDerDescanso"
+                                  Width="34"
+                                  Height="10"
+                                  Canvas.Left="198"
+                                  Canvas.Top="74"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  StrokeThickness="2"
+                                  Data="M198,79 C208,73 220,73 232,79"/>
+
+                            <!-- Ojo izquierdo cerrado -->
+                            <Path x:Name="pOjoIzqDescanso"
+                                  Width="16"
+                                  Height="8"
+                                  Canvas.Left="91"
+                                  Canvas.Top="72"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  StrokeThickness="2"
+                                  Data="M91,76 C96,72 101,72 107,76"/>
+
+                            <!-- Boca tranquila -->
+                            <Path x:Name="pBocaDescanso"
+                                  Width="44"
+                                  Height="12"
+                                  Canvas.Left="114"
+                                  Canvas.Top="127"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  StrokeThickness="2"
+                                  Data="M116,132 C124,138 142,138 158,133"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvCaraDerrotado"
+                                Canvas.ZIndex="42"
+                                Opacity="0">
+
+                            <!-- Ojo derecho KO -->
+                            <TextBlock Text="X"
+                                   FontSize="26"
+                                   FontWeight="Bold"
+                                   Foreground="Black"
+                                   Canvas.Left="200"
+                                   Canvas.Top="78"/>
+
+                            <!-- Ojo izquierdo KO -->
+                            <TextBlock Text="X"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="Black"
+                                   Canvas.Left="95"
+                                   Canvas.Top="80"/>
+                            <!-- Boca floja -->
+                            <Path x:Name="pBocaDerrotado"
+                                  Width="34"
+                                  Height="10"
+                                  Canvas.Left="113"
+                                  Canvas.Top="132"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  StrokeThickness="1.5"
+                                  Data="M115,145 L150,145"/>
+                        </Canvas>
+
+                        <Canvas x:Name="cvCaraCansado"
+                                Canvas.ZIndex="41"
+                                Opacity="0">
+
+                            <Image x:Name="imSudorCansado"
+                                   Source="AssetsSquirtleMRGM/sudor.png"
+                                   Width="166"
+                                   Height="121"
+                                   Canvas.Left="218"
+                                   Canvas.Top="74" 
+                                   Opacity="0">
+                                <Image.RenderTransform>
+                                    <CompositeTransform ScaleX="0.6" ScaleY="0.6"/>
+                                </Image.RenderTransform>
+                            </Image>
+
+                            <!-- Boca cansada -->
+                            <Path x:Name="pBocaCansado"
+                                  Width="34"
+                                  Height="14"
+                                  Canvas.Left="113"
+                                  Canvas.Top="141"
+                                  Stretch="Fill"
+                                  Stroke="Black"
+                                  StrokeThickness="1.6"
+                                  Data="M113,150 Q130,140 147,150" />
+                        </Canvas>
+                    </Canvas>
+
+                </Canvas>
+            </Viewbox>
+
+            <TextBlock x:Name="tbPokemon"
+               Grid.Row="3"
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Text="Squirtle"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="28"
+               FontWeight="Bold"
+               Foreground="Black"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

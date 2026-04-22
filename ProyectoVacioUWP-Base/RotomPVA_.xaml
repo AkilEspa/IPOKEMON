@@ -1,0 +1,212 @@
+﻿<UserControl
+    x:Class="ProyectoVacioUWP_Base.RotomXYZ"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="ProyectoVacioUWP_Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="500"
+    d:DesignWidth="500">
+
+    <UserControl.Resources>
+        
+        <Storyboard x:Key="AniIdle">
+            <DoubleAnimation
+                Storyboard.TargetName="RotomContenedor"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+                From="-8"
+                To="8"
+                Duration="0:0:3.5"
+                AutoReverse="True"
+                RepeatBehavior="Forever">
+                <DoubleAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="RotomContenedor"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+                From="-12"
+                To="12"
+                Duration="0:0:2.7"
+                AutoReverse="True"
+                RepeatBehavior="Forever">
+                <DoubleAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseInOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        
+        <Storyboard x:Key="AtaqueFlojo">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="RotomContenedor" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="-30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="AtaqueFuerte">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="RotomContenedor" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="-30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.45" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Storyboard.TargetName="ImagenAtaqueFuerte" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="ImagenAtaqueFuerte" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="0" To="2.5" Duration="0:0:0.3" />
+            <DoubleAnimation Storyboard.TargetName="ImagenAtaqueFuerte" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="0" To="2.5" Duration="0:0:0.3" />
+        </Storyboard>
+
+        <Storyboard x:Key="Herido">
+            <ColorAnimation Storyboard.TargetName="Int_izq" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" To="#FFE51414" Duration="0:0:0.5" />
+            <ColorAnimation Storyboard.TargetName="Int_der" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" To="#FFE51414" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="NoHerido">
+            <ColorAnimation Storyboard.TargetName="Int_izq" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" To="#FF2B6EAF" Duration="0:0:0.5" />
+            <ColorAnimation Storyboard.TargetName="Int_der" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" To="#FF2D6EAE" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="Cansado" RepeatBehavior="Forever" AutoReverse="True">
+
+            <ColorAnimation Storyboard.TargetName="C_ext" 
+                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" 
+                            To="#FF202020" 
+                            Duration="0:0:1.5">
+                <ColorAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseInOut"/>
+                </ColorAnimation.EasingFunction>
+            </ColorAnimation>
+
+            <ColorAnimation Storyboard.TargetName="C_int" 
+                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" 
+                            To="#FF303030" 
+                            Duration="0:0:1.5">
+                <ColorAnimation.EasingFunction>
+                    <SineEase EasingMode="EaseInOut"/>
+                </ColorAnimation.EasingFunction>
+            </ColorAnimation>
+
+        </Storyboard>
+
+        <Storyboard x:Key="Protegido">
+            <DoubleAnimation Storyboard.TargetName="ImagenEscudo" Storyboard.TargetProperty="Opacity" To="0.8" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="SinEscudo">
+            <DoubleAnimation Storyboard.TargetName="ImagenEscudo" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.5" />
+        </Storyboard>
+
+        <Storyboard x:Key="Dormido" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="ImagenDormido" Storyboard.TargetProperty="Opacity" To="0.8" Duration="0:0:1" />
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid>
+        <Canvas x:Name="RotomContenedor" RenderTransformOrigin="0.5,0.5" Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+
+            <Canvas x:Name="Cuerpo">
+                <Path x:Name="C_ext" Data="M165.25,39.79 L164,54.540001 166.1875,72.731668 168.64844,93.195429 169.90739,101.76045 171.08887,112.17351 173.55028,127.04101 176.93267,145.04922 178.01038,156.51978 166.43236,168.61569 159.91364,178.50585 154.68568,190.90928 153.66226,211.61635 158.73519,228.64647 164.61933,237.70007 170.09766,244.38165 152.64816,258.98328 123.0589,283.08439 86.831619,309.52575 49.144799,339.86258 91.695163,349.57777 62.518048,388.63869 27.262367,432.03413 10.242834,456.38089 41.85162,437.59048 91.087751,401.52639 149.44168,360.06953 203.94588,316.92743 120.29256,314.06252 141.00295,291.9859 161.91638,270.58338 181.40851,252.21428 C181.40851,252.21428 209.83453,261.65161 209.83453,261.65161 209.42886,261.67052 208.92176,265.63044 209.83453,267.90529 210.7473,270.18014 212.47142,273.46604 212.47142,273.46604 L217.852,278.18425 227.31654,282.48119 236.76779,285.68283 245.90186,297.73111 261.79467,320.90089 271.92156,330.92708 273.84866,320.81664 273.94989,295.11925 274.15243,276.66768 287.73304,268.15805 294.02119,255.09873 289.04795,245.15679 307.31695,232.43447 335.31984,241.19686 365.75778,251.1388 390.61542,260.40671 371.00754,275.57238 339.7162,297.3941 306.18977,320.47962 321.53065,324.01828 360.64482,327.55693 418.14773,332.3594 457.51766,335.89805 C457.51766,335.89805 492.04842,337.07761 504.43887,337.83589 516.82932,338.59417 532.63807,338.76268 532.63807,338.76268 L512.54594,327.05141 495.59955,319.9741 468.81005,310.03216 441.31022,297.22559 432.38039,293.77119 414.31777,287.36791 402.03925,281.97567 392.29762,277.84723 404.67761,270.85417 432.58334,254.08768 443.94858,245.83082 417.46351,239.8488 396.66106,236.14164 375.24976,232.18171 344.60419,227.63201 323.39584,224.43037 314.66896,222.99805 C314.66896,222.99805 311.52322,223.84059 312.13207,222.32402 312.74093,220.80746 314.56748,217.94283 314.56748,217.94283 L318.52502,207.32686 318.82945,198.22746 316.79994,184.07283 312.33502,176.32149 304.92732,166.4638 288.58979,153.57298 274.48471,147.67522 260.17668,143.79955 248.30406,140.76641 240.69341,131.07723 227.90751,112.54141 221.71751,104.62156 216.03489,95.690667 209.94637,87.518055 195.73982,67.971189 179.70671,50.783428 168.03704,39.661935 C168.03704,39.661935 164.28952,37.433503 165.25,39.79 z" Fill="#FF90D4D3" Stroke="Black" Stretch="Fill" Height="414" Canvas.Left="37" Canvas.Top="39" Width="430"/>
+                <Path x:Name="C_int" Data="M176.31935,66.036176 L175.125,70.290001 176.88281,84.45797 178.17188,96.328344 181.3457,112.00873 184.06726,126.07488 185.68184,141.72337 188.56098,158.83891 181.24317,165.77071 176.20468,173.19803 171.88597,181.81348 170.04682,187.7531 169.19419,202.43501 171.2519,214.45821 176.9409,225.5371 189.65036,237.00755 201.3396,242.24718 208.8889,244.32297 219.78074,244.07859 213.70063,251.40996 215.52467,261.0757 222.8208,267.18943 234.39927,268.78093 242.54991,265.23707 247.33109,261.73555 251.9036,255.13243 251.33526,246.8521 246.6134,241.65745 237.94629,240.24152 244.4799,239.69692 252.2299,235.41987 262.23867,229.55419 269.66244,219.65586 276.00388,206.70248 277.62599,191.42728 272.65204,177.25189 260.2172,163.93191 252.88065,158.43283 243.55452,155.37779 233.2336,151.71174 223.41008,151.58954 219.67963,142.05782 217.06831,134.84792 210.1048,122.13895 202.3952,108.94117 193.31777,93.299361 187.72209,82.545617 179.7638,68.492429 z" Fill="#FFF5875A" Height="208" Canvas.Left="169" Stroke="Black" Stretch="Fill" Canvas.Top="66.028" Width="110"/>
+
+                <Path x:Name="Rayo_prox_izq" Data="M172.875,244.915 L174,247.28999 115.64063,313.04781 107.22341,313.94431 110.61882,309.4812 z" Fill="#FFF4F4F5" Height="59" Canvas.Left="114.5" Stroke="Black" Stretch="Fill" Canvas.Top="244.915" Width="60"/>
+                <Path x:Name="Rayo_med_izq" Data="M117,319.415 L174.875,322.04001 110.38928,371.25876 C110.38928,371.25876 101.46048,360.27491 101.46048,360.82411 101.46048,361.3733 119.44208,336.54981 119.44208,336.54981 L98.980259,332.15627 z" Fill="#FFF4F4F5" Height="60" Canvas.Left="98.875" Stroke="Black" Stretch="Fill" Canvas.Top="319.415" Width="78"/>
+                <Path x:Name="Rayo_dis_izq" Data="M93.375,381.29 L98.375,388.91501 56.5,427.63571 z" Fill="#FFF4F4F5" Height="50" Canvas.Left="56.5" Stroke="Black" Stretch="Fill" Canvas.Top="381.29" Width="43"/>
+                <Path x:Name="Rayo_prox_der" Data="M297.125,228.04 L377.125,245.91499 345.75,271.9827 342.75,271.23367 362.375,254.00614 295.625,231.4106 z" Fill="#FFF4F4F5" Height="45" Canvas.Left="295.625" Stroke="Black" Stretch="Fill" Canvas.Top="228.04" Width="82"/>
+                <Path x:Name="Rayo_med_der" Data="M339.125,279.79 L385.5,301.54001 382.60156,321.43632 297.79076,313.25579 z" Fill="#FFF4F4F5" Height="43" Canvas.Left="298.125" Stroke="Black" Stretch="Fill" Canvas.Top="279.79" Width="88"/>
+                <Path x:Name="Rayo_dis_der" Data="M398.75,309.915 L440,327.91501 396.7378,324.16501 z" Fill="#FFF4F4F5" Height="19" Canvas.Left="396.75" Stroke="Black" Stretch="Fill" Canvas.Top="309.915" Width="44"/>
+
+                <Path x:Name="Boca" Data="M240.70833,212.37333 L243.00033,213.29034 245.96123,214.01661 250.68919,213.87995 255.7262,213.4349 257.55909,212.7502 260.14848,211.55197 262.75885,209.77222 264.41301,208.78157 264.64854,209.21782 263.2239,210.49023 260.27887,212.05347 257.90385,213.0714 255.90884,213.98026 250.68379,214.19839 246.02875,214.23601 242.98873,213.70572 240.61371,212.94815 z" Fill="Black" Height="7" Canvas.Left="240.625" Stroke="Black" Stretch="Fill" Canvas.Top="208.04" Width="22" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+
+            <Canvas x:Name="Ojo_izq">
+                <Path x:Name="Int_izq" Data="M209.41667,195.62333 C212.66667,199.70667 215.74967,203.87367 215.74967,203.87367 L220.85089,207.74136 223.62248,208.16246 226.61434,206.20973 227.38678,202.96937 219.93187,191.09567 215.15208,184.42896 210.54609,179.48447 206.20083,178.33347 204.80422,181.17468 205.95913,188.09927 z" Fill="#FF2B6EAF" Height="29" Canvas.Left="205" Stroke="Black" Stretch="Fill" Canvas.Top="179.373" Width="22"/>
+                <Path x:Name="Sup_izq" Data="M218.0773,189.5974 L223.23733,184.28251 221.1076,179.38448 216.85295,173.54853 212.26967,168.6505 206.85646,164.69038 201.36807,165.32663 198.43591,170.86479 198.28585,177.13426 200.15432,188.41877 202.73099,197.06546 204.48002,201.02444 210.44842,197.24617 208.52797,192.61959 206.83373,187.51313 206.21765,184.28251 205.83259,180.83189 206.20224,177.0732 207.55763,175.06856 C207.55763,175.06856 208.759,174.38223 209.4521,174.69488 210.14519,175.00752 212.14748,177.196 212.14748,177.196 L214.61182,181.36454 216.76812,185.7415 z" Fill="#FFF4F4F5" Height="30" Canvas.Left="197.667" Stroke="Black" Stretch="Fill" Canvas.Top="171.54" Width="28"/>
+                <Path x:Name="Inf_izq" Data="M219.82285,191.6452 L225.73604,187.77151 226.41587,189.06547 228.91526,194.7691 231.11367,199.53462 232.88558,206.29982 232.02184,210.90223 229.08631,214.60577 222.09284,213.58405 216.82615,211.93409 210.66969,207.92703 208.20091,205.33423 205.07097,201.2486 204.02123,200.04778 210.75263,196.97509 212.91682,199.99211 215.4184,202.70277 219.19272,204.86344 222.39649,205.68842 225.1614,206.04198 225.60027,204.35273 226.12692,202.58491 225.64416,200.50281 223.53757,196.49575 222.17706,194.06009 z" Fill="#FFF8F2F0" Height="30" Canvas.Left="204.594" Stroke="Black" Stretch="Fill" Canvas.Top="187.665" Width="28"/>
+            </Canvas>
+
+            <Canvas x:Name="Ojo_der">
+                <Path x:Name="Int_der" Data="M266.88352,170.63793 C266.00852,173.82543 265.68277,179.38364 265.68277,179.38364 L266.3045,187.98091 271.8293,194.73081 275.2647,196.6153 279.97406,193.61819 281.90826,187.75718 282.23466,184.82668 276.85559,176.46806 z" Fill="#FF2D6EAE" Height="26" Canvas.Left="265.167" Stroke="Black" Stretch="Fill" Canvas.Top="170.665" Width="10"/>
+                <Path x:Name="Sup_der" Data="M264.53967,180.34944 L259.375,180.28999 258.50984,176.4233 259.00664,172.63098 259.77681,171.11605 262.85116,172.76143 264.64145,173.7826 264.56558,175.62446 264.7272,176.88674 264.64596,178.38985 z" Fill="#FFF8F2EE" Height="15" Canvas.Left="258.5" Stroke="Black" Stretch="Fill" Canvas.Top="165.915" Width="8"/>
+                <Path x:Name="Inf_der" Data="M276.60986,184.6194 L276.4721,189.16997 275.69192,192.93542 274.21056,195.40227 271.39232,195.43524 269.24765,193.2491 267.38782,188.44632 267.07712,183.85882 266.79965,180.76132 263.21261,180.33 260.39802,180.43157 261.15612,187.36104 261.9355,191.33968 263.62417,194.25735 265.57263,199.4959 267.65099,202.65578 270.83348,204.59969 274.60051,203.73538 277.6531,198.48306 279.04367,195.89014 279.3254,190.59183 277.7744,186.20382 z" Fill="#FFF8F2E9" Height="24" Canvas.Left="259.469" Stroke="Black" Stretch="Fill" Canvas.Top="180.475" Width="18"/>
+            </Canvas>
+        </Canvas>
+
+        <Image x:Name="ImagenEscudo" Source="AssetsPVA/Escudo.png" Opacity="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image x:Name="ImagenDormido" Source="AssetsPVA/dormido.png" Opacity="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image x:Name="ImagenAtaqueFuerte" Source="AssetsPVA/ataque_fuerte.png" Opacity="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,0,0">
+
+            <TextBlock x:Name="txtNombre" Text="Rotom" FontSize="26" FontWeight="Bold" Foreground="White" Margin="35,0,0,10" Visibility="Collapsed"/>
+
+            <StackPanel x:Name="panelVida" Orientation="Horizontal" Margin="0,5,0,5" Visibility="Collapsed">
+                <Image Source="AssetsPVA/corazon.png" Width="25" Height="25" Stretch="Uniform"/>
+                <ProgressBar x:Name="pbVida" Value="100" Maximum="100" Width="150" Height="20" Foreground="#E51414" Background="DarkGray" Margin="10,0,0,0" />
+            </StackPanel>
+
+            <StackPanel x:Name="panelEnergia" Orientation="Horizontal" Margin="0,5,0,5" Visibility="Collapsed">
+                <Image Source="AssetsPVA/energia.png" Width="25" Height="25" Stretch="Uniform"/>
+                <ProgressBar x:Name="pbEnergia" Value="100" Maximum="100" Width="150" Height="20" Foreground="#FFD700" Background="DarkGray" Margin="10,0,0,0" />
+            </StackPanel>
+
+        </StackPanel>
+
+        <MediaElement x:Name="sonidoAtaque" 
+                      Source="ms-appx:///AssetsPVA/rotom_cry.mp4" 
+                      AutoPlay="False" 
+                      Visibility="Collapsed"/>
+
+        <MediaElement x:Name="sonidoAtaqueFuerte" 
+                      Source="ms-appx:///AssetsPVA/rotom_cry_fuerte.mp4" 
+                      AutoPlay="False" 
+                      Visibility="Collapsed"/>
+    </Grid>
+</UserControl>
