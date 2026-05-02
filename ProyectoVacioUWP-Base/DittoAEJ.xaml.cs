@@ -45,16 +45,17 @@ namespace ProyectoVacioUWP_Base
         public CheckBox chkPocimaEnergiaExterno;
 
 
-        DispatcherTimer tProj1Off;
-        DispatcherTimer tProj2On;
-        DispatcherTimer tProj2Off;
-        DispatcherTimer tProj3On;
-        DispatcherTimer tProj3Off;
-        DispatcherTimer tProj4On;
-        DispatcherTimer tProj4Off;
+        //DispatcherTimer tProj1Off;
+        //DispatcherTimer tProj2On;
+        //DispatcherTimer tProj2Off;
+        //DispatcherTimer tProj3On;
+        //DispatcherTimer tProj3Off;
+        //DispatcherTimer tProj4On;
+        //DispatcherTimer tProj4Off;
 
-        DispatcherTimer tProyGordoOn;
-        DispatcherTimer tProyGordoOff;
+        //DispatcherTimer tProyGordoOn;
+        //DispatcherTimer tProyGordoOff;
+
         MediaPlayer mpEstatico = new MediaPlayer();
         DispatcherTimer timerSonido;
         MediaPlayer mpFuerte = new MediaPlayer();

@@ -10,20 +10,24 @@
             <RowDefinition Height="250" />
         </Grid.RowDefinitions>
 
+        <!-- Área de Batalla: Bajamos los ContentControl -->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <!-- Añadido Margin superior de 50 para que se vea la barra de vida -->
             <ContentControl x:Name="ContenedorP1" 
-                            HorizontalAlignment="Center" VerticalAlignment="Bottom" 
-                            Height="550" Width="450"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" 
+                            Margin="0,50,0,0"
+                            Height="500" Width="450"
                             HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
 
             <ContentControl x:Name="ContenedorP2" Grid.Column="1" 
-                            HorizontalAlignment="Center" VerticalAlignment="Bottom" 
-                            Height="550" Width="450"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" 
+                            Margin="0,50,0,0"
+                            Height="500" Width="450"
                             HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                 <ContentControl.RenderTransform>
                     <ScaleTransform ScaleX="-1" CenterX="225"/>
@@ -31,17 +35,19 @@
             </ContentControl>
         </Grid>
 
+        <!-- Panel de Control Inferior -->
         <Grid Grid.Row="1" Background="#1E1E1E" BorderBrush="#333" BorderThickness="0,2,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="220" />
+                <ColumnDefinition Width="400" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Margin="10" Background="#25FF0000" CornerRadius="15" BorderBrush="#88FF0000" BorderThickness="2">
+            <!-- Controles J1 -->
+            <Border Grid.Column="0" Margin="10" Background="#25FF0000" CornerRadius="15">
                 <StackPanel Padding="10">
-                    <TextBlock Text="JUGADOR 1 (WASD + QE)" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                    <Grid>
+                    <TextBlock Text="JUGADOR 1" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -55,21 +61,32 @@
                         <TextBlock x:Name="txtA" Grid.Row="0" Grid.Column="1" Text="[A] FUERTE" Foreground="Yellow" Margin="5"/>
                         <TextBlock x:Name="txtS" Grid.Row="1" Grid.Column="0" Text="[S] ESCUDO" Foreground="Cyan" Margin="5"/>
                         <TextBlock x:Name="txtD" Grid.Row="1" Grid.Column="1" Text="[D] RELAX" Foreground="LightGreen" Margin="5"/>
-                        <TextBlock x:Name="txtQ" Grid.Row="2" Grid.Column="0" Text="[Q] POC. VIDA" Foreground="Salmon" Margin="5"/>
-                        <TextBlock x:Name="txtE" Grid.Row="2" Grid.Column="1" Text="[E] POC. ENERG" Foreground="Orange" Margin="5"/>
+                        <TextBlock x:Name="txtQ" Grid.Row="2" Grid.Column="0" Text="[Q] VIDA" Foreground="Salmon" Margin="5"/>
+                        <TextBlock x:Name="txtE" Grid.Row="2" Grid.Column="1" Text="[E] ENERGIA" Foreground="Orange" Margin="5"/>
                     </Grid>
                 </StackPanel>
             </Border>
 
+            <!-- Consola Central -->
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <TextBlock Text="VS" FontSize="50" FontWeight="Black" Foreground="White" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="txtConsola" Text="¡A LUCHAR!" Foreground="Yellow" TextAlignment="Center" FontSize="16" TextWrapping="Wrap"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="lblNameP1" Grid.Column="0" FontSize="20" Foreground="White" TextAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="VS" Grid.Column="1" FontSize="50" FontWeight="Black" Foreground="Yellow"/>
+                    <TextBlock x:Name="lblNameP2" Grid.Column="2" FontSize="20" Foreground="White" TextAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                </Grid>
+                <TextBlock x:Name="txtConsola" Text="¡A LUCHAR!" Foreground="White" TextAlignment="Center" FontSize="16"/>
             </StackPanel>
 
-            <Border Grid.Column="2" Margin="10" Background="#250000FF" CornerRadius="15" BorderBrush="#880000FF" BorderThickness="2">
+            <!-- Controles J2 -->
+            <Border Grid.Column="2" Margin="10" Background="#250000FF" CornerRadius="15">
                 <StackPanel Padding="10">
-                    <TextBlock Text="JUGADOR 2 (↑←↓→ + OP)" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                    <Grid>
+                    <TextBlock Text="JUGADOR 2" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -83,8 +100,8 @@
                         <TextBlock x:Name="txtLeft" Grid.Row="0" Grid.Column="1" Text="[←] FUERTE" Foreground="Yellow" Margin="5"/>
                         <TextBlock x:Name="txtDown" Grid.Row="1" Grid.Column="0" Text="[↓] ESCUDO" Foreground="Cyan" Margin="5"/>
                         <TextBlock x:Name="txtRight" Grid.Row="1" Grid.Column="1" Text="[→] RELAX" Foreground="LightGreen" Margin="5"/>
-                        <TextBlock x:Name="txtO" Grid.Row="2" Grid.Column="0" Text="[O] POC. VIDA" Foreground="Salmon" Margin="5"/>
-                        <TextBlock x:Name="txtP" Grid.Row="2" Grid.Column="1" Text="[P] POC. ENERG" Foreground="Orange" Margin="5"/>
+                        <TextBlock x:Name="txtO" Grid.Row="2" Grid.Column="0" Text="[O] VIDA" Foreground="Salmon" Margin="5"/>
+                        <TextBlock x:Name="txtP" Grid.Row="2" Grid.Column="1" Text="[P] ENERGIA" Foreground="Orange" Margin="5"/>
                     </Grid>
                 </StackPanel>
             </Border>

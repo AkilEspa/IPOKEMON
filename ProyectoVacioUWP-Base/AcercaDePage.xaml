@@ -6,10 +6,63 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="#121212">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="510,455,0,0" TextWrapping="Wrap" Text="AcercaDe" VerticalAlignment="Top"/>
+        <TextBlock Text="CAPTURA LOS DESARROLLADORES" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   FontSize="60" Foreground="White" Margin="0,40,0,0" FontFamily="Consolas" FontWeight="Bold">
+           <!-- <TextBlock.Shadow>
+                 <FontIcon FontFamily="Segoe UI" Glyph="&#xE706;" Foreground="Purple"/> 
+            </TextBlock.Shadow> -->
+        </TextBlock>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="40">
+
+            <StackPanel x:Name="ContenedorDev1" PointerPressed="CapturarDev_PointerPressed" Tag="José Felíx - El Terror de C#">
+                <Viewbox Width="220" Height="220">
+                    <local:TorchicJFBR x:Name="PokemonJoseFelix"/>
+                </Viewbox>
+                <TextBlock Text="José Félix" HorizontalAlignment="Center" Foreground="Cyan" FontSize="20" Margin="0,10"/>
+                <Image x:Name="Ball1" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
+                       Width="60" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+
+            <StackPanel x:Name="ContenedorDev2" PointerPressed="CapturarDev_PointerPressed" Tag="Darío - El Artista chapuzas">
+                <Viewbox Width="220" Height="220">
+                    <local:ComputerrorDLM x:Name="PokemonDario" />
+                </Viewbox>
+                <TextBlock Text="Darío" HorizontalAlignment="Center" Foreground="Cyan" FontSize="20" Margin="0,10"/>
+                <Image x:Name="Ball2" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
+                       Width="60" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+
+            <StackPanel x:Name="ContenedorDev3" PointerPressed="CapturarDev_PointerPressed" Tag="Akil - El diseñador de pokemons">
+                <Viewbox Width="220" Height="220">
+                    <local:DittoAEJ x:Name="PokemonAkil"/>
+                </Viewbox>
+                <TextBlock Text="Akil" HorizontalAlignment="Center" Foreground="Cyan" FontSize="20" Margin="0,10"/>
+                <Image x:Name="Ball3" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
+                       Width="60" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <CompositeTransform/>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+
+        </StackPanel>
+
+        <Border Background="#33000000" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="80">
+            <TextBlock x:Name="TxtLog" Text="HAZ CLICK EN UN DESARROLLADOR PARA ATRAPARLO..." 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       Foreground="Yellow" FontSize="22" FontFamily="Consolas"/>
+        </Border>
     </Grid>
 </Page>
