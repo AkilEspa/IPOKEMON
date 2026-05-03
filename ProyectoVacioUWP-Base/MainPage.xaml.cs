@@ -72,7 +72,14 @@ namespace ProyectoVacioUWP_Base
                 case "Combate":
                     if (currentPageType != typeof(SeleccionPage))
                     {
-                        frCentral.Navigate(typeof(SeleccionPage), this);
+                        frCentral.Navigate(typeof(SeleccionPage), false);
+                    }
+                    break;
+
+                case "CombateIA":
+                    if (currentPageType != typeof(SeleccionPage))
+                    {
+                        frCentral.Navigate(typeof(SeleccionPage), true);
                     }
                     break;
 

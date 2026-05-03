@@ -20,6 +20,8 @@
 
                 <NavigationViewItem Icon="AllApps" Content="Combate" Tapped="NavViewItem_Tapped" Tag="Combate"/>
 
+                <NavigationViewItem Icon="ContactInfo" Content="Combate vs IA" Tapped="NavViewItem_Tapped" Tag="CombateIA"/>
+
                 <NavigationViewItem Icon="Help" Content="Acerca De" Tapped="NavViewItem_Tapped" Tag="AcercaDe"/>
             </NavigationView.MenuItems>
 

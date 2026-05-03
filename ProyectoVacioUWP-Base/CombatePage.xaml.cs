@@ -22,6 +22,9 @@ namespace ProyectoVacioUWP_Base
         private bool p1Protegido, p2Protegido, p1Ocupado, p2Ocupado;
         private bool juegoTerminado = false;
         private bool p1PocionVidaUsada, p1PocionEnergiaUsada, p2PocionVidaUsada, p2PocionEnergiaUsada;
+        private bool _esModoIA = false;
+        private DispatcherTimer _iaTimer;
+        private Random _iaRandom = new Random();
 
         public CombatePage()
         {
@@ -32,12 +35,14 @@ namespace ProyectoVacioUWP_Base
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            GestionarMenuLateral(false); // Desaparece al entrar
+            GestionarMenuLateral(false);
 
-            if (e.Parameter is List<Type> elegidos)
+            // NUEVA FORMA DE RECIBIR DATOS:
+            if (e.Parameter is object[] parametros && parametros.Length == 3)
             {
-                P1 = (iPokemon)Activator.CreateInstance(elegidos[0]);
-                P2 = (iPokemon)Activator.CreateInstance(elegidos[1]);
+                P1 = (iPokemon)Activator.CreateInstance((Type)parametros[0]);
+                P2 = (iPokemon)Activator.CreateInstance((Type)parametros[1]);
+                _esModoIA = (bool)parametros[2];
 
                 ConfigurarVisualPokemon(P1);
                 ConfigurarVisualPokemon(P2);
@@ -51,6 +56,15 @@ namespace ProyectoVacioUWP_Base
                 P1.Vida = 100; P1.Energia = 100;
                 P2.Vida = 100; P2.Energia = 100;
                 InicializarSistemas();
+
+                // INICIALIZAR IA
+                if (_esModoIA)
+                {
+                    txtJugador2.Text = "INTELIGENCIA ARTIFICIAL";
+                    _iaTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+                    _iaTimer.Tick += (s, ev) => EjecutarAtaqueIA();
+                    _iaTimer.Start();
+                }
             }
         }
 
@@ -123,20 +137,45 @@ namespace ProyectoVacioUWP_Base
         {
             if (juegoTerminado) return;
             var k = e.VirtualKey;
+
+            // Controles J1 (Siempre activos)
             if (k == VirtualKey.W) ProcesarAccion(P1, P2, k, "flojo", 15, 0.8, txtW);
             if (k == VirtualKey.A) ProcesarAccion(P1, P2, k, "fuerte", 40, 3.0, txtA);
             if (k == VirtualKey.S) ProcesarAccion(P1, P2, k, "escudo", 15, 0, txtS);
             if (k == VirtualKey.D) ProcesarAccion(P1, P2, k, "relax", 0, 5.0, txtD);
             if (k == VirtualKey.Q) UsarPocion(P1, "vida");
             if (k == VirtualKey.E) UsarPocion(P1, "energia");
-            if (k == VirtualKey.Up) ProcesarAccion(P2, P1, k, "flojo", 15, 0.8, txtUp);
-            if (k == VirtualKey.Left) ProcesarAccion(P2, P1, k, "fuerte", 40, 3.0, txtLeft);
-            if (k == VirtualKey.Down) ProcesarAccion(P2, P1, k, "escudo", 15, 0, txtDown);
-            if (k == VirtualKey.Right) ProcesarAccion(P2, P1, k, "relax", 0, 5.0, txtRight);
-            if (k == VirtualKey.O) UsarPocion(P2, "vida");
-            if (k == VirtualKey.P) UsarPocion(P2, "energia");
+
+            // Controles J2 (Sólo si NO es IA)
+            if (!_esModoIA)
+            {
+                if (k == VirtualKey.Up) ProcesarAccion(P2, P1, k, "flojo", 15, 0.8, txtUp);
+                if (k == VirtualKey.Left) ProcesarAccion(P2, P1, k, "fuerte", 40, 3.0, txtLeft);
+                if (k == VirtualKey.Down) ProcesarAccion(P2, P1, k, "escudo", 15, 0, txtDown);
+                if (k == VirtualKey.Right) ProcesarAccion(P2, P1, k, "relax", 0, 5.0, txtRight);
+                if (k == VirtualKey.O) UsarPocion(P2, "vida");
+                if (k == VirtualKey.P) UsarPocion(P2, "energia");
+            }
         }
 
+        private void EjecutarAtaqueIA()
+        {
+            // Si el juego acabó o la IA está ocupada en animación, no hace nada
+            if (juegoTerminado || p2Ocupado) return;
+
+            // Número aleatorio del 0 al 5
+            int accion = _iaRandom.Next(0, 6);
+
+            switch (accion)
+            {
+                case 0: ProcesarAccion(P2, P1, VirtualKey.Up, "flojo", 15, 0.8, txtUp); break;
+                case 1: ProcesarAccion(P2, P1, VirtualKey.Left, "fuerte", 40, 3.0, txtLeft); break;
+                case 2: ProcesarAccion(P2, P1, VirtualKey.Down, "escudo", 15, 0, txtDown); break;
+                case 3: ProcesarAccion(P2, P1, VirtualKey.Right, "relax", 0, 5.0, txtRight); break;
+                case 4: UsarPocion(P2, "vida"); break;
+                case 5: UsarPocion(P2, "energia"); break;
+            }
+        }
         private async void ProcesarAccion(iPokemon user, iPokemon target, VirtualKey k, string tipo, double coste, double cd, TextBlock txt)
         {
             bool ocupado = (user == P1) ? p1Ocupado : p2Ocupado;
@@ -182,6 +221,7 @@ namespace ProyectoVacioUWP_Base
         private async void FinalizarCombate(iPokemon perdedor, iPokemon ganador)
         {
             juegoTerminado = true; gameLoop?.Stop(); uiTimer?.Stop();
+            _iaTimer?.Stop();
             perdedor.animacionDerrota();
             txtConsola.Text = $"¡GANADOR: {ganador.Nombre.ToUpper()}!";
             await Task.Delay(3000);

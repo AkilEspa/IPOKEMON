@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 
 namespace ProyectoVacioUWP_Base
 {
@@ -22,6 +23,7 @@ namespace ProyectoVacioUWP_Base
         private Random _rnd = new Random();
         private Type _randomP1 = null;
         private Type _randomP2 = null;
+        private bool _esModoIA = false;
 
         // Matriz estricta: -1 representa un hueco donde no puedes estar
         private readonly int[,] _grid = new int[5, 5]
@@ -43,6 +45,15 @@ namespace ProyectoVacioUWP_Base
             Window.Current.CoreWindow.KeyDown += OnKeyDown;
             this.Loaded += (s, e) => { this.Focus(FocusState.Programmatic); };
             ActualizarVisual();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter is bool esIA)
+            {
+                _esModoIA = esIA;
+            }
         }
 
         private void CargarDatos()
@@ -220,7 +231,7 @@ namespace ProyectoVacioUWP_Base
         {
             Type p1 = (_indexJ1 == 0) ? _randomP1 : _catalogo[_indexJ1].ClasePokemon;
             Type p2 = (_indexJ2 == 0) ? _randomP2 : _catalogo[_indexJ2].ClasePokemon;
-            Frame.Navigate(typeof(CombatePage), new List<Type> { p1, p2 });
+            Frame.Navigate(typeof(CombatePage), new object[] { p1, p2, _esModoIA });
         }
 
     }
