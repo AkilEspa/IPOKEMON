@@ -8,35 +8,18 @@
     <ScrollViewer MinWidth="600" MinHeight="650" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Background="#121212">
 
-<<<<<<< HEAD
-        <!-- Área de Batalla -->
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <ContentControl x:Name="ContenedorP1" 
-                            HorizontalAlignment="Center" VerticalAlignment="Center" 
-                            Margin="0,50,0,0"
-                            Height="500" Width="450"
-                            HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
-=======
             <!-- 2. VisualStateManager para reorganizar los controles en pantallas pequeñas -->
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup>
-
                     <!-- Estado Narrow: Pantallas estrechas (0 a 900px) -->
                     <VisualState x:Name="Narrow">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="0"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <!-- Apilamos los controles en vertical (filas 0, 1 y 2) -->
                             <Setter Target="PanelJ1.(Grid.Row)" Value="0"/>
                             <Setter Target="PanelJ1.(Grid.Column)" Value="0"/>
                             <Setter Target="PanelJ1.(Grid.ColumnSpan)" Value="3"/>
->>>>>>> 878d9c81f450dcc327f45884b113b078b699c654
 
                             <Setter Target="PanelConsola.(Grid.Row)" Value="1"/>
                             <Setter Target="PanelConsola.(Grid.Column)" Value="0"/>
@@ -46,35 +29,9 @@
                             <Setter Target="PanelJ2.(Grid.Column)" Value="0"/>
                             <Setter Target="PanelJ2.(Grid.ColumnSpan)" Value="3"/>
 
-<<<<<<< HEAD
-            <!-- Controles J1 -->
-            <Border Grid.Column="0" Margin="10" Background="#25FF0000" CornerRadius="15">
-                <StackPanel Padding="10">
-                    <TextBlock x:Name="txtEstadoJ1" Text="ELEGIDO" Foreground="#00FF00" FontWeight="Bold" HorizontalAlignment="Center"/>
-                    <Grid Margin="0,10,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock x:Name="txtW" Grid.Row="0" Grid.Column="0" Text="[W] FLOJO" Foreground="White" Margin="5"/>
-                        <TextBlock x:Name="txtA" Grid.Row="0" Grid.Column="1" Text="[A] FUERTE" Foreground="Yellow" Margin="5"/>
-                        <TextBlock x:Name="txtS" Grid.Row="1" Grid.Column="0" Text="[S] ESCUDO" Foreground="Cyan" Margin="5"/>
-                        <TextBlock x:Name="txtD" Grid.Row="1" Grid.Column="1" Text="[D] RELAX" Foreground="LightGreen" Margin="5"/>
-                        <TextBlock x:Name="txtQ" Grid.Row="2" Grid.Column="0" Text="[Q] VIDA" Foreground="Salmon" Margin="5"/>
-                        <TextBlock x:Name="txtE" Grid.Row="2" Grid.Column="1" Text="[E] ENERGIA" Foreground="Orange" Margin="5"/>
-                    </Grid>
-                </StackPanel>
-            </Border>
-=======
                             <Setter Target="ColCentro.Width" Value="*"/>
                         </VisualState.Setters>
                     </VisualState>
->>>>>>> 878d9c81f450dcc327f45884b113b078b699c654
 
                     <!-- Estado Wide: Pantallas anchas (más de 900px) -->
                     <VisualState x:Name="Wide">
@@ -82,7 +39,6 @@
                             <AdaptiveTrigger MinWindowWidth="900"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <!-- Disposición en línea horizontal (columnas 0, 1 y 2) -->
                             <Setter Target="PanelJ1.(Grid.Row)" Value="0"/>
                             <Setter Target="PanelJ1.(Grid.Column)" Value="0"/>
                             <Setter Target="PanelJ1.(Grid.ColumnSpan)" Value="1"/>
@@ -104,10 +60,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
-                <!-- Cambiado de 250 a Auto para adaptarse si se apilan -->
             </Grid.RowDefinitions>
 
-            <!-- 3. Área de Batalla: Viewbox para que el combate escale dinámicamente -->
+            <!-- 3. Área de Batalla -->
             <Viewbox Grid.Row="0" Stretch="Uniform" Margin="20">
                 <Grid Width="1000" Height="550">
                     <Grid.ColumnDefinitions>
@@ -115,13 +70,6 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-<<<<<<< HEAD
-            <!-- Controles J2 -->
-            <Border Grid.Column="2" Margin="10" Background="#250000FF" CornerRadius="15">
-                <StackPanel Padding="10">
-                    <TextBlock x:Name="txtEstadoJ2" Text="ELEGIDO" Foreground="#00FF00" FontWeight="Bold" HorizontalAlignment="Center"/>
-                    <Grid Margin="0,10,0,0">
-=======
                     <ContentControl x:Name="ContenedorP1" 
                                     HorizontalAlignment="Center" VerticalAlignment="Center" 
                                     Margin="0,50,0,0"
@@ -140,7 +88,7 @@
                 </Grid>
             </Viewbox>
 
-            <!-- 4. Panel de Control Inferior: Añadidos Rows y x:Name para el VisualStateManager -->
+            <!-- 4. Panel de Control Inferior -->
             <Grid Grid.Row="1" Background="#1E1E1E" BorderBrush="#333" BorderThickness="0,2,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="ColIzq" Width="*" />
@@ -156,7 +104,7 @@
                 <!-- Controles J1 -->
                 <Border x:Name="PanelJ1" Grid.Column="0" Grid.Row="0" Margin="10" Background="#25FF0000" CornerRadius="15">
                     <StackPanel Padding="10">
-                        <TextBlock Text="JUGADOR 1" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="txtEstadoJ1" Text="JUGADOR 1" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <Grid Margin="0,10,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -180,7 +128,6 @@
                 <!-- Consola Central -->
                 <StackPanel x:Name="PanelConsola" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="10,20">
                     <Grid>
->>>>>>> 878d9c81f450dcc327f45884b113b078b699c654
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
@@ -193,10 +140,10 @@
                     <TextBlock x:Name="txtConsola" Text="¡A LUCHAR!" Foreground="White" TextAlignment="Center" FontSize="16" Margin="0,10,0,0"/>
                 </StackPanel>
 
-                <!-- Controles J2 -->
+                <!-- Controles J2 (Nombre corregido: txtEstadoJ2) -->
                 <Border x:Name="PanelJ2" Grid.Column="2" Grid.Row="0" Margin="10" Background="#250000FF" CornerRadius="15">
                     <StackPanel Padding="10">
-                        <TextBlock x:Name="txtJugador2" Text="JUGADOR 2" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="txtEstadoJ2" Text="JUGADOR 2" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <Grid Margin="0,10,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
