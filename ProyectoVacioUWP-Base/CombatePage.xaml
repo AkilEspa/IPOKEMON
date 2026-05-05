@@ -10,14 +10,13 @@
             <RowDefinition Height="250" />
         </Grid.RowDefinitions>
 
-        <!-- Área de Batalla: Bajamos los ContentControl -->
+        <!-- Área de Batalla -->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Añadido Margin superior de 50 para que se vea la barra de vida -->
             <ContentControl x:Name="ContenedorP1" 
                             HorizontalAlignment="Center" VerticalAlignment="Center" 
                             Margin="0,50,0,0"
@@ -46,7 +45,7 @@
             <!-- Controles J1 -->
             <Border Grid.Column="0" Margin="10" Background="#25FF0000" CornerRadius="15">
                 <StackPanel Padding="10">
-                    <TextBlock Text="JUGADOR 1" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtEstadoJ1" Text="ELEGIDO" Foreground="#00FF00" FontWeight="Bold" HorizontalAlignment="Center"/>
                     <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -85,7 +84,7 @@
             <!-- Controles J2 -->
             <Border Grid.Column="2" Margin="10" Background="#250000FF" CornerRadius="15">
                 <StackPanel Padding="10">
-                    <TextBlock x:Name="txtJugador2" Text="JUGADOR 2" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtEstadoJ2" Text="ELEGIDO" Foreground="#00FF00" FontWeight="Bold" HorizontalAlignment="Center"/>
                     <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>

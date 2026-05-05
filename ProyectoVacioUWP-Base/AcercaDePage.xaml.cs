@@ -59,37 +59,36 @@ namespace ProyectoVacioUWP_Base
         {
             StackPanel contenedor = (StackPanel)sender;
 
-            // Buscamos el Pokémon dentro del Viewbox
-            Viewbox vb = (Viewbox)contenedor.Children[0];
+            // Buscamos los elementos de forma segura
+            Viewbox vb = contenedor.Children[0] as Viewbox;
+            if (vb == null) return;
+
             iPokemon pokeInterface = vb.Child as iPokemon;
-            FrameworkElement visualPokemon = (FrameworkElement)vb;
+            FrameworkElement visualPokemon = vb; // Animamos el Viewbox completo
 
-            Image bola = (Image)contenedor.Children[2];
-            string infoDev = contenedor.Tag.ToString();
+            // Buscamos la imagen de la bola (es el tercer elemento: índice 2)
+            Image bola = contenedor.Children[2] as Image;
+            string infoDev = contenedor.Tag?.ToString() ?? "Desconocido";
 
-            // Bloqueamos el clic para evitar spam
             contenedor.IsHitTestVisible = false;
 
-            // --- MOMENTO ÉPICO ---
             if (pokeInterface != null)
             {
-                // El Pokémon se da cuenta de que va a ser capturado
                 pokeInterface.activarAniIdle(false);
                 pokeInterface.animacionDerrota();
             }
 
-            // Esperamos un poco para que se vea el inicio de la animación de derrota
             await Task.Delay(800);
 
-            // 1. Animación de Succión (Giro + Escala a 0)
+            // Animación de Succión
             CompositeTransform trans = new CompositeTransform();
             visualPokemon.RenderTransform = trans;
             visualPokemon.RenderTransformOrigin = new Windows.Foundation.Point(0.5, 0.5);
 
             Storyboard sbSuccion = new Storyboard();
-            DoubleAnimation animEscalaX = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600) };
-            DoubleAnimation animEscalaY = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600) };
-            DoubleAnimation animGiro = new DoubleAnimation { To = 1080, Duration = TimeSpan.FromMilliseconds(600) };
+            DoubleAnimation animEscalaX = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600), EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseIn } };
+            DoubleAnimation animEscalaY = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600), EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseIn } };
+            DoubleAnimation animGiro = new DoubleAnimation { To = 720, Duration = TimeSpan.FromMilliseconds(600) };
 
             Storyboard.SetTarget(animEscalaX, visualPokemon);
             Storyboard.SetTargetProperty(animEscalaX, "(UIElement.RenderTransform).(CompositeTransform.ScaleX)");
@@ -101,18 +100,18 @@ namespace ProyectoVacioUWP_Base
             sbSuccion.Children.Add(animEscalaX);
             sbSuccion.Children.Add(animEscalaY);
             sbSuccion.Children.Add(animGiro);
-
             sbSuccion.Begin();
 
             await Task.Delay(600);
             visualPokemon.Visibility = Visibility.Collapsed;
 
-            // 2. Aparece la bola y vibra
-            bola.Visibility = Visibility.Visible;
-            await VibrarBola(bola);
+            if (bola != null)
+            {
+                bola.Visibility = Visibility.Visible;
+                await VibrarBola(bola);
+            }
 
-            // 3. Mensaje Final
-            TxtLog.Text = $"¡HAS CAPTURADO A {infoDev}!";
+            TxtLog.Text = $"¡HAS CAPTURADO A {infoDev.ToUpper()}!";
         }
 
         private async Task VibrarBola(Image bola)

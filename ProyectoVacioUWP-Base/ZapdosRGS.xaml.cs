@@ -518,7 +518,7 @@ namespace ProyectoVacioUWP_Base
             }
 
             if (estadoNormal)
-                sBAleteo.Begin();
+                //sBAleteo.Begin();
 
             if (estadoCansado)
                 sBCansado.Begin();

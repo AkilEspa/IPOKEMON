@@ -26,54 +26,52 @@
                 <TextBlock x:Name="txtEstadoJ1" Text="J1: ELIGIENDO..." Foreground="White" HorizontalAlignment="Center" FontSize="18"/>
             </StackPanel>
 
-            <!-- Panel Central: El Diamante -->
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
-                <ItemsControl x:Name="Fila1" HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" Spacing="5"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                <ItemsControl x:Name="Fila2" HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" Spacing="5"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                <ItemsControl x:Name="Fila3" HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" Spacing="5"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                <ItemsControl x:Name="Fila4" HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" Spacing="5"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-                <ItemsControl x:Name="Fila5" HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" Spacing="5"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </StackPanel>
+            <!-- Panel Central: El Diamante (Protegido con Viewbox para que no se mueva) -->
+            <Viewbox Grid.Column="1" MaxHeight="600" Margin="20">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
+                    <ItemsControl x:Name="Fila1" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Spacing="5"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <ItemsControl x:Name="Fila2" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Spacing="5"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <ItemsControl x:Name="Fila3" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Spacing="5"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <ItemsControl x:Name="Fila4" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Spacing="5"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <ItemsControl x:Name="Fila5" HorizontalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Spacing="5"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </Viewbox>
 
             <!-- Previsualización J2 -->
             <StackPanel Grid.Column="2" VerticalAlignment="Center" Spacing="10">
                 <TextBlock x:Name="txtNombreJ2" FontSize="32" Foreground="Red" HorizontalAlignment="Center" FontWeight="Bold"/>
                 <Border x:Name="BordePreviaJ2" BorderBrush="Red" BorderThickness="3" CornerRadius="15" Margin="15" Height="400" Background="#2A2F45">
-                    <ContentControl x:Name="ContenedorJ2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-                        <!-- <ContentControl.RenderTransform>
-                            <ScaleTransform x:Name="EspejoJ2" ScaleX="-1" CenterX="150"/>
-                        </ContentControl.RenderTransform>-->
-                    </ContentControl>
+                    <ContentControl x:Name="ContenedorJ2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
                 </Border>
                 <TextBlock x:Name="txtEstadoJ2" Text="J2: ELIGIENDO..." Foreground="White" HorizontalAlignment="Center" FontSize="18"/>
             </StackPanel>
