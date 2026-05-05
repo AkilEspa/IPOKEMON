@@ -44,19 +44,7 @@ namespace ProyectoVacioUWP_Base
                 _esModoIA = (bool)parametros[2];
 
                 // Cambiar textos de estado a ELEGIDO
-                txtEstadoJ1.Text = "ELEGIDO";
-                txtEstadoJ1.Foreground = new SolidColorBrush(Colors.SpringGreen);
-
-                if (_esModoIA)
-                {
-                    txtEstadoJ2.Text = "IA LISTA";
-                }
-                else
-                {
-                    txtEstadoJ2.Text = "ELEGIDO";
-                }
-                txtEstadoJ2.Foreground = new SolidColorBrush(Colors.SpringGreen);
-
+                
                 ConfigurarVisualPokemon(P1);
                 ConfigurarVisualPokemon(P2);
 
