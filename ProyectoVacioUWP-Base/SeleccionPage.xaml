@@ -77,13 +77,59 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Background="#0F111A" Padding="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="P1: [W-A-S-D] + ESPACIO" Foreground="Cyan" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-            <TextBlock Grid.Column="1" Text="P2: [FLECHAS] + ENTER" Foreground="Red" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <Grid Grid.Row="1" Background="#0F111A" Padding="15,20">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="AdaptabilidadControles">
+                    <!-- ESTADO VERTICAL: Se activa cuando la ventana es estrecha para evitar que los textos choquen -->
+                    <VisualState x:Name="EstadoEstrecho">
+                        <VisualState.StateTriggers>
+                            <!-- He subido el valor a 1050px aprox. para que cambie ANTES de que lleguen a chocar -->
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="ContenedorVertical.Orientation" Value="Vertical"/>
+                            <Setter Target="txtP1.Margin" Value="0,0,0,10"/>
+                            <!-- Quitamos el alineado lateral para centrar en vertical -->
+                            <Setter Target="txtP1.HorizontalAlignment" Value="Center"/>
+                            <Setter Target="txtP2.HorizontalAlignment" Value="Center"/>
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <!-- ESTADO HORIZONTAL: Cada uno bajo su personaje -->
+                    <VisualState x:Name="EstadoAncho">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1050" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="ContenedorVertical.Orientation" Value="Horizontal"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <!-- Usamos un StackPanel dentro de un Grid para controlar la posición exacta -->
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- El StackPanel central abarca todo pero sus hijos se alinean a los extremos -->
+                <StackPanel x:Name="ContenedorVertical" Grid.ColumnSpan="3" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center">
+
+                    <!-- Texto P1: Alineado a la izquierda (bajo J1) en modo ancho -->
+                    <TextBlock x:Name="txtP1" Text="P1: [W-A-S-D] + ESPACIO" 
+                       Foreground="Cyan" FontSize="20" FontWeight="Bold"
+                       HorizontalAlignment="Left" Margin="40,0"/>
+
+                    <!-- Texto P2: Alineado a la derecha (bajo J2) en modo ancho -->
+                    <TextBlock x:Name="txtP2" Text="P2: [FLECHAS] + ENTER" 
+                       Foreground="Red" FontSize="20" FontWeight="Bold"
+                       HorizontalAlignment="Right" Margin="40,0"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

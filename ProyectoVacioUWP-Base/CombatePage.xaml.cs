@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.System;
-using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -13,11 +12,11 @@ namespace ProyectoVacioUWP_Base
 {
     public sealed partial class CombatePage : Page
     {
-        private const double REGEN_ENERGIA = 0.8; // Bajado para mejorar fluidez
+        private const double REGEN_ENERGIA = 0.8;
         private iPokemon P1, P2;
         private Dictionary<VirtualKey, bool> cooldownsActivos = new Dictionary<VirtualKey, bool>();
         private Dictionary<VirtualKey, double> tiemposRestantes = new Dictionary<VirtualKey, double>();
-        private DispatcherTimer gameLoop; // Un solo timer para todo mejora el rendimiento
+        private DispatcherTimer gameLoop;
         private bool p1Herido, p1Cansado, p2Herido, p2Cansado;
         private bool p1Protegido, p2Protegido, p1Ocupado, p2Ocupado;
         private bool juegoTerminado = false;
@@ -43,8 +42,6 @@ namespace ProyectoVacioUWP_Base
                 P2 = (iPokemon)Activator.CreateInstance((Type)parametros[1]);
                 _esModoIA = (bool)parametros[2];
 
-                // Cambiar textos de estado a ELEGIDO
-                
                 ConfigurarVisualPokemon(P1);
                 ConfigurarVisualPokemon(P2);
 
@@ -72,7 +69,6 @@ namespace ProyectoVacioUWP_Base
         {
             DependencyObject parent = VisualTreeHelper.GetParent(this);
             while (parent != null && !(parent is SplitView)) parent = VisualTreeHelper.GetParent(parent);
-
             if (parent is SplitView sv)
             {
                 sv.IsPaneOpen = false;
@@ -97,18 +93,13 @@ namespace ProyectoVacioUWP_Base
             VirtualKey[] teclas = { VirtualKey.W, VirtualKey.A, VirtualKey.S, VirtualKey.D, VirtualKey.Up, VirtualKey.Left, VirtualKey.Down, VirtualKey.Right };
             foreach (var t in teclas) { cooldownsActivos[t] = true; tiemposRestantes[t] = 0; }
 
-            // Un solo Timer a 100ms para todo el juego
             gameLoop = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
             gameLoop.Tick += (s, ev) => {
                 if (juegoTerminado) return;
-
-                // Lógica de estados y regeneración
                 GestionarEstadoVisual(P1, ref p1Herido, ref p1Cansado, p1Ocupado);
                 GestionarEstadoVisual(P2, ref p2Herido, ref p2Cansado, p2Ocupado);
-
                 if (P1.Energia < 100) P1.Energia += REGEN_ENERGIA;
                 if (P2.Energia < 100) P2.Energia += REGEN_ENERGIA;
-
                 ActualizarLabelsUI();
             };
             gameLoop.Start();
@@ -119,7 +110,6 @@ namespace ProyectoVacioUWP_Base
             if (ocupado || juegoTerminado) return;
             if (p.Vida < 50 && !h) { h = true; p.animacionHerido(); }
             else if (p.Vida >= 50 && h) { h = false; p.animacionNoHerido(); }
-
             if (p.Energia < 30 && !c) { c = true; p.animacionCansado(); }
             else if (p.Energia >= 50 && c) { c = false; p.animacionNoCansado(); }
         }
@@ -128,7 +118,6 @@ namespace ProyectoVacioUWP_Base
         {
             if (juegoTerminado) return;
             var k = e.VirtualKey;
-
             if (k == VirtualKey.W) ProcesarAccion(P1, P2, k, "flojo", 15, 0.8, txtW);
             if (k == VirtualKey.A) ProcesarAccion(P1, P2, k, "fuerte", 40, 3.0, txtA);
             if (k == VirtualKey.S) ProcesarAccion(P1, P2, k, "escudo", 15, 0, txtS);
@@ -166,10 +155,8 @@ namespace ProyectoVacioUWP_Base
         {
             bool ocupado = (user == P1) ? p1Ocupado : p2Ocupado;
             if (ocupado || !cooldownsActivos[k] || user.Energia < coste) return;
-
             SetOcupado(user, true);
             user.Energia -= coste;
-
             switch (tipo)
             {
                 case "flojo": user.animacionAtaqueFlojo(); AplicarDano(user, target, 10); break;
@@ -182,7 +169,6 @@ namespace ProyectoVacioUWP_Base
                     break;
                 case "relax": user.Vida += 15; user.Energia += 25; user.animacionDescasar(); break;
             }
-
             if (tipo != "escudo") IniciarCooldownIndividual(k, cd, txt);
             await Task.Delay(1000);
             if (!juegoTerminado) SetOcupado(user, false);
@@ -214,10 +200,24 @@ namespace ProyectoVacioUWP_Base
             juegoTerminado = true;
             gameLoop?.Stop();
             _iaTimer?.Stop();
+
             perdedor.animacionDerrota();
-            txtConsola.Text = $"¡GANADOR: {ganador.Nombre.ToUpper()}!";
-            await Task.Delay(3000);
+            txtConsola.Text = "¡K.O.!";
+            await Task.Delay(1500);
+
+            txtNombreGanador.Text = ganador.Nombre.ToUpper();
+            var visualGanador = (iPokemon)Activator.CreateInstance(ganador.GetType());
+            visualGanador.verFilaVida(false);
+            visualGanador.verFilaEnergia(false);
+            visualGanador.verFondo(false);
+            visualGanador.activarAniIdle(true);
+            ContenedorGanador.Content = visualGanador;
+
+            GridVictoria.Visibility = Visibility.Visible;
+
+            await Task.Delay(5000);
             GestionarMenuLateral(true);
+            if (this.Frame.CanGoBack) this.Frame.GoBack();
         }
 
         private void UsarPocion(iPokemon p, string tipo)
