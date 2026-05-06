@@ -65,6 +65,8 @@ namespace ProyectoVacioUWP_Base
                 instance.verFilaEnergia(false);
                 instance.verNombre(false);
                 instance.verFondo(false);
+                instance.verPocionEnergia(false);
+                instance.verPocionVida(false);
                 PokemonHost.Content = instance;
                 tbNombre.Text = instance.Nombre;
                 tbCategoria.Text = instance.Categoría;
