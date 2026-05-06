@@ -121,7 +121,7 @@ namespace ProyectoVacioUWP_Base
                 if (ant != _indexJ1 || k == VirtualKey.Space) ActualizarVisual();
             }
 
-            if (!_listoJ2 && !_esModoIA)
+            if (!_listoJ2)
             {
                 int ant = _indexJ2;
                 _indexJ2 = ProcesarMovimiento(k, false);
@@ -129,9 +129,8 @@ namespace ProyectoVacioUWP_Base
                 if (ant != _indexJ2 || k == VirtualKey.Enter) ActualizarVisual();
             }
 
-            if (_listoJ1 && (_listoJ2 || _esModoIA))
+            if (_listoJ1 && _listoJ2)
             {
-                if (_esModoIA) { _indexJ2 = _rnd.Next(1, _catalogo.Count); _listoJ2 = true; }
                 Comenzar();
             }
         }
