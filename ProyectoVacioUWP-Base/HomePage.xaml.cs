@@ -27,6 +27,7 @@ namespace ProyectoVacioUWP_Base
             this.InitializeComponent();
             ((iPokemon)pokemon).verFilaEnergia(false);
             ((iPokemon)pokemon).verFilaVida(false);
+            ((iPokemon)pokemon).verNombre(false);
         }
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
