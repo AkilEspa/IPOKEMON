@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -16,25 +17,17 @@ namespace ProyectoVacioUWP_Base
         public AcercaDePage()
         {
             this.InitializeComponent();
-
-            // Cuando la página esté cargada, preparamos a los "sujetos"
             this.Loaded += AcercaDePage_Loaded;
         }
 
         private void AcercaDePage_Loaded(object sender, RoutedEventArgs e)
         {
-            // Creamos un array para iterar sobre los 3 y no repetir código
-            iPokemon[] misDevs = {
-                PokemonJoseFelix,
-                PokemonDario,
-                PokemonAkil
-            };
+            iPokemon[] misDevs = { PokemonJoseFelix, PokemonDario, PokemonAkil };
 
             foreach (var poke in misDevs)
             {
                 if (poke != null)
                 {
-                    // 1. Limpieza de interfaz (usando los métodos de tu interfaz)
                     poke.verFondo(false);
                     poke.verFilaVida(false);
                     poke.verFilaEnergia(false);
@@ -42,8 +35,6 @@ namespace ProyectoVacioUWP_Base
                     poke.verPocionEnergia(false);
                     poke.verNombre(false);
                     poke.verEscudo(false);
-
-                    // 2. Activamos el modo relax
                     poke.activarAniIdle(true);
                 }
             }
@@ -58,15 +49,10 @@ namespace ProyectoVacioUWP_Base
         private async void CapturarDev_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             StackPanel contenedor = (StackPanel)sender;
-
-            // Buscamos los elementos de forma segura
             Viewbox vb = contenedor.Children[0] as Viewbox;
             if (vb == null) return;
 
             iPokemon pokeInterface = vb.Child as iPokemon;
-            FrameworkElement visualPokemon = vb; // Animamos el Viewbox completo
-
-            // Buscamos la imagen de la bola (es el tercer elemento: índice 2)
             Image bola = contenedor.Children[2] as Image;
             string infoDev = contenedor.Tag?.ToString() ?? "Desconocido";
 
@@ -80,21 +66,21 @@ namespace ProyectoVacioUWP_Base
 
             await Task.Delay(800);
 
-            // Animación de Succión
+            // Animación de Succión mejorada para que sea independiente del tamaño
             CompositeTransform trans = new CompositeTransform();
-            visualPokemon.RenderTransform = trans;
-            visualPokemon.RenderTransformOrigin = new Windows.Foundation.Point(0.5, 0.5);
+            vb.RenderTransform = trans;
+            vb.RenderTransformOrigin = new Windows.Foundation.Point(0.5, 0.5);
 
             Storyboard sbSuccion = new Storyboard();
             DoubleAnimation animEscalaX = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600), EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseIn } };
             DoubleAnimation animEscalaY = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600), EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseIn } };
             DoubleAnimation animGiro = new DoubleAnimation { To = 720, Duration = TimeSpan.FromMilliseconds(600) };
 
-            Storyboard.SetTarget(animEscalaX, visualPokemon);
+            Storyboard.SetTarget(animEscalaX, vb);
             Storyboard.SetTargetProperty(animEscalaX, "(UIElement.RenderTransform).(CompositeTransform.ScaleX)");
-            Storyboard.SetTarget(animEscalaY, visualPokemon);
+            Storyboard.SetTarget(animEscalaY, vb);
             Storyboard.SetTargetProperty(animEscalaY, "(UIElement.RenderTransform).(CompositeTransform.ScaleY)");
-            Storyboard.SetTarget(animGiro, visualPokemon);
+            Storyboard.SetTarget(animGiro, vb);
             Storyboard.SetTargetProperty(animGiro, "(UIElement.RenderTransform).(CompositeTransform.Rotation)");
 
             sbSuccion.Children.Add(animEscalaX);
@@ -103,7 +89,7 @@ namespace ProyectoVacioUWP_Base
             sbSuccion.Begin();
 
             await Task.Delay(600);
-            visualPokemon.Visibility = Visibility.Collapsed;
+            vb.Visibility = Visibility.Collapsed;
 
             if (bola != null)
             {
@@ -116,7 +102,7 @@ namespace ProyectoVacioUWP_Base
 
         private async Task VibrarBola(Image bola)
         {
-            if (bola.RenderTransform == null || !(bola.RenderTransform is CompositeTransform))
+            if (!(bola.RenderTransform is CompositeTransform))
                 bola.RenderTransform = new CompositeTransform();
 
             Storyboard sbVibrar = new Storyboard();
@@ -137,7 +123,6 @@ namespace ProyectoVacioUWP_Base
 
             await Task.Delay(700);
 
-            // Un pequeño salto final de la bola para indicar éxito
             DoubleAnimation salto = new DoubleAnimation
             {
                 To = -20,

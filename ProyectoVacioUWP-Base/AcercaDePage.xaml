@@ -8,24 +8,25 @@
     <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates">
-                <!-- Estado para pantallas estrechas (Móviles/Ventana pequeña) -->
                 <VisualState x:Name="NarrowState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TxtTitulo.FontSize" Value="30"/>
-                        <Setter Target="TxtTitulo.Margin" Value="10,20,10,0"/>
-                        <Setter Target="MainScroll.VerticalScrollBarVisibility" Value="Auto"/>
+                        <Setter Target="TxtTitulo.FontSize" Value="24"/>
+                        <Setter Target="TxtTitulo.Margin" Value="10,20,10,10"/>
+                        <!-- Reducimos márgenes en móviles para ganar espacio -->
+                        <Setter Target="ContenedorDev1.Margin" Value="10"/>
+                        <Setter Target="ContenedorDev2.Margin" Value="10"/>
+                        <Setter Target="ContenedorDev3.Margin" Value="10"/>
                     </VisualState.Setters>
                 </VisualState>
-                <!-- Estado para pantallas anchas (PC/Tablet) -->
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TxtTitulo.FontSize" Value="50"/>
+                        <Setter Target="TxtTitulo.FontSize" Value="45"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -37,29 +38,28 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Título Adaptable -->
         <TextBlock x:Name="TxtTitulo" Grid.Row="0" Text="CAPTURA LOS DESARROLLADORES" 
                    HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"
-                   Foreground="White" Margin="0,40,0,20" FontFamily="Consolas" FontWeight="Bold"/>
+                   Foreground="White" Margin="0,30,0,10" FontFamily="Consolas" FontWeight="Bold"/>
 
-        <!-- Contenedor con Scroll y WrapGrid -->
-        <ScrollViewer x:Name="MainScroll" Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollMode="Disabled">
+        <!-- Eliminamos el ancho fijo del Viewbox para que el ItemsWrapGrid maneje el flujo -->
+        <ScrollViewer x:Name="MainScroll" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
             <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <!-- El ItemsWrapGrid hace que los elementos bajen a la siguiente línea si no caben -->
-                        <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" MaximumRowsOrColumns="3"/>
+                        <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" 
+                                       ItemWidth="220" MaximumRowsOrColumns="3"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
                 <!-- Dev 1 -->
                 <StackPanel x:Name="ContenedorDev1" PointerPressed="CapturarDev_PointerPressed" Tag="José Felíx" Margin="20">
-                    <Viewbox Width="180" Height="180">
+                    <Viewbox MaxWidth="180" MaxHeight="180" Stretch="Uniform">
                         <local:TorchicJFBR x:Name="PokemonJoseFelix"/>
                     </Viewbox>
-                    <TextBlock Text="José Félix" HorizontalAlignment="Center" Foreground="Cyan" FontSize="20" Margin="0,10"/>
+                    <TextBlock Text="José Félix" HorizontalAlignment="Center" Foreground="Cyan" FontSize="18" Margin="0,10"/>
                     <Image x:Name="Ball1" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                           Width="60" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                           Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
                         <Image.RenderTransform>
                             <CompositeTransform/>
                         </Image.RenderTransform>
@@ -68,12 +68,12 @@
 
                 <!-- Dev 2 -->
                 <StackPanel x:Name="ContenedorDev2" PointerPressed="CapturarDev_PointerPressed" Tag="Darío" Margin="20">
-                    <Viewbox Width="180" Height="180">
+                    <Viewbox MaxWidth="180" MaxHeight="180" Stretch="Uniform">
                         <local:ComputerrorDLM x:Name="PokemonDario" />
                     </Viewbox>
-                    <TextBlock Text="Darío" HorizontalAlignment="Center" Foreground="Cyan" FontSize="20" Margin="0,10"/>
+                    <TextBlock Text="Darío" HorizontalAlignment="Center" Foreground="Cyan" FontSize="18" Margin="0,10"/>
                     <Image x:Name="Ball2" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                           Width="60" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                           Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
                         <Image.RenderTransform>
                             <CompositeTransform/>
                         </Image.RenderTransform>
@@ -82,12 +82,12 @@
 
                 <!-- Dev 3 -->
                 <StackPanel x:Name="ContenedorDev3" PointerPressed="CapturarDev_PointerPressed" Tag="Akil" Margin="20">
-                    <Viewbox Width="180" Height="180">
+                    <Viewbox MaxWidth="180" MaxHeight="180" Stretch="Uniform">
                         <local:DittoAEJ x:Name="PokemonAkil"/>
                     </Viewbox>
-                    <TextBlock Text="Akil" HorizontalAlignment="Center" Foreground="Cyan" FontSize="20" Margin="0,10"/>
+                    <TextBlock Text="Akil" HorizontalAlignment="Center" Foreground="Cyan" FontSize="18" Margin="0,10"/>
                     <Image x:Name="Ball3" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                           Width="60" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                           Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
                         <Image.RenderTransform>
                             <CompositeTransform/>
                         </Image.RenderTransform>
@@ -96,11 +96,10 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <!-- Barra de Log Adaptable -->
-        <Border Grid.Row="2" Background="#44000000" Padding="10">
-            <TextBlock x:Name="TxtLog" Text="HAZ CLICK EN UN DESARROLLADOR PARA ATRAPARLO..." 
+        <Border Grid.Row="2" Background="#66000000" Padding="15">
+            <TextBlock x:Name="TxtLog" Text="HAZ CLICK PARA ATRAPARLOS..." 
                        HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"
-                       Foreground="Yellow" FontSize="18" FontFamily="Consolas"/>
+                       Foreground="Yellow" FontSize="16" FontFamily="Consolas"/>
         </Border>
     </Grid>
 </Page>
