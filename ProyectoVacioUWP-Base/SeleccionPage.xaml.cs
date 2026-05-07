@@ -197,16 +197,28 @@ namespace ProyectoVacioUWP_Base
                 try
                 {
                     var uc = (UserControl)Activator.CreateInstance(tFinal);
+
                     if (uc is iPokemon ip)
                     {
-                        ip.verFilaVida(false); ip.verFilaEnergia(false); ip.verFondo(false);
-                        ip.verPocionEnergia(false); ip.verPocionVida(false);
+                        // SOLO SILENCIAMOS SI ES DITTO O GENGAR
+                        // Esto evita errores si otros pokemons no implementan bien la interfaz aún
+                        if (uc is DittoAEJ || uc is GengarMBGCS)
+                        {
+                            ip.silenciar(true);
+                        }
+
+                        ip.verFilaVida(false);
+                        ip.verFilaEnergia(false);
+                        ip.verFondo(false);
+                        ip.verPocionEnergia(false);
+                        ip.verPocionVida(false);
                         ip.activarAniIdle(true);
                     }
                     contenedor.Content = new Viewbox { Stretch = Stretch.Uniform, Child = uc };
                 }
-                catch { /* Fallback por si falla la instanciación */ }
+                catch { /* Fallback */ }
             }
+        
 
             txtNombre.Foreground = listo ? new SolidColorBrush(Colors.SpringGreen) : (jugador == 1 ? new SolidColorBrush(Colors.Cyan) : new SolidColorBrush(Colors.Red));
             txtEstado.Text = listo ? $"J{jugador}: ELEGIDO" : $"J{jugador}: ELIGIENDO...";

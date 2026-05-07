@@ -1,6 +1,8 @@
 ﻿using System;
 using Windows.Foundation;
+using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -13,6 +15,11 @@ namespace ProyectoVacioUWP_Base
         public MainPage()
         {
             this.InitializeComponent();
+
+            // Ajuste de ventana profesional
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(400, 400));
+
+            // Carga inicial
             frCentral.Navigate(typeof(HomePage), this);
 
             SystemNavigationManager.GetForCurrentView().BackRequested += OpcionVolver;
@@ -21,11 +28,8 @@ namespace ProyectoVacioUWP_Base
 
         private void FrCentral_Navigated(object sender, NavigationEventArgs e)
         {
-
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                frCentral.CanGoBack
-                ? AppViewBackButtonVisibility.Visible
-                : AppViewBackButtonVisibility.Collapsed;
+                frCentral.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
         }
 
         private void OpcionVolver(object sender, BackRequestedEventArgs e)
@@ -40,55 +44,28 @@ namespace ProyectoVacioUWP_Base
         private void NavViewItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var item = sender as NavigationViewItem;
-            if (item == null) return;
+            if (item == null || frCentral == null) return;
 
-            var currentPageType = frCentral.CurrentSourcePageType;
+            var tag = item.Tag.ToString();
+            Type destino = null;
+            object parametro = this;
 
-            switch (item.Tag)
+            switch (tag)
             {
-                case "Inicio":
-                    if (currentPageType != typeof(HomePage))
-                    {
-                        frCentral.BackStack.Clear();
-                        frCentral.ForwardStack.Clear();
+                case "Inicio": destino = typeof(HomePage); break;
+                case "Pokedex": destino = typeof(PokedexPage); break;
+                case "Combate": destino = typeof(SeleccionPage); parametro = false; break;
+                case "CombateIA": destino = typeof(SeleccionPage); parametro = true; break;
+                case "AcercaDe": destino = typeof(AcercaDePage); break;
+            }
 
-                        frCentral.Navigate(typeof(HomePage), this);
+            if (destino != null && frCentral.CurrentSourcePageType != destino)
+            {
+                frCentral.Navigate(destino, parametro);
 
-                        SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                            AppViewBackButtonVisibility.Collapsed;
-                        frCentral.BackStack.Clear();
-                        frCentral.ForwardStack.Clear();
-
-                    }
-                    break;
-
-                case "Pokedex":
-                    if (currentPageType != typeof(PokedexPage))
-                    {
-                        frCentral.Navigate(typeof(PokedexPage), this);
-                    }
-                    break;
-
-                case "Combate":
-                    if (currentPageType != typeof(SeleccionPage))
-                    {
-                        frCentral.Navigate(typeof(SeleccionPage), false);
-                    }
-                    break;
-
-                case "CombateIA":
-                    if (currentPageType != typeof(SeleccionPage))
-                    {
-                        frCentral.Navigate(typeof(SeleccionPage), true);
-                    }
-                    break;
-
-                case "AcercaDe":
-                    if (currentPageType != typeof(AcercaDePage))
-                    {
-                        frCentral.Navigate(typeof(AcercaDePage), this);
-                    }
-                    break;
+                // Si estamos en móvil/compacto, cerramos el panel tras elegir
+                if (NavView.PaneDisplayMode == NavigationViewPaneDisplayMode.Left)
+                    NavView.IsPaneOpen = false;
             }
         }
     }

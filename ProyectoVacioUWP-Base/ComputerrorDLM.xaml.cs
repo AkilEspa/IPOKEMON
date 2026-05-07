@@ -64,6 +64,10 @@ namespace ProyectoVacioUWP_Base
             // Música de fondo
            // CargarMusicaFondo();
         }
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
 
         public async void CargarMusicaFondo()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -13,6 +14,7 @@ namespace ProyectoVacioUWP_Base
     public sealed partial class AcercaDePage : Page
     {
         private Page miPadre;
+        private bool esIngles = false;
 
         public AcercaDePage()
         {
@@ -34,8 +36,27 @@ namespace ProyectoVacioUWP_Base
                     poke.verPocionVida(false);
                     poke.verPocionEnergia(false);
                     poke.verNombre(false);
-                    poke.verEscudo(false);
                     poke.activarAniIdle(true);
+
+                    // HACK DE SILENCIO (Reflexión) para que los Pokémon no griten al entrar
+                    try
+                    {
+                        var campos = poke.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+                        foreach (var campo in campos)
+                        {
+                            if (campo.FieldType == typeof(Windows.Media.Playback.MediaPlayer))
+                            {
+                                var mp = campo.GetValue(poke) as Windows.Media.Playback.MediaPlayer;
+                                if (mp != null) { mp.IsMuted = true; mp.Volume = 0; }
+                            }
+                            if (campo.Name == "timerSonido")
+                            {
+                                var timer = campo.GetValue(poke) as DispatcherTimer;
+                                timer?.Stop();
+                            }
+                        }
+                    }
+                    catch { }
                 }
             }
         }
@@ -46,95 +67,98 @@ namespace ProyectoVacioUWP_Base
             miPadre = e.Parameter as MainPage;
         }
 
+        // --- LÓGICA DE INTERNACIONALIZACIÓN ---
+        private void BtnIdioma_Click(object sender, RoutedEventArgs e)
+        {
+            esIngles = !esIngles;
+            ActualizarTextos();
+        }
+
+        private void ActualizarTextos()
+        {
+            if (esIngles)
+            {
+                TxtTitulo.Text = "CATCH THE DEVELOPERS";
+                BtnIdioma.Label = "Español";
+                if (TxtLog.Text.Contains("HAZ CLICK")) TxtLog.Text = "CLICK TO CATCH THEM...";
+                else if (TxtLog.Text.Contains("HAS CAPTURADO")) TxtLog.Text = TxtLog.Text.Replace("¡HAS CAPTURADO A", "YOU CAUGHT").Replace("!", "");
+            }
+            else
+            {
+                TxtTitulo.Text = "CAPTURA LOS DESARROLLADORES";
+                BtnIdioma.Label = "English";
+                if (TxtLog.Text.Contains("CLICK TO")) TxtLog.Text = "HAZ CLICK PARA ATRAPARLOS...";
+                else if (TxtLog.Text.Contains("YOU CAUGHT")) TxtLog.Text = TxtLog.Text.Replace("YOU CAUGHT", "¡HAS CAPTURADO A") + "!";
+            }
+        }
+
         private async void CapturarDev_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             StackPanel contenedor = (StackPanel)sender;
             Viewbox vb = contenedor.Children[0] as Viewbox;
-            if (vb == null) return;
-
-            iPokemon pokeInterface = vb.Child as iPokemon;
-            Image bola = contenedor.Children[2] as Image;
+            Image bola = (contenedor.Children[2] as Grid)?.Children[0] as Image;
             string infoDev = contenedor.Tag?.ToString() ?? "Desconocido";
+
+            if (vb == null || vb.Opacity == 0) return;
 
             contenedor.IsHitTestVisible = false;
 
-            if (pokeInterface != null)
+            // 1. Animación de derrota
+            if (vb.Child is iPokemon poke)
             {
-                pokeInterface.activarAniIdle(false);
-                pokeInterface.animacionDerrota();
+                poke.activarAniIdle(false);
+                poke.animacionDerrota();
             }
 
-            await Task.Delay(800);
+            await Task.Delay(700);
 
-            // Animación de Succión mejorada para que sea independiente del tamaño
+            // 2. Animación de succión
             CompositeTransform trans = new CompositeTransform();
             vb.RenderTransform = trans;
-            vb.RenderTransformOrigin = new Windows.Foundation.Point(0.5, 0.5);
+            vb.RenderTransformOrigin = new Point(0.5, 0.5);
 
             Storyboard sbSuccion = new Storyboard();
-            DoubleAnimation animEscalaX = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600), EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseIn } };
-            DoubleAnimation animEscalaY = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(600), EasingFunction = new BackEase { Amplitude = 0.5, EasingMode = EasingMode.EaseIn } };
-            DoubleAnimation animGiro = new DoubleAnimation { To = 720, Duration = TimeSpan.FromMilliseconds(600) };
+            DoubleAnimation animX = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(500) };
+            DoubleAnimation animY = new DoubleAnimation { To = 0, Duration = TimeSpan.FromMilliseconds(500) };
+            DoubleAnimation animR = new DoubleAnimation { To = 360, Duration = TimeSpan.FromMilliseconds(500) };
 
-            Storyboard.SetTarget(animEscalaX, vb);
-            Storyboard.SetTargetProperty(animEscalaX, "(UIElement.RenderTransform).(CompositeTransform.ScaleX)");
-            Storyboard.SetTarget(animEscalaY, vb);
-            Storyboard.SetTargetProperty(animEscalaY, "(UIElement.RenderTransform).(CompositeTransform.ScaleY)");
-            Storyboard.SetTarget(animGiro, vb);
-            Storyboard.SetTargetProperty(animGiro, "(UIElement.RenderTransform).(CompositeTransform.Rotation)");
+            Storyboard.SetTarget(animX, vb);
+            Storyboard.SetTargetProperty(animX, "(UIElement.RenderTransform).(CompositeTransform.ScaleX)");
+            Storyboard.SetTarget(animY, vb);
+            Storyboard.SetTargetProperty(animY, "(UIElement.RenderTransform).(CompositeTransform.ScaleY)");
+            Storyboard.SetTarget(animR, vb);
+            Storyboard.SetTargetProperty(animR, "(UIElement.RenderTransform).(CompositeTransform.Rotation)");
 
-            sbSuccion.Children.Add(animEscalaX);
-            sbSuccion.Children.Add(animEscalaY);
-            sbSuccion.Children.Add(animGiro);
+            sbSuccion.Children.Add(animX); sbSuccion.Children.Add(animY); sbSuccion.Children.Add(animR);
             sbSuccion.Begin();
 
-            await Task.Delay(600);
-            vb.Visibility = Visibility.Collapsed;
+            await Task.Delay(500);
+            vb.Opacity = 0;
 
+            // 3. Mostrar Pokéball y vibrar
             if (bola != null)
             {
                 bola.Visibility = Visibility.Visible;
                 await VibrarBola(bola);
             }
 
-            TxtLog.Text = $"¡HAS CAPTURADO A {infoDev.ToUpper()}!";
+            // Texto de log con idioma aplicado
+            if (esIngles) TxtLog.Text = $"YOU CAUGHT {infoDev.ToUpper()}";
+            else TxtLog.Text = $"¡HAS CAPTURADO A {infoDev.ToUpper()}!";
         }
 
         private async Task VibrarBola(Image bola)
         {
-            if (!(bola.RenderTransform is CompositeTransform))
-                bola.RenderTransform = new CompositeTransform();
+            if (!(bola.RenderTransform is CompositeTransform)) bola.RenderTransform = new CompositeTransform();
 
             Storyboard sbVibrar = new Storyboard();
-            DoubleAnimation animVibra = new DoubleAnimation
-            {
-                From = -25,
-                To = 25,
-                Duration = TimeSpan.FromMilliseconds(100),
-                AutoReverse = true,
-                RepeatBehavior = new RepeatBehavior(3)
-            };
+            DoubleAnimation vibra = new DoubleAnimation { From = -20, To = 20, Duration = TimeSpan.FromMilliseconds(100), AutoReverse = true, RepeatBehavior = new RepeatBehavior(3) };
+            Storyboard.SetTarget(vibra, bola);
+            Storyboard.SetTargetProperty(vibra, "(UIElement.RenderTransform).(CompositeTransform.Rotation)");
 
-            Storyboard.SetTarget(animVibra, bola);
-            Storyboard.SetTargetProperty(animVibra, "(UIElement.RenderTransform).(CompositeTransform.Rotation)");
-
-            sbVibrar.Children.Add(animVibra);
+            sbVibrar.Children.Add(vibra);
             sbVibrar.Begin();
-
-            await Task.Delay(700);
-
-            DoubleAnimation salto = new DoubleAnimation
-            {
-                To = -20,
-                Duration = TimeSpan.FromMilliseconds(200),
-                AutoReverse = true
-            };
-            Storyboard.SetTarget(salto, bola);
-            Storyboard.SetTargetProperty(salto, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
-
-            Storyboard sbSalto = new Storyboard();
-            sbSalto.Children.Add(salto);
-            sbSalto.Begin();
+            await Task.Delay(600);
         }
     }
 }

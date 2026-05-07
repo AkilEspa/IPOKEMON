@@ -103,7 +103,10 @@ namespace ProyectoVacioUWP_Base
                 healthIncrement = 0;
             }
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         private void useYellowPotion(object sender, PointerRoutedEventArgs e)
         {
             _timerEnergy = new DispatcherTimer();

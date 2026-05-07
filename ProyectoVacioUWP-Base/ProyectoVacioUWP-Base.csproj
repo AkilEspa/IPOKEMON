@@ -498,6 +498,10 @@
     <Content Include="Assets\empoleon.png" />
     <Content Include="Assets\fantasma.png" />
     <Content Include="Assets\fennekin.png" />
+    <Content Include="Assets\fondo_bosque.png" />
+    <Content Include="Assets\fondo_cueva.jpeg" />
+    <Content Include="Assets\fondo_volcan.jpg" />
+    <Content Include="Assets\fondo_estadio.jpg" />
     <Content Include="Assets\fuego.png" />
     <Content Include="Assets\gengar.png" />
     <Content Include="Assets\hada.png" />
@@ -507,6 +511,7 @@
     <Content Include="Assets\lucha.png" />
     <Content Include="Assets\marill.png" />
     <Content Include="Assets\monferno.png" />
+    <Content Include="Assets\musica_combate.mp3" />
     <Content Include="Assets\normal.png" />
     <Content Include="Assets\planta.png" />
     <Content Include="Assets\pokeball.png" />

@@ -111,6 +111,26 @@ namespace ProyectoVacioUWP_Base
             else
                 imRedPotion.Visibility = Visibility.Collapsed;
         }
+        public void silenciar(bool silenciar)
+        {
+            if (silenciar)
+            {
+                mpAmbiente.Pause();
+                mpAmbiente.Volume = 0;
+                mpRisa.Volume = 0;
+                mpAtaqueFuerte.Volume = 0;
+                mpCansado.Volume = 0;
+            }
+            else
+            {
+                mpAmbiente.Volume = 0.3;
+                mpRisa.Volume = 1;
+                mpAtaqueFuerte.Volume = 1;
+                mpCansado.Volume = 1;
+                // Solo reproducimos si no se ha llamado a activarAniIdle(false)
+                mpAmbiente.Play();
+            }
+        }
 
         public void verPocionEnergia(bool ver)
         {

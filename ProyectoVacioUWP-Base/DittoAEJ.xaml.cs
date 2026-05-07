@@ -682,7 +682,50 @@ namespace ProyectoVacioUWP_Base
         {
             if (heridoActivo) ToggleHerido();
         }
+        public void silenciar(bool silenciar)
+        {
+            if (silenciar)
+            {
+                timerSonido.Stop();
+                mpEstatico.Pause();
+                mpFuerte.Pause();
+                mpEscudo.Pause();
+                mpHerido.Pause();
+                mpCurar.Pause();
+                mpDormir.Pause();
+                mpEnergia.Pause();
+                mpMuerte.Pause();
 
+                // Ponemos volúmenes a 0 por seguridad
+                mpEstatico.Volume = 0;
+                mpFuerte.Volume = 0;
+                mpEscudo.Volume = 0;
+                mpHerido.Volume = 0;
+                mpCurar.Volume = 0;
+                mpDormir.Volume = 0;
+                mpEnergia.Volume = 0;
+                mpMuerte.Volume = 0;
+            }
+            else
+            {
+                // Restauramos volúmenes a 1 (o el valor que prefieras)
+                mpEstatico.Volume = 1;
+                mpFuerte.Volume = 1;
+                mpEscudo.Volume = 1;
+                mpHerido.Volume = 1;
+                mpCurar.Volume = 1;
+                mpDormir.Volume = 1;
+                mpEnergia.Volume = 1;
+                mpMuerte.Volume = 1;
+
+                // Si el idle está activo, reanudamos el sonido ambiente
+                if (estaticoActivo)
+                {
+                    mpEstatico.Play();
+                    timerSonido.Start();
+                }
+            }
+        }
         public void animacionDerrota()
         {
             Derrotado();

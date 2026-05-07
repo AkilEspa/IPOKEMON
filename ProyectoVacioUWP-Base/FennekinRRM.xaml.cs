@@ -117,7 +117,10 @@ namespace ProyectoVacioUWP_Base
                 _energyTimer.Stop();
             }
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         // --- MÉTODOS DE ESTADOS INTERNOS ---
         // --- ESTADO CANSADO ---
         private void activarCansado(object sender, RoutedEventArgs e)

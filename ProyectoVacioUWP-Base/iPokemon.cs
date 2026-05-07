@@ -25,6 +25,8 @@ namespace ProyectoVacioUWP_Base
         void verPocionVida(bool ver);
         void verPocionEnergia(bool ver);
         void verNombre(bool ver);
+
+        void silenciar(bool silenciar);
         void verEscudo(bool ver); //Sirve principalmente para activar/desactivar el escudo
 
         void activarAniIdle(bool activar);

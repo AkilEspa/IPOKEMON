@@ -76,8 +76,11 @@ namespace ProyectoVacioUWP_Base
                     timer.Stop();
                 }
             }
-
-            private void pocionEnergia_PointerReleased(object sender, PointerRoutedEventArgs e)
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
+        private void pocionEnergia_PointerReleased(object sender, PointerRoutedEventArgs e)
             {
                 timer2 = new DispatcherTimer();
                 timer2.Interval = TimeSpan.FromMilliseconds(100);

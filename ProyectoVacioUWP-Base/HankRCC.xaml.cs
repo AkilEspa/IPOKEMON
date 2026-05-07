@@ -131,7 +131,10 @@ namespace ProyectoVacioUWP_Base
         }
 
         // Ejecución de las animaciones
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         private void animIdle()
         {
             this.idle.Begin();

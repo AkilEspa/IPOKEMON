@@ -117,6 +117,10 @@ namespace ProyectoVacioUWP_Base
             if (imgPocionAmarilla != null) imgPocionAmarilla.Visibility = visibilidad;
             if (imgEnergia != null) imgEnergia.Visibility = visibilidad; 
         }
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         public void verPocionVida(bool ver) { if (imgPocionRoja != null) { imgPocionRoja.Visibility = ver ? Visibility.Visible : Visibility.Collapsed; imgPocionRoja.IsHitTestVisible = ver; } }
         public void verPocionEnergia(bool ver) { if (imgPocionAmarilla != null) { imgPocionAmarilla.Visibility = ver ? Visibility.Visible : Visibility.Collapsed; imgPocionAmarilla.IsHitTestVisible = ver; } }
         public void verNombre(bool ver) { if (txtNombre != null) txtNombre.Visibility = ver ? Visibility.Visible : Visibility.Collapsed; }

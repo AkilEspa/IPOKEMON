@@ -6,100 +6,79 @@
     Background="#121212">
 
     <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="WindowStates">
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TxtTitulo.FontSize" Value="24"/>
-                        <Setter Target="TxtTitulo.Margin" Value="10,20,10,10"/>
-                        <!-- Reducimos márgenes en móviles para ganar espacio -->
-                        <Setter Target="ContenedorDev1.Margin" Value="10"/>
-                        <Setter Target="ContenedorDev2.Margin" Value="10"/>
-                        <Setter Target="ContenedorDev3.Margin" Value="10"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TxtTitulo.FontSize" Value="45"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="TxtTitulo" Grid.Row="0" Text="CAPTURA LOS DESARROLLADORES" 
+        <CommandBar Grid.Row="0" Background="Transparent" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
+            <AppBarButton x:Name="BtnIdioma" Icon="World" Label="English" Click="BtnIdioma_Click" Foreground="White"/>
+        </CommandBar>
+
+        <TextBlock x:Name="TxtTitulo" Grid.Row="1" Text="CAPTURA LOS DESARROLLADORES" 
                    HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"
-                   Foreground="White" Margin="0,30,0,10" FontFamily="Consolas" FontWeight="Bold"/>
+                   Foreground="White" Margin="0,10,0,10" FontFamily="Consolas" FontWeight="Bold" FontSize="36"/>
 
-        <!-- Eliminamos el ancho fijo del Viewbox para que el ItemsWrapGrid maneje el flujo -->
-        <ScrollViewer x:Name="MainScroll" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
-            <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ItemsControl.ItemsPanel>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Disabled">
+            <GridView x:Name="ContenedorPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" SelectionMode="None">
+                <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" 
-                                       ItemWidth="220" MaximumRowsOrColumns="3"/>
+                        <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3"/>
                     </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                </GridView.ItemsPanel>
 
-                <!-- Dev 1 -->
-                <StackPanel x:Name="ContenedorDev1" PointerPressed="CapturarDev_PointerPressed" Tag="José Felíx" Margin="20">
-                    <Viewbox MaxWidth="180" MaxHeight="180" Stretch="Uniform">
+                <StackPanel x:Name="ContenedorDev1" PointerPressed="CapturarDev_PointerPressed" Tag="José Félix" Margin="15" Width="220" Height="300">
+                    <Viewbox x:Name="VB1" Height="180" Stretch="Uniform">
                         <local:TorchicJFBR x:Name="PokemonJoseFelix"/>
                     </Viewbox>
                     <TextBlock Text="José Félix" HorizontalAlignment="Center" Foreground="Cyan" FontSize="18" Margin="0,10"/>
-                    <Image x:Name="Ball1" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                           Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
-                        <Image.RenderTransform>
-                            <CompositeTransform/>
-                        </Image.RenderTransform>
-                    </Image>
+                    <Grid Height="60">
+                        <Image x:Name="Ball1" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
+                               Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
                 </StackPanel>
 
-                <!-- Dev 2 -->
-                <StackPanel x:Name="ContenedorDev2" PointerPressed="CapturarDev_PointerPressed" Tag="Darío" Margin="20">
-                    <Viewbox MaxWidth="180" MaxHeight="180" Stretch="Uniform">
+                <StackPanel x:Name="ContenedorDev2" PointerPressed="CapturarDev_PointerPressed" Tag="Darío" Margin="15" Width="220" Height="300">
+                    <Viewbox x:Name="VB2" Height="180" Stretch="Uniform">
                         <local:ComputerrorDLM x:Name="PokemonDario" />
                     </Viewbox>
                     <TextBlock Text="Darío" HorizontalAlignment="Center" Foreground="Cyan" FontSize="18" Margin="0,10"/>
-                    <Image x:Name="Ball2" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                           Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
-                        <Image.RenderTransform>
-                            <CompositeTransform/>
-                        </Image.RenderTransform>
-                    </Image>
+                    <Grid Height="60">
+                        <Image x:Name="Ball2" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
+                               Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
                 </StackPanel>
 
-                <!-- Dev 3 -->
-                <StackPanel x:Name="ContenedorDev3" PointerPressed="CapturarDev_PointerPressed" Tag="Akil" Margin="20">
-                    <Viewbox MaxWidth="180" MaxHeight="180" Stretch="Uniform">
-                        <local:DittoAEJ x:Name="PokemonAkil"/>
+                <StackPanel x:Name="ContenedorDev3" PointerPressed="CapturarDev_PointerPressed" Tag="Akil" Margin="15" Width="220" Height="300">
+                    <Viewbox x:Name="VB3" Height="180" Stretch="Uniform">
+                        <local:DittoAEJ x:Name="PokemonAkil" />
                     </Viewbox>
                     <TextBlock Text="Akil" HorizontalAlignment="Center" Foreground="Cyan" FontSize="18" Margin="0,10"/>
-                    <Image x:Name="Ball3" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
-                           Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
-                        <Image.RenderTransform>
-                            <CompositeTransform/>
-                        </Image.RenderTransform>
-                    </Image>
+                    <Grid Height="60">
+                        <Image x:Name="Ball3" Source="https://cdn-icons-png.flaticon.com/512/188/188918.png" 
+                               Width="50" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <CompositeTransform/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
                 </StackPanel>
-            </ItemsControl>
+            </GridView>
         </ScrollViewer>
 
-        <Border Grid.Row="2" Background="#66000000" Padding="15">
+        <Border Grid.Row="3" Background="#66000000" Padding="15">
             <TextBlock x:Name="TxtLog" Text="HAZ CLICK PARA ATRAPARLOS..." 
-                       HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"
-                       Foreground="Yellow" FontSize="16" FontFamily="Consolas"/>
+                       HorizontalAlignment="Center" TextAlignment="Center" Foreground="Yellow" FontSize="16" FontFamily="Consolas"/>
         </Border>
     </Grid>
 </Page>

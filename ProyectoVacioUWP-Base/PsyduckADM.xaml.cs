@@ -47,7 +47,10 @@ namespace ProyectoVacioUWP_Base
             get { return this.pbEnergy.Value; }
             set { this.pbEnergy.Value = value; }
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         public string Nombre { get; set; } = "Psyduck";
         public string Categoría { get; set; } = "Pato";
         public string Tipo { get; set; } = "Agua";

@@ -43,6 +43,10 @@ namespace ProyectoVacioUWP_Base
         public string Tipo { get; set; } = "Agua/Hada";
         public double Altura { get; set; } = 0.4;
         public double Peso { get; set; } = 8.5;
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         public string Evolucion { get; set; } = "Azumarill";
         public string Descripcion { get; set; } = "La punta de su cola actúa como flotador.";
 

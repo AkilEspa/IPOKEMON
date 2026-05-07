@@ -6,7 +6,10 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 
 namespace ProyectoVacioUWP_Base
 {
@@ -23,7 +26,7 @@ namespace ProyectoVacioUWP_Base
         private bool p1PocionVidaUsada, p1PocionEnergiaUsada, p2PocionVidaUsada, p2PocionEnergiaUsada;
         private bool _esModoIA = false;
         private DispatcherTimer _iaTimer;
-        private Random _iaRandom = new Random();
+        private Random _random = new Random();
 
         public CombatePage()
         {
@@ -35,6 +38,8 @@ namespace ProyectoVacioUWP_Base
         {
             base.OnNavigatedTo(e);
             GestionarMenuLateral(false);
+            CargarFondoAleatorio();
+            ConfigurarMusica(); // Inicia la música al entrar
 
             if (e.Parameter is object[] parametros && parametros.Length == 3)
             {
@@ -63,6 +68,35 @@ namespace ProyectoVacioUWP_Base
                     _iaTimer.Start();
                 }
             }
+        }
+
+        // --- SISTEMA DE AUDIO ---
+        private void ConfigurarMusica()
+        {
+            try
+            {
+                musicaCombate.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/musica_combate.mp3"));
+                var player = musicaCombate.MediaPlayer;
+                player.IsLoopingEnabled = true;
+                player.Volume = 0.2; // Volumen flojito
+                player.Play();
+            }
+            catch { /* Evitar que la app pete si no encuentra el archivo aún */ }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            if (musicaCombate.MediaPlayer != null)
+                musicaCombate.MediaPlayer.Pause(); 
+        }
+
+        // --- SISTEMA DE COMBATE ---
+        private void CargarFondoAleatorio()
+        {
+            string[] fondos = { "fondo_bosque.jpg", "fondo_cueva.jpg", "fondo_estadio.jpg", "fondo_volcan.jpg" };
+            int indice = _random.Next(fondos.Length);
+            imgFondo.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{fondos[indice]}"));
         }
 
         private void GestionarMenuLateral(bool mostrar)
@@ -139,7 +173,7 @@ namespace ProyectoVacioUWP_Base
         private void EjecutarAtaqueIA()
         {
             if (juegoTerminado || p2Ocupado) return;
-            int accion = _iaRandom.Next(0, 6);
+            int accion = _random.Next(0, 6);
             switch (accion)
             {
                 case 0: ProcesarAccion(P2, P1, VirtualKey.Up, "flojo", 15, 0.8, txtUp); break;
@@ -200,6 +234,7 @@ namespace ProyectoVacioUWP_Base
             juegoTerminado = true;
             gameLoop?.Stop();
             _iaTimer?.Stop();
+            if (musicaCombate.MediaPlayer != null) musicaCombate.MediaPlayer.Pause();
 
             perdedor.animacionDerrota();
             txtConsola.Text = "¡K.O.!";

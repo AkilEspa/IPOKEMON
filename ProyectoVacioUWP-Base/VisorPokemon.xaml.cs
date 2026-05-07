@@ -101,6 +101,10 @@ namespace ProyectoVacioUWP_Base
             var instance = PokemonHost.Content as iPokemon;
             instance.activarAniIdle(false);
         }
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         private void SetTypeImages(List<string> tipos)
         {
             imgTipo1.Source = null;

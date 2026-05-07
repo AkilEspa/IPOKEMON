@@ -113,7 +113,10 @@ namespace ProyectoVacioUWP_Base
             get { return _evolucion; }
             set { _evolucion = value; }
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         public string Descripcion
         {
             get { return _descripcion; }

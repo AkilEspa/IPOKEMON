@@ -40,7 +40,10 @@ namespace ProyectoVacioUWP_Base
             get => this.txtNombre.Text;
             set => this.txtNombre.Text = value;
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         // Devolvemos y actualizamos la información básica
         public string Categoría { get => _categoria; set => _categoria = value; }
         public string Tipo { get => _tipo; set => _tipo = value; }

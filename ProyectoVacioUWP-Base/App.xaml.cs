@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement; // Necesario para controlar el tamaño de la vista
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -68,9 +69,24 @@ namespace ProyectoVacioUWP_Base
                     //parámetro de navegación
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
+
+                // --- CONFIGURACIÓN DE TAMAÑO MÍNIMO GLOBAL ---
+                FijarDimensionesMinimas(900, 550);
+                // ---------------------------------------------
+
                 // Asegurarse de que la ventana actual está activa.
                 Window.Current.Activate();
             }
+        }
+
+        /// <summary>
+        /// Establece el tamaño mínimo permitido para la ventana de la aplicación.
+        /// </summary>
+        private void FijarDimensionesMinimas(double ancho, double alto)
+        {
+            var vista = ApplicationView.GetForCurrentView();
+            // Esto evita que el usuario pueda encoger la ventana menos de 900x550
+            vista.SetPreferredMinSize(new Size(ancho, alto));
         }
 
         /// <summary>

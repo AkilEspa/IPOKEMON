@@ -69,7 +69,10 @@ namespace ProyectoUWPenBlanco
             mpEstados.IsLoopingEnabled = loop;
             mpEstados.Play();
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         private void DetenerEstado()
         {
             mpEstados.Pause();

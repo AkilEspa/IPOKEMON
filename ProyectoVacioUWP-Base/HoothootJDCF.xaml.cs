@@ -112,6 +112,10 @@ namespace ProyectoVacioUWP_Base
             sb.RepeatBehavior = new RepeatBehavior(5);
             sb.Begin();
         }
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
 
         private void PulsarCuerpo(object sender, PointerRoutedEventArgs e)
         {

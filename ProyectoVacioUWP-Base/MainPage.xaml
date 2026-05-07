@@ -3,58 +3,72 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProyectoVacioUWP_Base"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    xmlns:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <NavigationView x:Name="NavView" 
-              PaneDisplayMode="Left" 
-              IsBackButtonVisible="Collapsed"
-              IsSettingsVisible="False">
+                         PaneDisplayMode="LeftCompact" 
+                         IsBackButtonVisible="Collapsed"
+                         IsSettingsVisible="False"
+                         IsPaneToggleButtonVisible="True"
+                         Canvas.ZIndex="1"
+                         Background="Transparent">
+
+            <NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="#FF1A1A1A"/>
+                <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="#FF1A1A1A"/>
+
+                <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="#FFFF0000"/>
+
+                <SolidColorBrush x:Key="NavigationViewItemForegroundPointerOver" Color="White"/>
+                <SolidColorBrush x:Key="NavigationViewItemBackgroundPointerOver" Color="#FF333333"/>
+            </NavigationView.Resources>
+
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Inicio" Tapped="NavViewItem_Tapped" Tag="Inicio"/>
+                <NavigationViewItem Icon="Home" Content="Inicio" Tag="Inicio" Tapped="NavViewItem_Tapped" Foreground="White"/>
+                <NavigationViewItem Icon="AllApps" Content="Pokedex" Tag="Pokedex" Tapped="NavViewItem_Tapped" Foreground="White"/>
 
-                <NavigationViewItem Icon="Library" Content="Pokedex" Tapped="NavViewItem_Tapped" Tag="Pokedex"/>
+                <NavigationViewItemSeparator/>
 
-                <NavigationViewItem Icon="AllApps" Content="Combate" Tapped="NavViewItem_Tapped" Tag="Combate"/>
+                <NavigationViewItem Icon="Target" Content="Combate PvP" Tag="Combate" Tapped="NavViewItem_Tapped" Foreground="White"/>
+                <NavigationViewItem Icon="World" Content="Combate IA" Tag="CombateIA" Tapped="NavViewItem_Tapped" Foreground="White"/>
 
-                <NavigationViewItem Icon="ContactInfo" Content="Combate vs IA" Tapped="NavViewItem_Tapped" Tag="CombateIA"/>
+                <NavigationViewItemSeparator/>
 
-                <NavigationViewItem Icon="Help" Content="Acerca De" Tapped="NavViewItem_Tapped" Tag="AcercaDe"/>
+                <NavigationViewItem Icon="Favorite" Content="Acerca De" Tag="AcercaDe" Tapped="NavViewItem_Tapped" Foreground="White"/>
             </NavigationView.MenuItems>
 
-            <Frame x:Name="frCentral">
+            <Frame x:Name="frCentral" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition>
+                            <EntranceNavigationTransitionInfo/>
+                        </NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
             </Frame>
         </NavigationView>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-
-                <!-- NARROW -->
                 <VisualState x:Name="Narrow">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
-
                     <VisualState.Setters>
                         <Setter Target="NavView.PaneDisplayMode" Value="LeftCompact"/>
                         <Setter Target="NavView.IsPaneOpen" Value="False"/>
                     </VisualState.Setters>
                 </VisualState>
-
-                <!-- WIDE -->
                 <VisualState x:Name="Wide">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"/>
+                        <AdaptiveTrigger MinWindowWidth="1000"/>
                     </VisualState.StateTriggers>
-
                     <VisualState.Setters>
-                        <Setter Target="NavView.PaneDisplayMode" Value="Left"/>
-                        <Setter Target="NavView.IsPaneOpen" Value="True"/>
+                        <Setter Target="NavView.PaneDisplayMode" Value="LeftCompact"/>
                     </VisualState.Setters>
                 </VisualState>
-
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
     </Grid>

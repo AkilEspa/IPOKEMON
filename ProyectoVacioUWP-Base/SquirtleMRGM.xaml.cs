@@ -98,7 +98,10 @@ namespace ProyectoVacioUWP_Base
             get { return descripcion; }
             set { descripcion = value; }
         }
-
+        public void silenciar(bool silenciar)
+        {
+            // Dejar vacío si este pokemon no tiene sonidos automáticos
+        }
         private void ReproducirSonido(string archivo)
         {
             sonido.Source = MediaSource.CreateFromUri(
