@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Reflection;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -39,7 +40,7 @@ namespace ProyectoVacioUWP_Base
             base.OnNavigatedTo(e);
             GestionarMenuLateral(false);
             CargarFondoAleatorio();
-            ConfigurarMusica(); // Inicia la música al entrar
+            ConfigurarMusica();
 
             if (e.Parameter is object[] parametros && parametros.Length == 3)
             {
@@ -70,7 +71,7 @@ namespace ProyectoVacioUWP_Base
             }
         }
 
-        // --- SISTEMA DE AUDIO ---
+        // --- SISTEMA DE AUDIO Y LIMPIEZA AL SALIR ---
         private void ConfigurarMusica()
         {
             try
@@ -78,20 +79,66 @@ namespace ProyectoVacioUWP_Base
                 musicaCombate.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/musica_combate.mp3"));
                 var player = musicaCombate.MediaPlayer;
                 player.IsLoopingEnabled = true;
-                player.Volume = 0.2; // Volumen flojito
+                player.Volume = 0.2;
                 player.Play();
             }
-            catch { /* Evitar que la app pete si no encuentra el archivo aún */ }
+            catch { }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            base.OnNavigatedFrom(e);
+            // 1. Detener todo lo que esté corriendo
+            juegoTerminado = true;
+            gameLoop?.Stop();
+            _iaTimer?.Stop();
+
+            // 2. Parar música de fondo
             if (musicaCombate.MediaPlayer != null)
-                musicaCombate.MediaPlayer.Pause(); 
+                musicaCombate.MediaPlayer.Pause();
+
+            // 3. Silenciar sonidos internos de los Pokémon (Gengar, Ditto, etc.)
+            SilenciarPokemon(P1);
+            SilenciarPokemon(P2);
+
+            // 4. Desvincular evento de teclado para no interferir en otras páginas
+            Window.Current.CoreWindow.KeyDown -= OnKeyDown;
+
+            base.OnNavigatedFrom(e);
         }
 
-        // --- SISTEMA DE COMBATE ---
+        private void SilenciarPokemon(iPokemon poke)
+        {
+            if (poke == null) return;
+            try
+            {
+                // Buscamos campos privados (como mediaPlayers o timers de sonido) dentro del UserControl del Pokémon
+                var campos = poke.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+                foreach (var campo in campos)
+                {
+                    // Si es un MediaPlayer, lo paramos y muteamos
+                    if (campo.FieldType == typeof(MediaPlayer))
+                    {
+                        var mp = campo.GetValue(poke) as MediaPlayer;
+                        if (mp != null) { mp.Pause(); mp.Source = null; }
+                    }
+                    // Si es un MediaElement (versión antigua), lo paramos
+                    if (campo.FieldType == typeof(MediaElement))
+                    {
+                        var me = campo.GetValue(poke) as MediaElement;
+                        me?.Stop();
+                    }
+                    // Si es un DispatcherTimer (como el de los sonidos aleatorios de Ditto), lo paramos
+                    if (campo.FieldType == typeof(DispatcherTimer) || campo.Name.ToLower().Contains("timer"))
+                    {
+                        var timer = campo.GetValue(poke) as DispatcherTimer;
+                        timer?.Stop();
+                    }
+                }
+            }
+            catch { /* Evitar errores si la reflexión falla */ }
+        }
+
+        // --- RESTO DE LÓGICA DE COMBATE ---
         private void CargarFondoAleatorio()
         {
             string[] fondos = { "fondo_bosque.jpg", "fondo_cueva.jpg", "fondo_estadio.jpg", "fondo_volcan.jpg" };
@@ -235,6 +282,8 @@ namespace ProyectoVacioUWP_Base
             gameLoop?.Stop();
             _iaTimer?.Stop();
             if (musicaCombate.MediaPlayer != null) musicaCombate.MediaPlayer.Pause();
+
+            SilenciarPokemon(perdedor);
 
             perdedor.animacionDerrota();
             txtConsola.Text = "¡K.O.!";

@@ -43,7 +43,7 @@ namespace ProyectoVacioUWP_Base
         MediaPlayer mpCansado = new MediaPlayer();
         MediaPlayer mpAtaqueFuerte = new MediaPlayer();
         MediaPlayer mpRisa = new MediaPlayer();
-        MediaPlayer mpAmbiente = new MediaPlayer(); // este se ejecuta como principal continuamente
+        //MediaPlayer mpAmbiente = new MediaPlayer(); // este se ejecuta como principal continuamente
 
         public GengarMBGCS()
         {
@@ -51,10 +51,10 @@ namespace ProyectoVacioUWP_Base
             mpCansado.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///AssetsGengarMBGCS/gengar_cansado.mp3"));
             mpAtaqueFuerte.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///AssetsGengarMBGCS/gengar_ataquefuerte.mp3"));
             mpRisa.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///AssetsGengarMBGCS/gengar_risa.mp3"));
-            mpAmbiente.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///AssetsGengarMBGCS/gengar_pokemon.mp3"));
-            mpAmbiente.IsLoopingEnabled = true;
-            mpAmbiente.Volume = 0.3;
-            mpAmbiente.Play();
+            //mpAmbiente.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///AssetsGengarMBGCS/gengar_pokemon.mp3"));
+            //mpAmbiente.IsLoopingEnabled = true;
+            //mpAmbiente.Volume = 0.3;
+            //mpAmbiente.Play();
         }
 
         private void useRedPotion(object sender, PointerRoutedEventArgs e)
@@ -115,20 +115,20 @@ namespace ProyectoVacioUWP_Base
         {
             if (silenciar)
             {
-                mpAmbiente.Pause();
-                mpAmbiente.Volume = 0;
+                //mpAmbiente.Pause();
+                //mpAmbiente.Volume = 0;
                 mpRisa.Volume = 0;
                 mpAtaqueFuerte.Volume = 0;
                 mpCansado.Volume = 0;
             }
             else
             {
-                mpAmbiente.Volume = 0.3;
+                //mpAmbiente.Volume = 0.3;
                 mpRisa.Volume = 1;
                 mpAtaqueFuerte.Volume = 1;
                 mpCansado.Volume = 1;
                 // Solo reproducimos si no se ha llamado a activarAniIdle(false)
-                mpAmbiente.Play();
+                //mpAmbiente.Play();
             }
         }
 
