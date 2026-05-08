@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,6 +15,13 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.Notifications;
+using Windows.ApplicationModel.Activation;
+using Windows.Foundation.Collections;
+using Windows.Storage;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace ProyectoVacioUWP_Base
 {
@@ -31,6 +38,23 @@ namespace ProyectoVacioUWP_Base
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+        }
+        protected override async void OnActivated(IActivatedEventArgs e)
+        {
+            base.OnActivated(e);
+
+            if (e is ToastNotificationActivatedEventArgs toastArgs)
+            {
+                ToastArguments args = ToastArguments.Parse(toastArgs.Argument);
+
+                if (args.Contains("action") &&
+                    args["action"] == "guardarValoracion")
+                {
+                    string valoracion = args["valoracion"];
+
+                    await GuardarValoracion(valoracion);
+                }
+            }
         }
 
         /// <summary>
@@ -111,6 +135,25 @@ namespace ProyectoVacioUWP_Base
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Guardar el estado de la aplicación y detener toda actividad en segundo plano
             deferral.Complete();
+        }
+        private async Task GuardarValoracion(string valoracion)
+        {
+            StorageFolder carpeta =
+                ApplicationData.Current.LocalFolder;
+            string ruta = carpeta.Path;
+
+            System.Diagnostics.Debug.WriteLine(ruta);
+            StorageFile archivo =
+                await carpeta.CreateFileAsync(
+                    "resultados.txt",
+                    CreationCollisionOption.OpenIfExists);
+
+            string linea =
+                $"{DateTime.Now:dd/MM/yyyy HH:mm:ss} - {valoracion} estrellas";
+
+            await FileIO.AppendTextAsync(
+                archivo,
+                linea + Environment.NewLine);
         }
     }
 }
