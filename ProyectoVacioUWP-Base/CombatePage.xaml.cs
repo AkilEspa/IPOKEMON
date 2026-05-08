@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Reflection;
@@ -11,6 +11,12 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using Microsoft.Toolkit.Uwp.Notifications;
+using Windows.Storage;
+using System.IO;
+using Windows.ApplicationModel.Activation;
+using Windows.Foundation.Collections;
+using System.Linq;
 
 namespace ProyectoVacioUWP_Base
 {
@@ -70,7 +76,29 @@ namespace ProyectoVacioUWP_Base
                 }
             }
         }
+        private void MostrarNotificacionValoracion(string ganador)
+        {
+            new ToastContentBuilder()
+                .AddText("¡Combate finalizado!")
+                .AddText($"Ganador: {ganador}")
+                .AddText("Valora el combate")
 
+                .AddButton(new ToastButton()
+                    .SetContent("⭐")
+                    .AddArgument("action", "guardarValoracion")
+                    .AddArgument("valoracion", "1"))
+
+                .AddButton(new ToastButton()
+                    .SetContent("⭐⭐")
+                    .AddArgument("action", "guardarValoracion")
+                    .AddArgument("valoracion", "2"))
+
+                .AddButton(new ToastButton()
+                    .SetContent("⭐⭐⭐")
+                    .AddArgument("action", "guardarValoracion")
+                    .AddArgument("valoracion", "3"))
+                .Show();
+        }
         // --- SISTEMA DE AUDIO Y LIMPIEZA AL SALIR ---
         private void ConfigurarMusica()
         {
@@ -298,6 +326,7 @@ namespace ProyectoVacioUWP_Base
             ContenedorGanador.Content = visualGanador;
 
             GridVictoria.Visibility = Visibility.Visible;
+            MostrarNotificacionValoracion(ganador.Nombre);
 
             await Task.Delay(5000);
             GestionarMenuLateral(true);
