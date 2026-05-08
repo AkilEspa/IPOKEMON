@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|c:\\users\\dar\u00EDo l\u00F3pez\\appdata\\roaming\\microsoft\\windows\\start menu\\programs\\visual studio code\\ipokemon\\proyectovaciouwp-base\\combatepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\combatepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|c:\\users\\dar\u00EDo l\u00F3pez\\appdata\\roaming\\microsoft\\windows\\start menu\\programs\\visual studio code\\ipokemon\\proyectovaciouwp-base\\combatepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{22712C46-E50E-4087-8EA2-F37398B06592}|ProyectoVacioUWP-Base\\ProyectoVacioUWP-Base.csproj|solutionrelative:proyectovaciouwp-base\\combatepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,9 +40,21 @@
               "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
               "ToolTip": "C:\\Users\\Dar\u00EDo L\u00F3pez\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\IPOKEMON\\ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
               "RelativeToolTip": "ProyectoVacioUWP-Base\\CombatePage.xaml.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAkwF8AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAkwKsAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-07T21:29:41.883Z",
+              "WhenOpened": "2026-05-08T15:03:41.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CombatePage.xaml",
+              "DocumentMoniker": "C:\\Users\\Dar\u00EDo L\u00F3pez\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\IPOKEMON\\ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "RelativeDocumentMoniker": "ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "ToolTip": "C:\\Users\\Dar\u00EDo L\u00F3pez\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\IPOKEMON\\ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "RelativeToolTip": "ProyectoVacioUWP-Base\\CombatePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-08T15:03:41.156Z",
               "EditorCaption": ""
             }
           ]

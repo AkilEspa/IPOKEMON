@@ -22,6 +22,8 @@ namespace ProyectoVacioUWP_Base
             // Carga inicial
             frCentral.Navigate(typeof(HomePage), this);
 
+            NavView.SelectedItem = NavView.MenuItems[0];
+
             SystemNavigationManager.GetForCurrentView().BackRequested += OpcionVolver;
             frCentral.Navigated += FrCentral_Navigated;
         }

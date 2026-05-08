@@ -169,7 +169,7 @@ namespace ProyectoVacioUWP_Base
         // --- RESTO DE LÓGICA DE COMBATE ---
         private void CargarFondoAleatorio()
         {
-            string[] fondos = { "fondo_bosque.jpg", "fondo_cueva.jpg", "fondo_estadio.jpg", "fondo_volcan.jpg" };
+            string[] fondos = { "fondo_bosque.png", "fondo_cueva.jpeg", "fondo_estadio.jpg", "fondo_volcan.jpg" };
             int indice = _random.Next(fondos.Length);
             imgFondo.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{fondos[indice]}"));
         }
