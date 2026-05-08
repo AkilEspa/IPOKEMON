@@ -70,6 +70,9 @@ namespace ProyectoVacioUWP_Base
 
                 if (_esModoIA)
                 {
+                    lblTituloJ2.Text = "IA";
+                    txtO.Text = "VIDA";
+                    txtP.Text = "ENERGIA";
                     _iaTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1.5) };
                     _iaTimer.Tick += (s, ev) => EjecutarAtaqueIA();
                     _iaTimer.Start();
@@ -368,10 +371,10 @@ namespace ProyectoVacioUWP_Base
             ActualizarTexto(VirtualKey.A, txtA, "[A] FUERTE");
             ActualizarTexto(VirtualKey.S, txtS, "[S] ESCUDO");
             ActualizarTexto(VirtualKey.D, txtD, "[D] RELAX");
-            ActualizarTexto(VirtualKey.Up, txtUp, "[↑] FLOJO");
-            ActualizarTexto(VirtualKey.Left, txtLeft, "[←] FUERTE");
-            ActualizarTexto(VirtualKey.Down, txtDown, "[↓] ESCUDO");
-            ActualizarTexto(VirtualKey.Right, txtRight, "[→] RELAX");
+            ActualizarTexto(VirtualKey.Up, txtUp, _esModoIA ? "FLOJO" : "[↑] FLOJO");
+            ActualizarTexto(VirtualKey.Left, txtLeft, _esModoIA ? "FUERTE" : "[←] FUERTE");
+            ActualizarTexto(VirtualKey.Down, txtDown, _esModoIA ? "ESCUDO" : "[↓] ESCUDO");
+            ActualizarTexto(VirtualKey.Right, txtRight, _esModoIA ? "RELAX" : "[→] RELAX");
         }
 
         private void ActualizarTexto(VirtualKey k, TextBlock txt, string baseT)

@@ -47,7 +47,18 @@ namespace ProyectoVacioUWP_Base
         {
             base.OnNavigatedTo(e);
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(1100, 850));
+
             if (e.Parameter is bool esIA) _esModoIA = esIA;
+
+            if (_esModoIA)
+            {
+                txtP2.Text = "IA: [FLECHAS] + ENTER";
+            }
+            else
+            {
+                txtP2.Text = "P2: [FLECHAS] + ENTER";
+            }
+
             ActualizarVisual();
         }
 
@@ -221,7 +232,8 @@ namespace ProyectoVacioUWP_Base
         
 
             txtNombre.Foreground = listo ? new SolidColorBrush(Colors.SpringGreen) : (jugador == 1 ? new SolidColorBrush(Colors.Cyan) : new SolidColorBrush(Colors.Red));
-            txtEstado.Text = listo ? $"J{jugador}: ELEGIDO" : $"J{jugador}: ELIGIENDO...";
+            string prefijo = (jugador == 2 && _esModoIA) ? "IA" : $"J{jugador}";
+            txtEstado.Text = listo ? $"{prefijo}: ELEGIDO" : $"{prefijo}: ELIGIENDO...";
             txtEstado.Foreground = listo ? new SolidColorBrush(Colors.SpringGreen) : new SolidColorBrush(Colors.White);
         }
 

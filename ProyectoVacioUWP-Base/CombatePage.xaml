@@ -162,10 +162,11 @@
                 <Viewbox Stretch="Uniform" Margin="5">
                     <StackPanel Padding="10">
 
-                        <TextBlock Text="JUGADOR 2"
-                                   Foreground="White"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="lblTituloJ2"
+               Text="JUGADOR 2"
+               Foreground="White"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"/>
 
                         <Grid Margin="0,10,0,0">
 
